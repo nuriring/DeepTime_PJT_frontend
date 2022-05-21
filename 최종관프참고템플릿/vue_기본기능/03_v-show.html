@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <p v-show="isTrue">TRUE</p> <!--값이트루여야 출력 -->
+    <p v-show="isFalse">FALSE</p> <!--display: none 문서에 존재하지만 스타일로 치워놓은거 if랑 다른점 : 화면에서 나타났다 사라졌다 반복이 잦을때 사용-->
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        isTrue: true,
+        isFalse: false,
+      }
+    })
+  </script>
+</body>
+</html>
