@@ -1,12 +1,30 @@
 <template>
-  <div></div>
+  <div>
+    <li>
+      {{ movie.title }}
+    </li>
+  </div>
 </template>
 
 <script>
-export default {
+ import { mapActions, mapGetters } from 'vuex'
+ export default {
 
-}
+    name: 'PopularMovieList',
+
+    computed: {
+      ...mapGetters(['movies'])
+    },
+    methods: {
+      ...mapActions(['fetchMovies'])
+    },
+    created() {
+      this.fetchMovies()
+    },
+  }
+
 </script>
+
 
 <style>
 
