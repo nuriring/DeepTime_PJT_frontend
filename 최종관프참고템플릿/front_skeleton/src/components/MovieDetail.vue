@@ -1,13 +1,26 @@
-<template>
-  <div></div>
-</template>
+// <template>
+//   <div>
+//     <p>
+//       {{ movie.title }}
+//     </p>
 
-<script>
-export default {
+//   </div>
+// </template>
 
-}
-</script>
+// <script>
+// export default {
+//   name: "MovieDetail",
+//   props: {
+//     movie: {
+//       type: Object,
+//     }
+//   }
 
-<style>
 
-</style>
+
+// }
+// </script>
+
+// <style>
+
+// </style>

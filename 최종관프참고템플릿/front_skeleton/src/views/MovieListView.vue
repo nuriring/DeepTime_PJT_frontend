@@ -1,37 +1,59 @@
 <template>
   <div>
-    <ul>
-      <li v-for="movie in movies" :key="movie.pk">
 
-        {{ movie.title }}
-
-
-        <!-- <router-link 
-          :to="{ name: 'article', params: {articlePk: article.pk} }">
-          {{ article.title }}
-        </router-link> -->
-
-
-
-      </li>
-    </ul>
+    <movie-list-item :movies="movies"></movie-list-item>
   </div>
 </template>
 
 <script>
-  import { mapActions, mapGetters } from 'vuex'
+  // import { mapActions, mapGetters } from 'vuex'
+import axios from 'axios'
+// import _ from 'lodash'
+import MovieListItem from '@/components/MovieListItem.vue'
+
+const SERVER_URL = 'http://localhost:8000/deeptime'
 
   export default {
-    name: 'MovieList',
-    computed: {
-      ...mapGetters(['movies'])
+    name: 'MovieListView',
+    data: function() {
+      return {
+        movies:[],
+        movie: '',
+        user: '',
+      }
+    },
+    components: {
+      MovieListItem,
     },
     methods: {
-      ...mapActions(['fetchMovies'])
+      getToken: function () {
+        const token = localStorage.getItem('token')
+        const config = {
+          headers: {
+            Authorization: `Token ${token}`
+          },
+        }
+        return config
+      },
+      getMovieList: function () {
+        const config = this.getToken()
+        axios.get(`${SERVER_URL}/movies/`, config)
+        .then((res) => {
+          console.log(res.data)
+          this.movies = res.data
+
+        })
+        .catch( (err) => {
+        console.log(err)
+        })
+      }
+
+    
     },
-    created() {
-      this.fetchMovies()
-    },
+    created: function() {
+      this.getMovieList()
+    }
+
   }
 </script>
 
