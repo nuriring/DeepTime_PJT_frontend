@@ -13,14 +13,14 @@ import ReviewEditView from '@/views/ReviewEditView.vue'
 
 import ArticleListView from '@/views/ArticleListView.vue'
 import ArticleDetailView from '@/views/ArticleDetailView.vue'
-import ArticleNewView from '@/views/ArticleNewView'
-import ArticleEditView from '@/views/ArticleEditView'
+import ArticleNewView from '@/views/ArticleNewView.vue'
+import ArticleEditView from '@/views/ArticleEditView.vue'
 
 import LoginView from '@/views/LoginView.vue'
 import LogoutView from '@/views/LogoutView.vue'
 import SignupView from '@/views/SignupView.vue'
 import ProfileView from '@/views/ProfileView.vue'
-import NotFound404 from '../views/NotFound404.vue'
+import NotFound404 from '@/views/NotFound404.vue'
 
 import OttListView from '@/views/OttListView.vue'
 
@@ -43,104 +43,104 @@ const routes = [
     * => /404
   */
  // main
- {
-   path:'/',
-   name:'main',
-   components: MainView
- },
+  {
+    path:'/',
+    name:'main',
+    component: MainView
+  },
 
 
- // user
- {
-   path:'/login',
-   name:'login',
-   components: LoginView
- },
- {
-   path:'/logout',
-   name:'logout',
-   components: LogoutView
- },
- {
-   path:'/signup',
-   name:'',
-   components: SignupView
- },
- {
-  path: '/profile/:username',  
-  name: 'profile',
-  component: ProfileView,
- },
+  // user
+  {
+    path:'/login',
+    name:'login',
+    component: LoginView
+  },
+  {
+    path:'/logout',
+    name:'logout',
+    component: LogoutView
+  },
+  {
+    path:'/signup',
+    name:'signup',
+    component: SignupView
+  },
+  {
+    path: '/profile/:username',  
+    name: 'profile',
+    component: ProfileView,
+  },
 
 
- // articles
- {
-  path: '/articles',  
-  name: 'articles',
-  component: ArticleListView
-},
-{
-  path: '/articles/new',
-  name: 'articleNew',
-  component: ArticleNewView
-},
-{
-  path: '/articles/:articlePk',
-  name: 'article',
-  component: ArticleDetailView
-},
-{
-  path: '/articles/:articlePk/edit',
-  name: 'articleEdit',
-  component: ArticleEditView
-},
+  // articles
+  {
+    path: '/articles',  
+    name: 'articles',
+    component: ArticleListView
+  },
+  {
+    path: '/articles/new',
+    name: 'articleNew',
+    component: ArticleNewView
+  },
+  {
+    path: '/articles/:articlePk',
+    name: 'article',
+    component: ArticleDetailView
+  },
+  {
+    path: '/articles/:articlePk/edit',
+    name: 'articleEdit',
+    component: ArticleEditView
+  },
 
-// movies
-{
-  path: '/movies',
-  name: 'movies',
-  component: MovieListView
-},
-{
-  path: '/movies/:moviePk',
-  name: 'movieDetail',
-  component: MovieDetailView
-},
-{
-  path: '/movies/:moviePk/video',
-  name: 'youtubeVideoDetail',
-  component: YoutubeVideoDetailView
-},
-{
-  path: '/movies/:moviePk/:reviewPk',
-  name: 'movieReview',
-  component: ReviewDetailView
-},
-{
-  path: '/movies/:moviePk/review/new',
-  name: 'reviewCreate',
-  component: ReviewNewView
-},
-{
-  path: '/movies/:moviePk/:reviewPk/edit',
-  name: 'reviewEdit',
-  component: ReviewEditView
-},
-// ott
-{
-  path: '/ott',
-  name: 'ott',
-  component: OttListView
-},
-{
-  path: '/404',
-  name: 'NotFound404',
-  component: NotFound404
-},
-{
-  path: '*',
-  redirect: '/404'
-},
+  // movies
+  {
+    path: '/movies',
+    name: 'movies',
+    component: MovieListView
+  },
+  {
+    path: '/movies/:moviePk',
+    name: 'movieDetail',
+    component: MovieDetailView
+  },
+  {
+    path: '/movies/:moviePk/video',
+    name: 'youtubeVideoDetail',
+    component: YoutubeVideoDetailView
+  },
+  {
+    path: '/movies/:moviePk/:reviewPk',
+    name: 'movieReview',
+    component: ReviewDetailView
+  },
+  {
+    path: '/movies/:moviePk/review/new',
+    name: 'reviewCreate',
+    component: ReviewNewView
+  },
+  {
+    path: '/movies/:moviePk/:reviewPk/edit',
+    name: 'reviewEdit',
+    component: ReviewEditView
+  },
+  // ott
+  {
+    path: '/ott',
+    name: 'ott',
+    component: OttListView
+  },
+  {
+    path: '/404',
+    name: 'NotFound404',
+    component: NotFound404
+  },
+  {
+    path: '*',
+    redirect: '/404'
+  },
 
 ]
 
