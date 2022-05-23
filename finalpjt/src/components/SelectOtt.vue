@@ -1,5 +1,24 @@
 <template>
-  <div></div>
+  <div>
+    <router-link :to="{ name: 'ott', params: { providerName: 'Netflix' } }">
+      <img src="https://image.tmdb.org/t/p/w500/9A1JSVmSxsyaBK4SUFsYVqbAYfW.jpg" alt="">
+    </router-link>
+    <router-link :to="{ name: 'ott', params: { providerName: 'Disney_Plus' } }">
+      <img src="https://image.tmdb.org/t/p/w500/7rwgEs15tFwyR9NPQ5vpzxTj19Q.jpg" alt="">
+    </router-link>
+    <router-link :to="{ name: 'ott', params: { providerName: 'Amazon_Prime_Video' } }">
+      <img src="https://image.tmdb.org/t/p/w500/emthp39XA2YScoYL1p0sdbAH2WA.jpg" alt="">
+    </router-link>
+    <router-link :to="{ name: 'ott', params: { providerName: 'Watcha' } }">
+      <img src="https://image.tmdb.org/t/p/w500/vXXZx0aWQtDv2klvObNugm4dQMN.jpg" alt="">
+    </router-link>
+    <router-link :to="{ name: 'ott', params: { providerName: 'wavve' } }">
+      <img src="https://image.tmdb.org/t/p/w500/2ioan5BX5L9tz4fIGU93blTeFhv.jpg" alt="">
+    </router-link>
+    <router-link :to="{ name: 'ott', params: { providerName: 'Apple_TV_Plus' } }">
+      <img src="https://image.tmdb.org/t/p/w500/6uhKBfmtzFqOcLousHwZuzcrScK.jpg" alt="">
+    </router-link>
+  </div>
 </template>
 
 <script>

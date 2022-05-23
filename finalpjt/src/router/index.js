@@ -128,7 +128,7 @@ const routes = [
   },
   // ott
   {
-    path: '/ott',
+    path: '/ott/:providerName',
     name: 'ott',
     component: OttListView
   },

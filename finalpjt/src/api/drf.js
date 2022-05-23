@@ -5,7 +5,7 @@ const ARTICLES = 'articles/'
 const COMMENTS = 'comments/'
 const MOVIES = 'movies/'
 const REVIEWS = 'reviews/'
-const OTTS = 'otts/'
+const OTTS = 'ott/'
 
 export default {
   accounts: {
@@ -34,7 +34,7 @@ export default {
       HOST + MOVIES + `${moviePk}/` + REVIEWS + `${reviewPk}/`,
     likeReview: (moviePk, reviewPk) =>
       HOST + MOVIES + `${moviePk}/` + REVIEWS + `${reviewPk}/` + 'like/',
-    otts: () => HOST + MOVIES + OTTS,
+    otts: () => HOST + MOVIES + OTTS + ``,
   },
 
 }
