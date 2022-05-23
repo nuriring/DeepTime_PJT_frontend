@@ -8,11 +8,13 @@ import accounts from './modules/accounts'
 
 
 
+
 Vue.use(Vuex)
 
 
 
 export default new Vuex.Store({
+
   modules: { accounts,movies,articles},
 
 
@@ -20,19 +22,3 @@ export default new Vuex.Store({
 
 
 
-
-
-
-
-
-
-
-
-
-// Vue.use(Vuex)
-// export default new Vuex.Store({ 
-//   modules: { accounts: accounts, movies: movies, articles: articles, }, 
-//   plugins: [ createPersistedState({ paths: ["movies","accounts", "articles"],
-//  }),
-//  ], 
-// })

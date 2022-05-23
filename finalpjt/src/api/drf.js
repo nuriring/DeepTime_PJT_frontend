@@ -7,6 +7,7 @@ const MOVIES = 'movies/'
 const REVIEWS = 'reviews/'
 const OTTS = 'otts/'
 
+
 export default {
   accounts: {
     login: () => HOST + ACCOUNTS + 'login/',

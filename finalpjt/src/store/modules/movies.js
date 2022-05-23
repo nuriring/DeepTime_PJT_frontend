@@ -3,9 +3,11 @@ import router from '@/router'
 import drf from "@/api/drf"
 import axios from "axios"
 
+// import createPersistedState from 'vuex-persistedstate'
 
 
 export default {
+  // plugins: [createPersistedState()],
   state: {
     movies: [],
     movie: {}
