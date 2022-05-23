@@ -23,6 +23,12 @@ import ProfileView from '@/views/ProfileView.vue'
 import NotFound404 from '@/views/NotFound404.vue'
 
 import OttListView from '@/views/OttListView.vue'
+import NetflixView from '@/views/NetflixView.vue'
+import DisneyPlusView from '@/views/DisneyPlusView.vue'
+import AmazonView from '@/views/AmazonView.vue'
+import WatchaView from '@/views/WatchaView.vue'
+import WavveView from '@/views/WavveView.vue'
+import AppleTvView from '@/views/AppleTvView.vue'
 
 Vue.use(VueRouter)
 
@@ -128,9 +134,39 @@ const routes = [
   },
   // ott
   {
-    path: '/ott',
-    name: 'ott',
+    path: '/otts',
+    name: 'otts',
     component: OttListView
+  },
+  {
+    path: '/otts/netflix',
+    name: 'netflix',
+    component: NetflixView
+  },
+  {
+    path: '/otts/disneyplus',
+    name: 'disneyPlus',
+    component: DisneyPlusView
+  },
+  {
+    path: '/otts/amazon',
+    name: 'amazon',
+    component: AmazonView
+  },
+  {
+    path: '/otts/watcha',
+    name: 'watcha',
+    component: WatchaView
+  },
+  {
+    path: '/otts/wavve',
+    name: 'wavve',
+    component: WavveView
+  },
+  {
+    path: '/otts/apple',
+    name: 'apple',
+    component: AppleTvView
   },
   {
     path: '/404',
@@ -177,7 +213,7 @@ router.beforeEach((to, from, next) => {
 
   const { isLoggedIn } = store.getters
 
-  const noAuthPages = ['login', 'signup']
+  const noAuthPages = ['login', 'signup', 'main']
 
   const isAuthRequired = !noAuthPages.includes(to.name)
 

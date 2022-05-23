@@ -5,7 +5,7 @@ const ARTICLES = 'articles/'
 const COMMENTS = 'comments/'
 const MOVIES = 'movies/'
 const REVIEWS = 'reviews/'
-const OTTS = 'otts/'
+const OTTS = 'ott/'
 
 export default {
   accounts: {
@@ -34,7 +34,16 @@ export default {
       HOST + MOVIES + `${moviePk}/` + REVIEWS + `${reviewPk}/`,
     likeReview: (moviePk, reviewPk) =>
       HOST + MOVIES + `${moviePk}/` + REVIEWS + `${reviewPk}/` + 'like/',
-    otts: () => HOST + MOVIES + OTTS,
+    
   },
+
+  otts : {
+    netflix: () => HOST + MOVIES + OTTS + 'Netflix/',
+    disneyPlus: () => HOST + MOVIES + OTTS + 'Disney Plus/',
+    amazon: () => HOST + MOVIES + OTTS + 'Amazon Prime Video/',
+    watcha: () => HOST + MOVIES + OTTS + 'Watcha/',
+    wavve: () => HOST + MOVIES + OTTS + 'wavve/',
+    apple: () => HOST + MOVIES + OTTS + 'Apple TV Plus/',
+  }
 
 }

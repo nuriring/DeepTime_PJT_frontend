@@ -1,19 +1,11 @@
 <template>
-  <nav>
+  <nav v-if="isLoggedIn">
     <ul>
-      <li>
-        <router-link :to="{ name: 'articles' }">Home</router-link>
-      </li>
-
-      <li v-if="!isLoggedIn">
-        <router-link :to="{ name: 'login' }">Login</router-link>
-      </li>
-      <li v-if="!isLoggedIn">
-        <router-link :to="{ name: 'signup' }">Signup</router-link>
-      </li>
-
       <li v-if="isLoggedIn">
-        <router-link :to="{ name: 'articleNew' }">New</router-link>
+        <router-link :to="{ name: 'articles' }">게시판</router-link>
+      </li>
+      <li v-if="isLoggedIn">
+        <router-link :to="{ name: 'otts' }">OTT 지도</router-link>
       </li>
       <li v-if="isLoggedIn">
         <router-link :to="{ name: 'profile', params: { username } }">

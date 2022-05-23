@@ -13,9 +13,9 @@
 
     <h2>{{ profile.username }} 님이 쓴 댓글</h2>
     <ul>
-      <li v-for="article in profile.like_articles" :key="article.pk">
-        <router-link :to="{ name: 'article', params: { articlePk: article.pk } }">
-          {{ article.title }}
+      <li v-for="comment in profile.commnets" :key="comment.pk">
+        <router-link :to="{ name: 'article', params: { articlePk: comment.article.pk } }">
+          {{ comment.content }}
         </router-link>
       </li>
     </ul>
