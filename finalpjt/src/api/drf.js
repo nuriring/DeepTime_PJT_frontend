@@ -32,8 +32,6 @@ export default {
     reviews: moviePk => HOST + MOVIES + `${moviePk}/` + REVIEWS,
     review: (moviePk, reviewPk) =>
       HOST + MOVIES + `${moviePk}/` + REVIEWS + `${reviewPk}/`,
-    likeReview: (moviePk, reviewPk) =>
-      HOST + MOVIES + `${moviePk}/` + REVIEWS + `${reviewPk}/` + 'like/',
     otts: () => HOST + MOVIES + OTTS,
   },
 

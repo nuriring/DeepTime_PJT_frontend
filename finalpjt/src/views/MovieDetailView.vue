@@ -3,6 +3,7 @@
     <p v-if="movie.overview">
       {{ movie.title }}<br>   
       {{ movie.overview }}
+      {{ movie.id }}
     </p>
   
 
@@ -15,21 +16,24 @@
     </div>
 
     <hr />
-    <!-- Comment UI -->
-    <!-- <comment-list :comments="article.comments"></comment-list> -->
+    <!-- Review UI -->
+    <review-list
+    :reviews="movie.reviews"
+    :moviePk="movie.id">
+    </review-list>
 
   </div>
 </template>
 
 <script>
   import { mapGetters, mapActions } from 'vuex'
-  // import CommentList from '@/components/CommentList.vue'
+  import ReviewList from '@/components/ReviewList.vue'
 
 
 
   export default {
     name: 'MovieDetail',
-    // components: { CommentList },
+    components: { ReviewList },
     data() {
       return {
         moviePk: this.$route.params.moviePk,

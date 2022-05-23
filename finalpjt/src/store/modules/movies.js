@@ -16,6 +16,7 @@ export default {
   mutations: {
     SET_MOVIES: (state, movies) => state.movies = movies,
     SET_MOVIE: (state, movie) => state.movie = movie,
+    SET_MOVIE_REVIEWS: (state, reviews) => (state.movie.reviews = reviews),
   },
   actions: {
     fetchMovies({commit,getters}) {
@@ -58,6 +59,21 @@ export default {
         .then(res => commit('SET_MOVIE', res.data))
         .catch(err => console.error(err.response))
     },
+    
+    createReview({ commit, getters }, { moviePk, title, content}) {
+      const review = { title, content }
+      axios({
+        url: drf.movies.reviews(moviePk),
+        method: 'post',
+        data: review,
+        headers: getters.authHeader,
+      })
+        .then(res => {
+          commit('SET_MOVIE_REVIEWS', res.data)
+        })
+        .catch(err => console.error(err.response))
+
+    }
   
   }
 }
