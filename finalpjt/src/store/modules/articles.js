@@ -6,6 +6,7 @@ import axios from "axios"
 import _ from 'lodash'
 
 export default {
+
   // namespaced: true,
   state: {
     articles: [], //전체게시글 조회시 담기

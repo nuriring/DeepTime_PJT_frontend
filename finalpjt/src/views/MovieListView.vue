@@ -2,7 +2,13 @@
   <div>
     <h2>MovieList</h2>
     <br>
-    {{ currentUser }} {{ genre }}
+    <div>
+      <div v-for="recommend in recommends" :key="recommend.id">
+        {{ recommend.genres }}
+        {{ recommend.title }}
+      </div>
+    </div>
+    {{ currentUser }}{{ profile.genre }}
     <p>가로로 스와이프하여 더 많은 영화를 즐겨보세요!</p>
     <div class="m-5">
       <vue-glide v-if="movies.length">
@@ -36,7 +42,8 @@
     name: 'MovieList',
     data() {
       return {
-        genre: ''
+        genre: '',
+        recommends: Array
       }
     },
     components: {
@@ -44,10 +51,10 @@
     [GlideSlide.name]: GlideSlide,
     },
     computed: {
-      ...mapGetters(['movies','currentUser'])
+      ...mapGetters(['movies','currentUser','profile'])
     },
     methods: {
-      ...mapActions(['fetchMovies']),
+      ...mapActions(['fetchMovies','fetchProfile']),
 
      getToken: function () {
     const token = localStorage.getItem('token')
@@ -58,14 +65,14 @@
     }
     return config
   },
-  getUser: function () {
+
+  getMovie: function () {
     const config = this.getToken()
-    axios.get(`http://localhost:8000/deeptime/accounts/${this.currentUser.pk}`, config)
+    axios.get(`http://localhost:8000/deeptime/movies/genre/${this.currentUser.pk}`, config)
       .then((res) => {
         console.log(res)
         // console.log(this.moviePk)
-        this.genre = res.data.genre
-        console.log(this.genre)
+        this.recommends = res.data
       })
       .catch( (err) => {
         console.log(err)
@@ -74,9 +81,12 @@
     },
 
     created() {
+      const payload = { username: this.currentUser.username } //variable routing 인자를 payload에 담아줌
+      this.fetchProfile(payload)
+      this.getMovie()
       this.fetchMovies()
-      this.getUser()
     },
+
   }
 </script>
 
