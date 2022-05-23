@@ -4,9 +4,10 @@
     <input type="text" id="review-title" v-model="title" required>
     <label for="review-content">content: </label>
     <input type="text" id="review-content" v-model="content" required>
-    <button>Create</button>
-  {{ movie.id }}
-
+    <button @click="success">Create</button>
+    <router-link  :to="{ name: 'movieDetail', params: {moviePk: moviePk} }">
+      back
+    </router-link>
   </form>
 </template>
 
@@ -18,7 +19,8 @@ export default {
   data() {
     return {
       title: '',
-      content: ''
+      content: '',
+      moviePk: this.$route.params.moviePk,
     }
   },
   computed: {
@@ -31,6 +33,9 @@ export default {
       console.log(this.movie)
       this.title = ''
       this.content = ''
+    },
+    success() {
+      alert('리뷰가 성공적으로 작성되었습니다!')
     }
   },
  //새로고침했을 때 영화 정보 사라짐..억까야 억까 새로고침하지마

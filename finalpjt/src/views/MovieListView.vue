@@ -1,10 +1,9 @@
 <template>
   <div>
-
     <h2>MovieList</h2>
     <br>
+    {{ currentUser }} {{ genre }}
     <p>가로로 스와이프하여 더 많은 영화를 즐겨보세요!</p>
-
     <div class="m-5">
       <vue-glide v-if="movies.length">
         <vue-glide-slide v-for="(movie, idx) in movies" :key="idx">
@@ -31,27 +30,52 @@
 <script>
   import { Glide, GlideSlide } from 'vue-glide-js'
   import { mapActions, mapGetters } from 'vuex'
+  import axios from "axios"
 
   export default {
     name: 'MovieList',
+    data() {
+      return {
+        genre: ''
+      }
+    },
     components: {
     [Glide.name]: Glide,
     [GlideSlide.name]: GlideSlide,
     },
     computed: {
-      ...mapGetters(['movies'])
+      ...mapGetters(['movies','currentUser'])
     },
     methods: {
       ...mapActions(['fetchMovies']),
 
-      // toDetail: function (movie) {
-      // this.$router.push({name: 'MovieDetail', query: {movie: movie}})
-      // // this.$router.push({name: 'MovieDetail', params: {movie: `${movie}`}})
-
+     getToken: function () {
+    const token = localStorage.getItem('token')
+    const config = {
+      headers : {
+        Authorization: `Token ${token}`
+      },
+    }
+    return config
+  },
+  getUser: function () {
+    const config = this.getToken()
+    axios.get(`http://localhost:8000/deeptime/accounts/${this.currentUser.pk}`, config)
+      .then((res) => {
+        console.log(res)
+        // console.log(this.moviePk)
+        this.genre = res.data.genre
+        console.log(this.genre)
+      })
+      .catch( (err) => {
+        console.log(err)
+      })   
+  }
     },
 
     created() {
       this.fetchMovies()
+      this.getUser()
     },
   }
 </script>

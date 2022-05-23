@@ -30,7 +30,7 @@ export default {
       isEditing: false,
       payload: {
         articlePk: this.comment.article,
-        commentPk: this.comment.pk,
+        commentPk: this.comment.id,
         content: this.comment.content
       },
     }
