@@ -11,11 +11,11 @@
       </li>
     </ul>
 
-    <h2>{{ profile.username }} 님이 쓴 댓글</h2>
+    <h2>{{ profile.username }} 님이 쓴 리뷰</h2>
     <ul>
-      <li v-for="comment in profile.commnets" :key="comment.pk">
-        <router-link :to="{ name: 'article', params: { articlePk: comment.article.pk } }">
-          {{ comment.content }}
+      <li v-for="review in profile.reviews" :key="review.pk">
+        <router-link :to="{ name: 'movieDetail', params: { moviePk: review.movie_id } }">
+          {{ review.content }}
         </router-link>
       </li>
     </ul>
@@ -37,6 +37,7 @@ export default {
   created() {
     const payload = { username: this.$route.params.username }
     this.fetchProfile(payload)
+    console.log(payload)
   },
 }
 </script>
