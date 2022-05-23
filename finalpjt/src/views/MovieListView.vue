@@ -3,12 +3,14 @@
     <h2>MovieList</h2>
     <br>
     <div>
-      <div v-for="recommend in recommends" :key="recommend.id">
+      <!-- <div v-for="recommend in recommends" :key="recommend.id">
         {{ recommend.genres }}
         {{ recommend.title }}
-      </div>
+      </div> -->
+
+  
     </div>
-    {{ currentUser }}{{ profile.genre }}
+
     <p>가로로 스와이프하여 더 많은 영화를 즐겨보세요!</p>
     <div class="m-5">
       <vue-glide v-if="movies.length">
@@ -22,7 +24,7 @@
               <b-card-text id="overview" class="text-dark">
               </b-card-text>
               <template #footer>
-                <small class="text-muted">평점 : {{ movie.vote_average }}</small>
+                <small class="text-muted">평점 : {{ movie.vote_average }} </small>
               </template>
             </b-card>
             </router-link>
