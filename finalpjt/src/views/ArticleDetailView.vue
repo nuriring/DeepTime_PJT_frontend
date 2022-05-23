@@ -6,36 +6,59 @@
       {{ article.content }}
     </p>
     <!-- Article Edit/Delete UI -->
-    <div>
-      <button>Edit</button>
+    <div v-if="isAuthor">
+      <router-link :to="{ name: 'articleEdit', params: { articlePk } }">
+        <button>Edit</button>
+      </router-link>
       |
-      <button>Delete</button>
+      <button @click="deleteArticle(articlePk)">Delete</button>
     </div>
 
     <!-- Article Like UI -->
     <div>
       Likeit:
-      <button>123</button>
+      <button
+        @click="likeArticle(articlePk)"
+      >{{ likeCount }}</button>
     </div>
 
     <hr />
     <!-- Comment UI -->
+    <comment-list :comments="article.comments"></comment-list>
+
   </div>
 </template>
 
 <script>
-  // import { mapGetters, mapActions } from 'vuex'
+  import { mapGetters, mapActions } from 'vuex'
+  import CommentList from '@/components/CommentList.vue'
+
+
 
   export default {
     name: 'ArticleDetail',
+    components: { CommentList },
     data() {
       return {
-        articlePk: 123,
+        articlePk: this.$route.params.articlePk,
       }
     },
-    computed: {},
-    methods: {},
-    created() {},
+    computed: {
+      ...mapGetters(['isAuthor', 'article']),
+      likeCount() {
+        return this.article.like_users?.length
+      }
+    },
+    methods: {
+      ...mapActions([
+        'fetchArticle',
+        'likeArticle',
+        'deleteArticle',
+      ])
+    },
+    created() {
+      this.fetchArticle(this.articlePk)
+    },
   }
 </script>
 

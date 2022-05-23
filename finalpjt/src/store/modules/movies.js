@@ -4,6 +4,7 @@ import drf from "@/api/drf"
 import axios from "axios"
 
 
+
 export default {
   state: {
     movies: [],
@@ -19,6 +20,7 @@ export default {
   getters: {
    movies: state => state.movies,
    movie: state => state.movie,
+
    // ott
    netflixMovies: state => state.netflixMovies,
    disneyPlusMovies: state => state.disneyPlusMovies,
@@ -26,10 +28,12 @@ export default {
    watchaMovies: state => state.watchaMovies,
    wavveMovies: state => state.wavveMovies,
    appleMovies: state => state.appleMovies,
+
   },
   mutations: {
     SET_MOVIES: (state, movies) => state.movies = movies,
     SET_MOVIE: (state, movie) => state.movie = movie,
+
 
     // ott
     SET_NETFLIX: (state, netflixMovies) => state.netflixMovies = netflixMovies,
@@ -37,9 +41,12 @@ export default {
     SET_AMAZON: (state, amazonMovies) => state.amazonMovies = amazonMovies,
     SET_WATCHA: (state, watchaMovies) => state.watchaMovies = watchaMovies,
     SET_WAVVE: (state, wavveMovies) => state.wavveMovies = wavveMovies,
-    SET_APPLE: (state, appleMovies) => state.appleMovies = appleMovies
+    SET_APPLE: (state, appleMovies) => state.appleMovies = appleMovies,
 
-    
+
+    SET_MOVIE_REVIEWS: (state, reviews) => (state.movie.reviews = reviews),
+    SET_MOVIE_REVIEW: (state, review) => (state.movie.review = review),
+
   },
   actions: {
     fetchMovies({commit,getters}) {
@@ -82,6 +89,7 @@ export default {
         .then(res => commit('SET_MOVIE', res.data))
         .catch(err => console.error(err.response))
     },
+
 
 
     // ott
@@ -139,6 +147,68 @@ export default {
       .then(res => commit('SET_APPLE', res.data))
       .catch(err => console.error(err.response))
     },
+
+    fetchReview({ commit, getters }, { moviePk, reviewPk }) {
+
+      axios({
+        url: drf.movies.movie(moviePk).reviews.review(reviewPk),
+        method: 'get',
+        headers: getters.authHeader,
+      })
+        .then(res => commit('SET_MOVIE_REVIEW', res.data))
+        .catch(err => {
+          console.error(err.response)
+          if (err.response.status === 404) {
+            router.push({ name: 'NotFound404' })
+          }
+        })
+      },
+    createReview({ commit, getters }, { moviePk, title, content}) {
+      const review = { title, content }
+      axios({
+        url: drf.movies.reviews(moviePk),
+        method: 'post',
+        data: review,
+        headers: getters.authHeader,
+      })
+        .then(res => {
+          commit('SET_MOVIE_REVIEW', res.data)
+        })
+        .catch(err => console.error(err.response))
+
+    },
+    
+    updateReview({ commit, getters }, { moviePk, reviewPk, title, content }) {
+
+      const review = { title, content }
+
+      axios({
+        url: drf.movies.review(moviePk, reviewPk),
+        method: 'put',
+        data: review,
+        headers: getters.authHeader,
+      })
+        .then(res => {
+          commit('SET_MOVIE_REVIEW', res.data)
+        })
+        .catch(err => console.error(err.response))
+    },
+
+    deleteReview({ commit, getters }, { moviePk, reviewPk }) {
+        if (confirm('정말 삭제하시겠습니까?')) {
+          axios({
+            url: drf.movies.review(moviePk, reviewPk),
+            method: 'delete',
+            data: {},
+            headers: getters.authHeader,
+          })
+            .then(res => {
+              commit('SET_MOVIE_REVIEW', res.data)
+            })
+            .catch(err => console.error(err.response))
+        }
+      },
+
   
   }
 }
