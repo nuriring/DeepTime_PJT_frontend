@@ -25,7 +25,8 @@
     <hr />
     <!-- Comment UI -->
     <comment-list :comments="article.comments"></comment-list>
-
+    <!--라우터랑 어떤걸 내리겠다고 적어야 자식이 들을수있음-->
+    <!--두글자여면 comment-list props에서는 commentList-->
   </div>
 </template>
 
