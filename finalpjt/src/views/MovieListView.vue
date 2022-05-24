@@ -25,13 +25,25 @@
       </vue-glide>
     </div>
       <div>
-        <div v-for="recommend in recommends" :key="recommend.id">
-          {{ recommend.genres }}
-          {{ recommend.title }}
-          {{ recommend }}
-        </div>
-      {{ profile.genre }}
       <button @click="moviePick">recommend</button>
+      <vue-glide v-if="recommends.length">
+            <vue-glide-slide v-for="(recommend, idx) in recommends" :key="idx">
+              <div>
+              <!-- <div class="px-4 py-5" @click="toDetail(movie)"> -->
+                <router-link
+                :to="{ name: 'movieDetail', params: {moviePk: recommend.id} }">
+
+                  <b-card class="text-dark font-weight-bold" :title="recommend.title" :img-src="`https://image.tmdb.org/t/p/w300${recommend.poster_path}`" img-alt="Image" img-top>
+                  <b-card-text id="overview" class="text-dark">
+                  </b-card-text>
+                  <template #footer>
+                    <small class="text-muted">평점 : {{ recommend.vote_average }}</small>
+                  </template>
+                </b-card>
+                </router-link>
+              </div>
+            </vue-glide-slide>
+      </vue-glide>
       </div>
     
       <search-bar @input-search="onInputSearch"></search-bar>
@@ -79,7 +91,7 @@
     },
     data() {
       return {
-        recommends: Array,
+        recommends: [],
         searchKeword: null,
         searchMovies : []
       }
