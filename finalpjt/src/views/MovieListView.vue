@@ -1,6 +1,5 @@
 <template>
   <div>
-    <search-bar @input-search="onInputSearch"></search-bar>
     <h2>MovieList</h2>
     <br>
     <p>가로로 스와이프하여 더 많은 영화를 즐겨보세요!</p>
@@ -34,6 +33,16 @@
       {{ profile.genre }}
       <button @click="moviePick">recommend</button>
       </div>
+    
+      <search-bar @input-search="onInputSearch"></search-bar>
+       <div v-if="searchMovies.length > 2">
+        {{ searchMovies }}
+       </div>
+       <!--요청한 영화 정보 없을 때만 보여주고 싶은데 ㅜㅜ-->
+       <!-- <div v-if="0 < searchMovies.length && searchMovies.length < 2">
+         <p>요청하신 영화 정보를 찾을 수 없습니다</p> 
+       </div> -->
+
 
   </div>
 </template>
@@ -54,7 +63,8 @@
     data() {
       return {
         recommends: Array,
-        searchKeword: null
+        searchKeword: null,
+        searchMovies : []
       }
     },
     computed: {
@@ -100,6 +110,8 @@
          axios.get(API_URL,{params})
           .then((res) => {
            console.log(res)
+           this.searchMovies = res.data.results
+           console.log(this.searchMovies)
           })
           .catch( (err) => {
            console.log(err)
