@@ -19,6 +19,8 @@
     },
     created() {
       this.fetchCurrentUser()
+
+      
     }
   }
 </script>

@@ -21,6 +21,7 @@ export default {
   },
   getters: {
    movies: state => state.movies,
+   genre_movies: state => state.genre_movies,
    movie: state => state.movie,
 
    // ott
@@ -34,6 +35,7 @@ export default {
   },
   mutations: {
     SET_MOVIES: (state, movies) => state.movies = movies,
+    SET_GENRE_MOVIES: (state, genre_movies) => state.genre_movies = genre_movies,
     SET_MOVIE: (state, movie) => state.movie = movie,
 
 
@@ -52,12 +54,23 @@ export default {
   },
   actions: {
     fetchMovies({commit,getters}) {
+      console.log(4)
       axios({
         url: drf.movies.movies(),
         method: 'get',
         headers: getters.authHeader,
       })
       .then(res => commit('SET_MOVIES', res.data))
+      .catch(err => console.error(err.response))
+    },
+    fetchGenreMovies({commit,getters}, a) {
+      console.log(3)
+      axios({
+        url: drf.movies.genre_movies(a),
+        method: 'get',
+        headers: getters.authHeader,
+      })
+      .then(res => commit('SET_GENRE_MOVIES', res.data))
       .catch(err => console.error(err.response))
     },
     fetchMovie({ commit, getters }, moviePk) {
