@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    <search-bar @input-search="onInputSearch"></search-bar>
     <h2>MovieList</h2>
     <br>
     <p>가로로 스와이프하여 더 많은 영화를 즐겨보세요!</p>
@@ -41,17 +41,19 @@
 <script>
   import { Glide, GlideSlide } from 'vue-glide-js'
   import { mapActions, mapGetters } from 'vuex'
+  import SearchBar from '@/components/SearchBar'
   import axios from "axios"
   export default {
     name: 'MovieList',
     components: {
     [Glide.name]: Glide,
     [GlideSlide.name]: GlideSlide,
+    SearchBar
     },
     data() {
       return {
         recommends: Array,
-        // searchKeword: null
+        searchKeword: null
       }
     },
     computed: {
@@ -83,7 +85,21 @@
           .catch( (err) => {
             console.log(err)
           })   
-    }
+    },
+      onInputSearch: function (keyword) {
+      // const config = this.getToken()
+        this.searchKeyword = keyword
+          const config = this.getToken()
+          axios.get(`http://localhost:8000/deeptime/movies/`, config)
+          .then((res) => {
+           console.log(res)
+        // console.log(this.moviePk)
+          })
+          .catch( (err) => {
+           console.log(err)
+          })   
+
+    },
   
   },
 
