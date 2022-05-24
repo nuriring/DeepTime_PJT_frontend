@@ -1,6 +1,5 @@
 <template>
   <div>
-    <search-bar @input-search="onInputSearch"></search-bar>
     <h2>MovieList</h2>
     <br>
     <p>가로로 스와이프하여 더 많은 영화를 즐겨보세요!</p>
@@ -26,14 +25,53 @@
       </vue-glide>
     </div>
       <div>
-        <div v-for="recommend in recommends" :key="recommend.id">
-          {{ recommend.genres }}
-          {{ recommend.title }}
-          {{ recommend }}
-        </div>
-      {{ profile.genre }}
       <button @click="moviePick">recommend</button>
+      <vue-glide v-if="recommends.length">
+            <vue-glide-slide v-for="(recommend, idx) in recommends" :key="idx">
+              <div>
+              <!-- <div class="px-4 py-5" @click="toDetail(movie)"> -->
+                <router-link
+                :to="{ name: 'movieDetail', params: {moviePk: recommend.id} }">
+
+                  <b-card class="text-dark font-weight-bold" :title="recommend.title" :img-src="`https://image.tmdb.org/t/p/w300${recommend.poster_path}`" img-alt="Image" img-top>
+                  <b-card-text id="overview" class="text-dark">
+                  </b-card-text>
+                  <template #footer>
+                    <small class="text-muted">평점 : {{ recommend.vote_average }}</small>
+                  </template>
+                </b-card>
+                </router-link>
+              </div>
+            </vue-glide-slide>
+      </vue-glide>
       </div>
+    
+      <search-bar @input-search="onInputSearch"></search-bar>
+       <div v-if="searchMovies.length > 2">
+          <vue-glide v-if="movies.length">
+            <vue-glide-slide v-for="(searchmovie, idx) in searchMovies" :key="idx">
+              <div>
+              <!-- <div class="px-4 py-5" @click="toDetail(movie)"> -->
+                <router-link
+                :to="{ name: 'movieDetail', params: {moviePk: searchmovie.id} }">
+
+                  <b-card class="text-dark font-weight-bold" :title="searchmovie.title" :img-src="`https://image.tmdb.org/t/p/w300${searchmovie.poster_path}`" img-alt="Image" img-top>
+                  <b-card-text id="overview" class="text-dark">
+                  </b-card-text>
+                  <template #footer>
+                    <small class="text-muted">평점 : {{ searchmovie.vote_average }}</small>
+                  </template>
+                </b-card>
+                </router-link>
+              </div>
+            </vue-glide-slide>
+        </vue-glide>
+       </div>
+       <!--요청한 영화 정보 없을 때만 보여주고 싶은데 ㅜㅜ-->
+       <!-- <div v-if="0 < searchMovies.length && searchMovies.length < 2">
+         <p>요청하신 영화 정보를 찾을 수 없습니다</p> 
+       </div> -->
+
 
   </div>
 </template>
@@ -53,8 +91,9 @@
     },
     data() {
       return {
-        recommends: Array,
-        searchKeword: null
+        recommends: [],
+        searchKeword: null,
+        searchMovies : []
       }
     },
     computed: {
@@ -100,6 +139,8 @@
          axios.get(API_URL,{params})
           .then((res) => {
            console.log(res)
+           this.searchMovies = res.data.results
+           console.log(this.searchMovies)
           })
           .catch( (err) => {
            console.log(err)
