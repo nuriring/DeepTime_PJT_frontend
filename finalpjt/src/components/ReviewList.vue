@@ -4,8 +4,11 @@
 
     </review-detail-view> -->
   <!-- Using modifiers -->
-  <b-button v-b-toggle.collapse-2 class="m-1">결말포함리뷰!</b-button>
+  <div class="d-flex">
+  <b-button v-b-toggle.collapse-2 class=" togglebar text-start ">바쁜 당신을 위한 결말요약 컨텐츠를 만나보세요!</b-button>
+  <v-icon large >mdi-chevron-down</v-icon>
 
+  </div>
   <!-- Element to collapse -->
   <b-collapse id="collapse-2">
     <b-card>
@@ -89,5 +92,15 @@ export default {
 <style>
 .review-list {
   border: 1px solid blue;
+}
+.togglebar {
+  /* Rectangle 37 */
+
+  width: 100%;
+  height: 50px;
+
+  background: linear-gradient(0deg, #003566, #003566),linear-gradient(0deg, #003566, #003566), #003566;
+  border-radius: 21px;
+
 }
 </style>

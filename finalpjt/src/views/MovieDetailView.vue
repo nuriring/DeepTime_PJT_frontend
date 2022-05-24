@@ -1,31 +1,44 @@
 <template>
   <div>
-    <v-container>
-
-      <p v-if="movie.overview">
-        {{ movie.title }}<br>   
-        {{ movie.overview }}
-        {{ movie.id }}
-      </p>
-      <iframe :src="`https://www.youtube.com/embed/${movieVideo}`" frameborder="0"></iframe>
-      {{ selectedVideo }}
-
-      <!-- Movie Like UI -->
-      <div>
-        Likeit:
-        <button
-          @click="likeMovie(moviePk)"
-        >{{ likeCount }}</button>
+    <v-container d-flex flex-column style="width:50%" >
+        <b-img class="still fluid rounded" :src="`https://image.tmdb.org/t/p/w300${movie.backdrop_path}`"></b-img> 
+        <b-img class="poster fluid rounded" :src="`https://image.tmdb.org/t/p/w300${movie.poster_path}`"></b-img> 
+      <div class="moviecard">
+      <div class="d-flex flex-column align-items-end moviehead">
+        <h3 class="fw-bold ">{{ movie.title }}</h3>
+        <h5><v-icon color=orange>mdi-star</v-icon>{{ movie.vote_average }}</h5>
+        <h5><v-icon color=red>mdi-heart</v-icon>{{ likeCount }}</h5>
+      </div>
+      <div class="d-flex justify-content-center">
+        <div class="heartbox d-flex justify-content-center">
+          <div>
+            <button
+            @click="likeMovie(moviePk)"
+            ><v-icon class="ms-3" color=red>mdi-heart</v-icon></button>
+            <p class="text-center">찜하기</p>
+          </div>
+        </div>
+      </div>
+      <div class="mt-5" v-if="movie.overview">
+        <h5 class="fw-bold">작품정보</h5>
+        <p>{{ movie.overview }}</p>
       </div>
 
-      <hr />
-      <!-- Review UI -->
-      <review-list
-      :reviews="movie.reviews"
-      :moviePk="movie.id"
-      :movie="movie"
-      >
-      </review-list>
+        <iframe :src="`https://www.youtube.com/embed/${movieVideo}`" frameborder="0" width="100%" height="350px"></iframe>
+        {{ selectedVideo }}
+        <hr>
+        <!-- Review UI -->
+      <div class="d-flex align-items-baseline">
+        <v-icon color=red>mdi-alert-circle</v-icon><h5 class="fw-bold">스포주의</h5>
+      </div>
+        <review-list
+        :reviews="movie.reviews"
+        :moviePk="movie.id"
+        :movie="movie"
+        >
+        </review-list>
+
+      </div>
     </v-container>
 
   </div>
@@ -50,7 +63,8 @@ import axios from 'axios'
         searchKeyword: null,
         videos: [],
         selectedVideo: null,
-        movieVideo: null
+        movieVideo: null,
+        genres: []
       
       }
     },
@@ -89,4 +103,33 @@ import axios from 'axios'
   }
 </script>
 
-<style></style>
+<style>
+.poster {
+  position: absolute;
+  top:400px;
+  width: 150px;
+}
+.still {
+  max-width: 100%;
+  height: auto;
+  filter: brightness(60%); 
+}
+.moviecard {
+  position: relative;
+  top:200px;
+}
+.moviehead {
+  position: absolute;
+  top: -200px;
+  left: 580px;
+}
+.heartbox {
+  /* Rectangle 24 */
+width: 95%;
+height: 50px;
+
+background: linear-gradient(0deg, #003566, #003566),linear-gradient(0deg, #003566, #003566), #003566;
+border-radius: 27px;
+
+}
+</style>
