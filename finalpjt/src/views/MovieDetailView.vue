@@ -1,29 +1,32 @@
 <template>
   <div>
-    <p v-if="movie.overview">
-      {{ movie.title }}<br>   
-      {{ movie.overview }}
-      {{ movie.id }}
-    </p>
-    <iframe :src="`https://www.youtube.com/embed/${movieVideo}`" frameborder="0"></iframe>
-    {{ selectedVideo }}
+    <v-container>
 
-    <!-- Movie Like UI -->
-    <div>
-      Likeit:
-      <button
-        @click="likeMovie(moviePk)"
-      >{{ likeCount }}</button>
-    </div>
+      <p v-if="movie.overview">
+        {{ movie.title }}<br>   
+        {{ movie.overview }}
+        {{ movie.id }}
+      </p>
+      <iframe :src="`https://www.youtube.com/embed/${movieVideo}`" frameborder="0"></iframe>
+      {{ selectedVideo }}
 
-    <hr />
-    <!-- Review UI -->
-    <review-list
-    :reviews="movie.reviews"
-    :moviePk="movie.id"
-    :movie="movie"
-    >
-    </review-list>
+      <!-- Movie Like UI -->
+      <div>
+        Likeit:
+        <button
+          @click="likeMovie(moviePk)"
+        >{{ likeCount }}</button>
+      </div>
+
+      <hr />
+      <!-- Review UI -->
+      <review-list
+      :reviews="movie.reviews"
+      :moviePk="movie.id"
+      :movie="movie"
+      >
+      </review-list>
+    </v-container>
 
   </div>
 </template>
