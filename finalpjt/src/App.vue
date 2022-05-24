@@ -1,13 +1,13 @@
 <template>
   <v-app>
-    <v-app-bar
+    <v-app-bar v-if="isLoggedIn" 
       app
       color="secondary"
       dark
     >
       <div class="d-flex align-center">
 
-            <nav-bar></nav-bar>
+           
         <!-- <v-img
           alt="Vuetify Logo"
           class="shrink mr-2"
@@ -25,11 +25,19 @@
           src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
           width="100"
         /> -->
+
       </div>
 
       <v-spacer></v-spacer>
+      <!-- <v-btn
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        target="_blank"
+        text
+      >
 
-
+        <v-icon>mdi-open-in-new</v-icon>
+      </v-btn> -->
+          <span class="mr-2"><nav-bar></nav-bar></span>
     </v-app-bar>
 
     <v-main>
@@ -39,7 +47,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions,mapGetters } from 'vuex'
  import NavBar from '@/components/NavBar.vue'
 export default {
   name: 'App',
@@ -50,8 +58,18 @@ export default {
   methods: {
       ...mapActions(['fetchCurrentUser'])
     },
+  computed:{
+    ...mapGetters(['isLoggedIn']),
+  },
   created() {
+    
     this.fetchCurrentUser()
   }
 };
 </script>
+<style scoped>
+  .nav {
+    display: flex;
+
+  }
+</style>

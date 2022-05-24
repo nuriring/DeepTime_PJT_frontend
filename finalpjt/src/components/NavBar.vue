@@ -1,21 +1,23 @@
 <template>
-  <nav v-if="isLoggedIn">
-    <ul>
-      <li v-if="isLoggedIn">
-        <router-link :to="{ name: 'articles' }">게시판</router-link>
-      </li>
-      <li v-if="isLoggedIn">
-        <router-link :to="{ name: 'otts' }">OTT 지도</router-link>
-      </li>
-      <li v-if="isLoggedIn">
-        <router-link :to="{ name: 'profile', params: { username } }">
-          {{ currentUser.username }}'s page
+  <nav v-if="isLoggedIn" class="nav">
+    <b-nav>
+      <b-nav-item v-if="isLoggedIn">
+        <router-link :to="{ name: 'articles' }" class="text-decoration-none text-white">본자들</router-link>
+      </b-nav-item>
+      <b-nav-item v-if="isLoggedIn">
+        <router-link :to="{ name: 'otts' }" class="text-decoration-none text-white">OTT 지도</router-link>
+      </b-nav-item>
+      <b-nav-item v-if="isLoggedIn" >
+        <v-icon> mdi-account-circle
+          </v-icon>
+        <router-link :to="{ name: 'profile', params: { username } }" class="text-decoration-none text-white">
+          {{ currentUser.username }}'s Profile
         </router-link>
-      </li>
-      <li v-if="isLoggedIn">
-        <router-link :to="{ name: 'logout' }">Logout</router-link>
-      </li>
-    </ul>
+      </b-nav-item>
+      <b-nav-item v-if="isLoggedIn">
+        <router-link :to="{ name: 'logout' }" class="text-decoration-none text-white">Logout</router-link>
+      </b-nav-item>
+      </b-nav>
   </nav>
 </template>
 
@@ -33,4 +35,8 @@
   }
 </script>
 
-<style></style>
+<style>
+.nav {
+  display: flex;
+}
+</style>

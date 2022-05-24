@@ -1,19 +1,27 @@
 <template>
-  <div class="main">
-      <h2>DEEP TIME</h2>
-      <div class="assign">
-        <router-link :to="{ name: 'login'}">
-          <button>
-            LOGIN
-          </button>
-          </router-link>
-        <router-link :to="{ name: 'signup'}">
-          <button>SIGN UP</button>
-        </router-link>
+  <div class="wrapper">
 
+      <v-container class="main content">
+        
+        <h1 class="text-center">DEEP TIME</h1>
+  
+          <div class="d-flex justify-content-center">
+            <div class="me-3">
+              <router-link :to="{ name: 'login'}">
+                    <v-btn>
+                      LOGIN
+                    </v-btn>
+                    </router-link>
+            </div>
+              <router-link :to="{ name: 'signup'}">
+                <v-btn>SIGN UP</v-btn>
+              </router-link>
+
+            </div>
+        
+      </v-container>
 
     </div>
-  </div>
 </template>
 
 <script>
@@ -23,12 +31,21 @@ export default {
 </script>
 
 <style>
-  .main {
-    top:50%;
-    left:50%;
 
+    .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #001D3D;
   }
-  .assign {
-    
+
+  .content {
+    font-family: system-ui, serif;
+    font-size: 2rem;
+    padding: 3rem;
+    border-radius: 1rem;
+    background: #ff6e6c;
   }
+
 </style>
