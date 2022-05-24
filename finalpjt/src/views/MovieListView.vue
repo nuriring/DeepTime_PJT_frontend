@@ -1,74 +1,73 @@
 <template>
   <div>
-    
+    <v-container  class="d-flex justify-content-center">
+      <search-bar class="searchBar" @input-search="onInputSearch" v-b-modal.modal></search-bar>
+    </v-container>
+    <v-container class="d-flex flex-column align-items-center">
+      <h1>MovieList</h1>
+      <br>
+      <h3 class="font-weight-medium font-italic">Deeptime's Pick!</h3>
+      <p>인기 영화 TOP 100</p>
 
-    <h2>MovieList</h2>
-    <br>
-    <p>가로로 스와이프하여 더 많은 영화를 즐겨보세요!</p>
+    </v-container>
 
     <div class="container">
-      <v-hover style="margin-bottom:10px">
-        <vue-glide v-if="movies.length"
-            class="glide__track"
-            data-glide-el="track"
-            ref="slider"
-            type="carousel"
-            :breakpoints="{3000: {perView: 7}, 1100: {perView: 5}, 600: {perView: 3}}"
-        >
-          
-          <vue-glide-slide v-for="(movie, idx) in movies" :key="idx">
-            <div>
-            <!-- <div class="px-4 py-5" @click="toDetail(movie)"> -->
-              <router-link
-              :to="{ name: 'movieDetail', params: {moviePk: movie.id} }">
-              </router-link>
-              <v-card>
-                <v-img style="height:300px;" :src="`https://image.tmdb.org/t/p/w300${movie.poster_path}`"></v-img>
-                  <v-fade-transition>
-                    <v-overlay
-                      v-if="hover"
-                      absolute
-                      color="#036358"
-                    >
-                    </v-overlay>
-                  </v-fade-transition>
-              </v-card>
 
-                <!-- <b-card class="text-dark font-weight-bold" :title="movie.title" :img-src="`https://image.tmdb.org/t/p/w300${movie.poster_path}`" img-alt="Image" img-top>
-                <b-card-text id="overview" class="text-dark">
-                </b-card-text>
-                <template #footer>
-                  <small class="text-muted">평점 : {{ movie.vote_average }}</small>
-                </template> 
-              </b-card> -->
-            </div>
-          </vue-glide-slide>
-        </vue-glide>
-      </v-hover>
+          <vue-glide v-if="movies.length"
+              class="glide__track"
+              data-glide-el="track"
+              ref="slider"
+              type="carousel"
+              :breakpoints="{3000: {perView: 7}, 1100: {perView: 5}, 600: {perView: 3}}"
+          >
+            
+            <vue-glide-slide v-for="(movie, idx) in movies" :key="idx">
+              <div>
+              <!-- <div class="px-4 py-5" @click="toDetail(movie)"> -->
+                <router-link
+                :to="{ name: 'movieDetail', params: {moviePk: movie.id} }">
+                </router-link>
+                <v-card>
+                  <v-img style="height:300px;" :src="`https://image.tmdb.org/t/p/w300${movie.poster_path}`"></v-img>       
+                </v-card>
+              </div>
+            </vue-glide-slide>
+          </vue-glide>
+
     </div>
-      <div>
-      <button @click="moviePick">recommend</button>
-      <vue-glide v-if="recommends.length">
+      <div class="container">
+        <v-container class="d-flex justify-content-center">
+          <button class="font-weight-medium font-italic" @click="moviePick">
+            <v-icon
+            color = red
+            large
+            > mdi-cards-heart </v-icon>
+            DoubleClick!</button>
+
+        </v-container>
+        <h3 v-if="recommends.length" class="font-weight-medium font-italic text-center my-5" >{{ currentUser.username }}'s Pick!</h3>
+        <P v-if="recommends.length" class="font-weight-medium  text-center my-5" >{{ currentUser.username }}님이 선호하는 장르 기반 추천 영화</P>
+      <vue-glide v-if="recommends.length"
+        class="glide__track my-5"
+        data-glide-el="track"
+        ref="slider"
+        type="carousel"
+        :breakpoints="{3000: {perView: 7}, 1100: {perView: 5}, 600: {perView: 3}}"
+      >
             <vue-glide-slide v-for="(recommend, idx) in recommends" :key="idx">
               <div>
               <!-- <div class="px-4 py-5" @click="toDetail(movie)"> -->
                 <router-link
                 :to="{ name: 'movieDetail', params: {moviePk: recommend.id} }">
-
-                  <b-card class="text-dark font-weight-bold" :title="recommend.title" :img-src="`https://image.tmdb.org/t/p/w300${recommend.poster_path}`" img-alt="Image" img-top>
-                  <b-card-text id="overview" class="text-dark">
-                  </b-card-text>
-                  <template #footer>
-                    <small class="text-muted">평점 : {{ recommend.vote_average }}</small>
-                  </template>
-                </b-card>
+                  <v-card>
+                    <v-img style="height:300px;" :src="`https://image.tmdb.org/t/p/w300${recommend.poster_path}`"></v-img>
+                  </v-card>
                 </router-link>
               </div>
             </vue-glide-slide>
       </vue-glide>
       </div>
 
-      <search-bar @input-search="onInputSearch"></search-bar>
        <div v-if="searchMovies.length > 2">
           <vue-glide v-if="movies.length">
             <vue-glide-slide v-for="(searchmovie, idx) in searchMovies" :key="idx">
@@ -147,7 +146,8 @@
           })
           .catch( (err) => {
             console.log(err)
-          })   
+          })
+        
     },
       onInputSearch: function (keyword) {
       // const config = this.getToken()
@@ -181,5 +181,17 @@
 </script>
 
 <style>
+/* Rectangle 10 */
+.searchBar {
+
+  width: 694px;
+  height: 61px;
+  left: 517px;
+  top: 10px;
+
+  background: #D9D9D9;
+  border-radius: 16px;
+
+}
 
 </style>

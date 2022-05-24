@@ -10,6 +10,7 @@
       <b-nav-item v-if="isLoggedIn" >
         <v-icon> mdi-account-circle
           </v-icon>
+          
         <router-link :to="{ name: 'profile', params: { username } }" class="text-decoration-none text-white">
           {{ currentUser.username }}'s Profile
         </router-link>
