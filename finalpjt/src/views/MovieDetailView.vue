@@ -58,28 +58,7 @@
         'fetchMovie',
         'likeMovie',
       ]),
-      // async movieSearch() {
-      //   console.log(this.movie.title)
-      //   console.log(`${this.movie.title}결말포함`)
-      //   // const params = {
-      //   //   part: 'snippet',
-      //   //   type: 'video',
-      //   //   key: API_KEY,
-      //   //   q: this.movie.title
-      //   // }
-      
-      //   const keyword = this.movie.title
-      //   await axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=${keyword} 결말포함&key=AIzaSyDrXj_IsXttED3r_OhxpC6BgLfLw_9yLgc`)
-      //   .then(res => {
-      //     console.log(res.data)
 
-      //     this.videos = res.data.items
-      //     this.selectedVideo = this.videos[0]
-      //     // console.log(this.videos)
-      //   })
-      //   .catch(err => {
-      //     console.log(err)
-      //   })
         
 
       },

@@ -1,17 +1,10 @@
 <template>
   <div>
+
     <h2>MovieList</h2>
     <br>
-    <div>
-      <!-- <div v-for="recommend in recommends" :key="recommend.id">
-        {{ recommend.genres }}
-        {{ recommend.title }}
-      </div> -->
-
-  
-    </div>
-
     <p>가로로 스와이프하여 더 많은 영화를 즐겨보세요!</p>
+
     <div class="m-5">
       <vue-glide v-if="movies.length">
         <vue-glide-slide v-for="(movie, idx) in movies" :key="idx">
@@ -24,7 +17,7 @@
               <b-card-text id="overview" class="text-dark">
               </b-card-text>
               <template #footer>
-                <small class="text-muted">평점 : {{ movie.vote_average }} </small>
+                <small class="text-muted">평점 : {{ movie.vote_average }}</small>
               </template>
             </b-card>
             </router-link>
@@ -32,6 +25,16 @@
         </vue-glide-slide>
       </vue-glide>
     </div>
+      <div>
+        <div v-for="recommend in recommends" :key="recommend.id">
+          {{ recommend.genres }}
+          {{ recommend.title }}
+          {{ recommend }}
+        </div>
+      {{ profile.genre }}
+      <button @click="moviePick">recommend</button>
+      </div>
+
   </div>
 </template>
 
@@ -39,18 +42,17 @@
   import { Glide, GlideSlide } from 'vue-glide-js'
   import { mapActions, mapGetters } from 'vuex'
   import axios from "axios"
-
   export default {
     name: 'MovieList',
-    data() {
-      return {
-        genre: '',
-        recommends: Array
-      }
-    },
     components: {
     [Glide.name]: Glide,
     [GlideSlide.name]: GlideSlide,
+    },
+    data() {
+      return {
+        recommends: Array,
+        // searchKeword: null
+      }
     },
     computed: {
       ...mapGetters(['movies','currentUser','profile'])
@@ -58,38 +60,38 @@
     methods: {
       ...mapActions(['fetchMovies','fetchProfile']),
 
-     getToken: function () {
-    const token = localStorage.getItem('token')
-    const config = {
-      headers : {
-        Authorization: `Token ${token}`
-      },
+      getToken: function () {
+        const token = localStorage.getItem('token')
+        const config = {
+          headers : {
+            Authorization: `Token ${token}`
+          },
+        }
+        return config
+       },
+    
+      moviePick: function () {
+        const config = this.getToken()
+        const payload = { username: this.currentUser.username  }
+        this.fetchProfile(payload)
+        axios.get(`http://localhost:8000/deeptime/movies/genre/${this.profile.genre}`, config)
+          .then((res) => {
+            console.log(res)
+            this.recommends = res.data
+
+          })
+          .catch( (err) => {
+            console.log(err)
+          })   
     }
-    return config
+  
   },
 
-  getMovie: function () {
-    const config = this.getToken()
-    axios.get(`http://localhost:8000/deeptime/movies/genre/${this.currentUser.pk}`, config)
-      .then((res) => {
-        console.log(res)
-        // console.log(this.moviePk)
-        this.recommends = res.data
-      })
-      .catch( (err) => {
-        console.log(err)
-      })   
-  }
-    },
-
     created() {
-      const payload = { username: this.currentUser.username } //variable routing 인자를 payload에 담아줌
-      this.fetchProfile(payload)
-      this.getMovie()
       this.fetchMovies()
     },
-
   }
+  
 </script>
 
 <style>
