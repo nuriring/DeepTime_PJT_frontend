@@ -5,6 +5,7 @@
       {{ movie.overview }}
       {{ movie.id }}
     </p>
+    <iframe :src="`https://www.youtube.com/embed/${movieVideo}`" frameborder="0"></iframe>
     {{ selectedVideo }}
 
     <!-- Movie Like UI -->
@@ -33,6 +34,7 @@
   // import axios from 'axios'
   import { mapGetters, mapActions } from 'vuex'
   import ReviewList from '@/components/ReviewList.vue'
+import axios from 'axios'
 
 
 
@@ -45,6 +47,8 @@
         searchKeyword: null,
         videos: [],
         selectedVideo: null,
+        movieVideo: null
+      
       }
     },
     computed: {
@@ -57,14 +61,27 @@
       ...mapActions([
         'fetchMovie',
         'likeMovie',
+      
       ]),
+      getVideo() {
+        axios.get(`https://api.themoviedb.org/3/movie/${this.$route.params.moviePk}/videos?api_key=5908342b45ef31ecdbea2e9687fbbcd8&language=ko-KR`)
+        .then((res) => {
+          console.log(res.data.results[0].key)
+          this.movieVideo = (res.data.results[0].key)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+      }
 
         
 
       },
     created() {
 
-      this.fetchMovie(this.moviePk)      
+      this.fetchMovie(this.moviePk)  
+      this.getVideo()  
+        
     },
   }
 </script>
