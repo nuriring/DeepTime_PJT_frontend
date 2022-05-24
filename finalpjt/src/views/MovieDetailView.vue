@@ -5,7 +5,7 @@
       {{ movie.overview }}
       {{ movie.id }}
     </p>
-  
+    {{ selectedVideo }}
 
     <!-- Movie Like UI -->
     <div>
@@ -19,13 +19,18 @@
     <!-- Review UI -->
     <review-list
     :reviews="movie.reviews"
-    :moviePk="movie.id">
+    :moviePk="movie.id"
+    :movie="movie"
+    >
     </review-list>
 
   </div>
 </template>
 
 <script>
+  // const API_KEY = process.env.VUE_APP_YOUTUBE_API_KEY
+  // const API_URL = 'https://www.googleapis.com/youtube/v3/search'
+  // import axios from 'axios'
   import { mapGetters, mapActions } from 'vuex'
   import ReviewList from '@/components/ReviewList.vue'
 
@@ -37,6 +42,9 @@
     data() {
       return {
         moviePk: this.$route.params.moviePk,
+        searchKeyword: null,
+        videos: [],
+        selectedVideo: null,
       }
     },
     computed: {
@@ -49,10 +57,14 @@
       ...mapActions([
         'fetchMovie',
         'likeMovie',
-      ])
-    },
+      ]),
+
+        
+
+      },
     created() {
-      this.fetchMovie(this.moviePk)
+
+      this.fetchMovie(this.moviePk)      
     },
   }
 </script>
