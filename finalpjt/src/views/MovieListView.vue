@@ -39,6 +39,7 @@
 </template>
 
 <script>
+  const API_URL = "https://api.themoviedb.org/3/search/movie"
   import { Glide, GlideSlide } from 'vue-glide-js'
   import { mapActions, mapGetters } from 'vuex'
   import SearchBar from '@/components/SearchBar'
@@ -89,11 +90,16 @@
       onInputSearch: function (keyword) {
       // const config = this.getToken()
         this.searchKeyword = keyword
-          const config = this.getToken()
-          axios.get(`http://localhost:8000/deeptime/movies/`, config)
+        const params = {
+          "api_key": "e6149bf41aaefec295f3595be639b5c7",
+          "language": "ko",
+          "page":"1",
+          "query": this.searchKeyword,
+          "include_adult":"true",
+        }
+         axios.get(API_URL,{params})
           .then((res) => {
            console.log(res)
-        // console.log(this.moviePk)
           })
           .catch( (err) => {
            console.log(err)
