@@ -10,11 +10,17 @@ export default {
   // namespaced: true,
   state: {
     articles: [], //전체게시글 조회시 담기
+    category1Articles : [],
+    category2Articles : [],
+    category3Articles : [],
     article: {}, //하나의 게시글 생성됐을 때 담기
   },
 
   getters: {
     articles: state => state.articles,
+    category1Articles: state => state.category1Articles,
+    category2Articles: state => state.category2Articles,
+    category3Articles: state => state.category3Articles,
     article: state => state.article,
     isAuthor: (state, getters) => {
       return state.article.user?.username === getters.currentUser.username //작성자와 현재 유저가 같으면 수정 삭제 하기 버튼 보여주기
@@ -23,6 +29,9 @@ export default {
   }, 
   mutations: {
     SET_ARTICLES: (state, articles) => state.articles = articles,
+    SET_CATEGORY1ARTICLES: (state, category1Articles) => state.category1Articles = category1Articles,
+    SET_CATEGORY2ARTICLES: (state, category2Articles) => state.category2Articles = category2Articles,
+    SET_CATEGORY3ARTICLES: (state, category3Articles) => state.category3Articles = category3Articles,
     SET_ARTICLE: (state, article) => state.article = article,
     SET_ARTICLE_COMMENTS: (state, comments) => (state.article.comments = comments),
   },
@@ -68,6 +77,54 @@ export default {
             router.push({ name: 'NotFound404' })
           }
         })
+    },
+    fetchCategory1Articles({ commit, getters }) {
+      /* 게시글 목록 받아오기
+      GET: articles URL (token)
+        성공하면
+          응답으로 받은 게시글들을 state.articles에 저장
+        실패하면
+          에러 메시지 표시
+      */
+      axios({
+        url: drf.articles.category1Articles(),
+        method: 'get',
+        headers: getters.authHeader,
+      })
+        .then(res => commit('SET_CATEGORY1ARTICLES', res.data))
+        .catch(err => console.error(err.response))
+    },
+    fetchCategory2Articles({ commit, getters }) {
+      /* 게시글 목록 받아오기
+      GET: articles URL (token)
+        성공하면
+          응답으로 받은 게시글들을 state.articles에 저장
+        실패하면
+          에러 메시지 표시
+      */
+      axios({
+        url: drf.articles.category2Articles(),
+        method: 'get',
+        headers: getters.authHeader,
+      })
+        .then(res => commit('SET_CATEGORY2ARTICLES', res.data))
+        .catch(err => console.error(err.response))
+    },
+    fetchCategory3Articles({ commit, getters }) {
+      /* 게시글 목록 받아오기
+      GET: articles URL (token)
+        성공하면
+          응답으로 받은 게시글들을 state.articles에 저장
+        실패하면
+          에러 메시지 표시
+      */
+      axios({
+        url: drf.articles.category3Articles(),
+        method: 'get',
+        headers: getters.authHeader,
+      })
+        .then(res => commit('SET_CATEGORY3ARTICLES', res.data))
+        .catch(err => console.error(err.response))
     },
 
     createArticle({ commit, getters }, article) {

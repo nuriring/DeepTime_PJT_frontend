@@ -5,7 +5,7 @@
     <h2>{{ profile.username }} 님이 쓴 게시글</h2>
     <ul>
       <li v-for="article in profile.articles" :key="article.pk">
-        <router-link :to="{ name: 'article', params: { articlePk: article.pk } }">
+        <router-link :to="{ name: 'article', params: { articlePk: article.id } }">
           {{ article.title }}
         </router-link>
       </li>
@@ -14,7 +14,7 @@
     <h2>{{ profile.username }} 님이 쓴 리뷰</h2>
     <ul>
       <li v-for="review in profile.reviews" :key="review.pk">
-        <router-link :to="{ name: 'movieDetail', params: { moviePk: review.movie_id } }">
+        <router-link :to="{ name: 'movieReview', params: { moviePk: review.movie_id, reviewPk: review.id } }">
           {{ review.content }}
         </router-link>
       </li>

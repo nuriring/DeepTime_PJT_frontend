@@ -20,6 +20,9 @@ export default {
   },
   articles: {
     articles: () => HOST + ARTICLES,
+    category1Articles:() => HOST + ARTICLES + 'category/' + `1`,
+    category2Articles:() => HOST + ARTICLES + 'category/' + `2`,
+    category3Articles:() => HOST + ARTICLES + 'category/' + `3`,
     article: articlePk => HOST + ARTICLES + `${articlePk}/`,
     likeArticle: articlePk => HOST + ARTICLES + `${articlePk}/` + 'like/',
     comments: articlePk => HOST + ARTICLES + `${articlePk}/` + COMMENTS,

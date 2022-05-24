@@ -12,6 +12,9 @@ import ReviewNewView from '@/views/ReviewNewView.vue'
 import ReviewEditView from '@/views/ReviewEditView.vue'
 
 import ArticleListView from '@/views/ArticleListView.vue'
+import Category1View from '@/views/Category1View.vue'
+import Category2View from '@/views/Category2View.vue'
+import Category3View from '@/views/Category3View.vue'
 import ArticleDetailView from '@/views/ArticleDetailView.vue'
 import ArticleNewView from '@/views/ArticleNewView.vue'
 import ArticleEditView from '@/views/ArticleEditView.vue'
@@ -84,6 +87,21 @@ const routes = [
     path: '/articles',  
     name: 'articles',
     component: ArticleListView
+  },
+  {
+    path: '/articles/category1',  
+    name: 'category1Articles',
+    component: Category1View
+  },
+  {
+    path: '/articles/category2',  
+    name: 'category2Articles',
+    component: Category2View
+  },
+  {
+    path: '/articles/category3',  
+    name: 'category3Articles',
+    component: Category3View
   },
   {
     path: '/articles/new',
