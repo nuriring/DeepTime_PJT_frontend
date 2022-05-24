@@ -1,8 +1,16 @@
 <template>
   <div>
-    <v-container  class="d-flex justify-content-center">
-      <search-bar class="searchBar" @input-search="onInputSearch" v-b-modal.modal></search-bar>
-    </v-container>
+ 
+        <div>
+        <b-button v-b-modal.modal-1>영화검색</b-button>
+
+        <b-modal id="modal-1" title="BootstrapVue">
+          <p class="my-4">Hello from modal!</p>
+          <search-bar class="searchBarInModal" @input-search="onInputSearch"></search-bar>
+        </b-modal>
+      </div>
+      <h5 class="searchBar d-flex align-items-center text-center">영화검색</h5>
+  
     <v-container class="d-flex flex-column align-items-center">
       <h1>MovieList</h1>
       <br>
@@ -182,7 +190,7 @@
 
 <style>
 /* Rectangle 10 */
-.searchBar {
+.searchBarInModal {
 
   width: 694px;
   height: 61px;
@@ -192,6 +200,16 @@
   background: #D9D9D9;
   border-radius: 16px;
 
+}
+.searchBar {
+  width: 150px;
+  height: 50px;
+  left: 600px;
+  top: 100px;
+
+  background: #D9D9D9;
+  border-radius: 16px;
+  
 }
 
 </style>
