@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <nav-bar></nav-bar>
-    <hr />
+    
     <router-view></router-view>
   </div>
 </template>
@@ -25,4 +25,15 @@
   }
 </script>
 
-<style></style>
+<style>
+  #app {
+    height: 100vh;
+    overflow: visible;
+    /* background-image: url("./assets/background.png"); */
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: scroll;
+
+
+  }
+</style>
