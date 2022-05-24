@@ -36,7 +36,24 @@
     
       <search-bar @input-search="onInputSearch"></search-bar>
        <div v-if="searchMovies.length > 2">
-        {{ searchMovies }}
+          <vue-glide v-if="movies.length">
+            <vue-glide-slide v-for="(searchmovie, idx) in searchMovies" :key="idx">
+              <div>
+              <!-- <div class="px-4 py-5" @click="toDetail(movie)"> -->
+                <router-link
+                :to="{ name: 'movieDetail', params: {moviePk: searchmovie.id} }">
+
+                  <b-card class="text-dark font-weight-bold" :title="searchmovie.title" :img-src="`https://image.tmdb.org/t/p/w300${searchmovie.poster_path}`" img-alt="Image" img-top>
+                  <b-card-text id="overview" class="text-dark">
+                  </b-card-text>
+                  <template #footer>
+                    <small class="text-muted">평점 : {{ searchmovie.vote_average }}</small>
+                  </template>
+                </b-card>
+                </router-link>
+              </div>
+            </vue-glide-slide>
+        </vue-glide>
        </div>
        <!--요청한 영화 정보 없을 때만 보여주고 싶은데 ㅜㅜ-->
        <!-- <div v-if="0 < searchMovies.length && searchMovies.length < 2">
