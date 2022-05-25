@@ -1,8 +1,7 @@
 <template>
   <v-app>
-    <v-app-bar v-if="isLoggedIn" 
+    <v-app-bar v-if="isLoggedIn" class="vbar" 
       app
-      color="secondary"
       dark
     >
       <div class="d-flex align-center">
@@ -68,8 +67,12 @@ export default {
 };
 </script>
 <style scoped>
-  .nav {
-    display: flex;
+  .vbar {
+    background : linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), #6C7B8B;
 
   }
+  /* Rectangle 36 */
+
+
+
 </style>
