@@ -14,13 +14,38 @@
         </v-expansion-panel-header >
         <v-expansion-panel-content class="review-list d-flex align-items-center" >
             <div class="m-3">
-              <button @click="videoOn" class="fs-5 fw-bold" ><v-icon color=white >mdi-youtube</v-icon>
+              <button @click="[videoOn(),toggle()]" class="fs-5 fw-bold" ><v-icon color=white >mdi-youtube</v-icon>
                 Video Play</button>
-              <div>
+              <div v-if="show">
               <youtube-video
               :video="video"
               ></youtube-video>
               </div>
+                <v-card
+                class="mx-auto"
+                max-width="300"
+                tile
+              >
+                <v-list rounded>
+                  <v-subheader>REPORTS</v-subheader>
+                  <v-list-item-group
+                    v-model="selectedItem"
+                    color="primary"
+                  >
+                    <v-list-item
+                      v-for="(review, i) in reviews"
+                      :key="i"
+                    >
+                      <!-- <v-list-item-icon>
+                        <v-icon v-text="item.icon"></v-icon>
+                      </v-list-item-icon> -->
+                      <v-list-item-content>
+                        <v-list-item-title v-text="review.title"></v-list-item-title>
+                      </v-list-item-content>
+                    </v-list-item>
+                  </v-list-item-group>
+                </v-list>
+              </v-card>
               <div v-for="review in reviews" :key="review.pk">
                 작성자: {{ review.user.username }}<br>
                 <router-link :to="{ name: 'movieReview', params: { moviePk: review.movie.id, reviewPk: review.id }}">
@@ -61,7 +86,9 @@ export default {
            movie: Object },
   data() {
     return{
+      show: true,
       video:{} ,
+      selectedItem : 1
     }
   },
   methods:{
@@ -78,7 +105,9 @@ export default {
         .catch(err => {
           console.log(err)
         })
-
+    },
+    toggle() {
+      this.show = !this.show;
     }
 
   },
