@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-container>
     <select-ott>
     </select-ott>
+    <v-container>
     <div v-for="(netflixMovie, idx) in netflixMovies" :key="idx" class="card mx-2 my-2" style="width: 18rem;">
       <router-link :to="{ name: 'movieDetail', params: {moviePk: netflixMovie.id} }">
       <img id="id1" :src="`https://image.tmdb.org/t/p/w300${netflixMovie.poster_path}`" class="card-img-top" alt="...">
@@ -11,6 +11,7 @@
         <p class="card-text">{{ netflixMovie.title }}</p>
       </div>
     </div>
+
     </v-container>
     <loading-spinner></loading-spinner>
   </div>
@@ -86,5 +87,8 @@ export default {
 }
 #id1 {
   height : 400px;
+}
+.select-ott::v-deep .netflix {
+  width: 500px; 
 }
 </style>

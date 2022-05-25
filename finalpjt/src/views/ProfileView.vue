@@ -6,7 +6,7 @@
     <div>
       <b-button id="id1" v-b-toggle.collapse-1 class="m-1">{{ profile.username }} 님이 쓴 게시글</b-button>
       <b-collapse id="collapse-1">
-        <b-card>{{ profile.username }} 님이 쓴 게시글</b-card>
+        <b-card v-if="!profile.articles.length">작성한 게시글이 없어요.</b-card>
         <b-card class="text-decoration-none" v-for="article in profile.articles" :key="article.pk"><router-link class="text-decoration-none"  :to="{ name: 'article', params: { articlePk: article.id } }">
               {{ article.title }}
             </router-link></b-card>
@@ -24,7 +24,7 @@
             </router-link></b-card>
       </b-collapse> -->
       <b-collapse id="collapse-2">
-        <b-card>{{ profile.username }} 님이 쓴 리뷰</b-card>
+        <b-card v-if="!profile.reviews.length">작성한 리뷰가 없어요.</b-card>
         <b-card v-for="review in profile.reviews" :key="review.pk"><router-link class="text-decoration-none" :to="{ name: 'movieReview', params: { moviePk: review.movie_id, reviewPk: review.id } }">
               {{ review.content }}
         </router-link></b-card>
@@ -76,6 +76,6 @@ export default {
 
 <style scoped>
 #id1 {
-  width: 200px;
+  width: 300px;
 }
 </style>
