@@ -2,27 +2,27 @@
   <div class="wrapper">
     <div class="signupbox">
     <v-container>
-      <h1>회원가입</h1>
+      <h1>SIGNUP</h1>
       <account-error-list v-if="authError"></account-error-list>
       <v-form
         @submit.prevent="signup(credentials)"
       >
         <v-text-field
           v-model="credentials.username"
-          label="아이디"
+          label="ID"
           required
         ></v-text-field>
 
         <v-text-field
           v-model="credentials.password1"
           type="password"
-          label="비밀번호"
+          label="PASWWORD"
           required
         ></v-text-field>
         <v-text-field
           v-model="credentials.password2"
           type="password"
-          label="비밀번호 재입력"
+          label="CONFIRM PASSWORD"
           required
         ></v-text-field>
 
@@ -31,11 +31,11 @@
           :items="genreList"
           item-text="cont"
           item-value="sub"
-          label="선호하는 장르"
+          label="FAVORITE GENRE"
           required
         ></v-select>
         <!-- <button class="mr-4 is-elevated has-bg theme--light v-size--default success">Signup</button> -->
-        <b-button type="submit" class="success">회원가입</b-button>
+        <b-button type="submit" class="success">SIGNUP</b-button>
 
         
 

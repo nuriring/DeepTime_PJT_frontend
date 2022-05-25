@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-container>
+        <img id="id2" src="@/assets/profile.jpg" alt="">
       <h1>{{ profile.username }}</h1>
     <!-- Using modifiers -->
     <div>
@@ -8,7 +9,8 @@
       <b-collapse id="collapse-1">
         <b-card v-if="!profile.articles.length">작성한 게시글이 없어요.</b-card>
         <b-card class="text-decoration-none" v-for="article in profile.articles" :key="article.pk"><router-link class="text-decoration-none"  :to="{ name: 'article', params: { articlePk: article.id } }">
-              {{ article.title }}
+              <v-icon>mdi-account-circle</v-icon><p>{{ profile.username }}</p>
+              <p>{{ article.title }}</p>
             </router-link></b-card>
       </b-collapse>
     </div>
@@ -77,5 +79,36 @@ export default {
 <style scoped>
 #id1 {
   width: 300px;
+}
+#id2 {
+  width: 1300px;
+  height: 250px;
+  margin-top: 1rem;
+  opacity: 80%;
+}
+.container {
+  background: #001D3D;
+  margin-top: 5rem;
+  border-radius: 15px;
+}
+.card-body {
+  color: black;
+  padding: 0.5rem 1rem;
+  background: lightblue;
+}
+.card-body:hover {
+  transform: scale(1.05);
+  transition: 100ms ease-in;
+}
+.v-application p {
+    margin-bottom: 0px;
+}
+.v-application a {
+    color: black;
+}
+.container h1 {
+  color: lightgrey;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 </style>
