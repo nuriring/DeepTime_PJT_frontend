@@ -29,10 +29,19 @@
 
       <template v-slot:extension>
         <v-tabs align-with-title>
+        <rotuer-link :to="{ name: 'articles' }" class="text-decoration-none text-white" >
           <v-tab>전체</v-tab>
-          <v-tab>결말포함</v-tab>
+        </rotuer-link>
+        <router-link :to="{ name: 'category1Articles'}" class="text-decoration-none text-white" >
+          <v-tab>결말포함</v-tab>   
+        </router-link>
+        <router-link :to="{ name: 'category2Articles'}" class="text-decoration-none text-white" >
           <v-tab>세계관</v-tab>
+        </router-link>
+        <router-link :to="{ name: 'category3Articles'}" class="text-decoration-none text-white" >
           <v-tab>이스터에그</v-tab>
+        </router-link>
+        
         </v-tabs>
       </template>
  
@@ -81,7 +90,12 @@
                           {{ listItem.id }}
                         </v-list-tile-title>
                         &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        
+                <!-- <router-link 
+                :to="{ name: 'article', params: {articlePk: listItem.id} }">
+                {{ end.title }}
+              </router-link> -->
+
+
                         <v-list-tile-sub-title class="text-start">
                           {{ listItem.title }}
                         </v-list-tile-sub-title>
@@ -189,6 +203,7 @@
   margin-left: 200px;
   margin-top: 50px;
 }
+
 
 
 </style>
