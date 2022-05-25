@@ -8,12 +8,12 @@
             <div class="me-3">
               <router-link class="text-decoration-none" :to="{ name: 'login'}">
                     <v-btn>
-                      LOGIN
+                      로그인
                     </v-btn>
                     </router-link>
             </div>
               <router-link class="text-decoration-none" :to="{ name: 'signup'}">
-                <v-btn >SIGN UP</v-btn>
+                <v-btn >회원가입</v-btn>
               </router-link>
 
             </div>
