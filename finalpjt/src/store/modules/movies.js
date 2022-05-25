@@ -180,6 +180,7 @@ export default {
         })
       },
       createReview({ commit, getters }, { moviePk, title, content}) {
+        console.log(moviePk)
         const review = { title, content, moviePk }
         console.log(review)
         axios({
@@ -191,7 +192,7 @@ export default {
           .then(res => {
             commit('SET_MOVIE_REVIEW', res.data)
             router.push({
-              name: 'movie',
+              name: 'movieDetail',
               params: { moviePk: moviePk }
             })
           })

@@ -1,27 +1,32 @@
 <template>
-  <div>
-    <div id="id1">
-    <router-link :to="{ name: 'netflix' }">
-      <img src="https://image.tmdb.org/t/p/w300/9A1JSVmSxsyaBK4SUFsYVqbAYfW.jpg" alt="">
-    </router-link>
-    </div>
-    <router-link :to="{ name: 'disneyPlus' }">
-      <img src="https://image.tmdb.org/t/p/w300/7rwgEs15tFwyR9NPQ5vpzxTj19Q.jpg" alt="">
-    </router-link>
-    <router-link :to="{ name: 'amazon' }">
-      <img src="https://image.tmdb.org/t/p/w300/emthp39XA2YScoYL1p0sdbAH2WA.jpg" alt="">
-    </router-link>
-    <router-link :to="{ name: 'watcha' }">
-      <img src="https://image.tmdb.org/t/p/w300/vXXZx0aWQtDv2klvObNugm4dQMN.jpg" alt="">
-    </router-link>
-    <router-link :to="{ name: 'wavve' }">
-      <img src="https://image.tmdb.org/t/p/w300/2ioan5BX5L9tz4fIGU93blTeFhv.jpg" alt="">
-    </router-link>
-    <router-link :to="{ name: 'apple' }">
-      <img src="https://image.tmdb.org/t/p/w300/6uhKBfmtzFqOcLousHwZuzcrScK.jpg" alt="">
-    </router-link>
+  <v-container>
+    <div class="d-flex justify-content-center">
 
-  </div>
+      <router-link :to="{ name: 'netflix' }">
+        <img id="id2" src="https://image.tmdb.org/t/p/w300/9A1JSVmSxsyaBK4SUFsYVqbAYfW.jpg" alt="">
+      </router-link>
+      
+      <router-link :to="{ name: 'disneyPlus' }">
+        <img id="id2" src="https://image.tmdb.org/t/p/w300/7rwgEs15tFwyR9NPQ5vpzxTj19Q.jpg" alt="">
+      </router-link>
+      <router-link :to="{ name: 'amazon' }">
+        <img id="id2" src="https://image.tmdb.org/t/p/w300/emthp39XA2YScoYL1p0sdbAH2WA.jpg" alt="">
+      </router-link>
+      <img id="id2" src="https://blog.kakaocdn.net/dn/lD5SN/btq5azYbXzs/4q1ynIr3k8aBb9xM7h8Wb0/img.png" alt="">
+      <router-link :to="{ name: 'watcha' }">
+        <img id="id2" src="https://play-lh.googleusercontent.com/vAkKvTtE8kdb0MWWxOVaqYVf0_suB-WMnfCR1MslBsGjhI49dAfF1IxcnhtpL3PnjVY" alt="">
+      </router-link>
+      <router-link :to="{ name: 'wavve' }">
+        <img id="id2" src="https://image.tmdb.org/t/p/w300/2ioan5BX5L9tz4fIGU93blTeFhv.jpg" alt="">
+      </router-link>
+      <router-link :to="{ name: 'apple' }">
+        <img id="id2" src="https://image.tmdb.org/t/p/w300/6uhKBfmtzFqOcLousHwZuzcrScK.jpg" alt="">
+      </router-link>
+    </div>
+
+  </v-container>
+
+  
 </template>
 
 <script>
@@ -30,6 +35,16 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+#id1 {
+  max-height: 900px;
+  max-width: 100px;
+}
+#id2 {
+  max-height: 100px;
+  max-width: 100px;
+  object-fit: cover;
+  border-radius: 30%;
+  margin-right: 10px;
+}
 </style>

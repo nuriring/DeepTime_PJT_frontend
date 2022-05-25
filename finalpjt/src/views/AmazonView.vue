@@ -77,7 +77,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .card {
   float: left;
   width: 600px;
