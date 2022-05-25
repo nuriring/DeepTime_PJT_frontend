@@ -7,7 +7,7 @@
       <div header-tag="header" class="p-1" role="tab">
         <b-button block v-b-toggle.accordion-1 class="togglebar text-start">바쁜 당신을 위한 결말요약 컨텐츠를 만나보세요! <v-icon>mdi-chevron-down</v-icon></b-button>
       </div>
-      <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
+      <b-collapse id="accordion-1" invisible accordion="my-accordion" role="tabpanel">
         <b-card-body>
           <b-card class="review-list d-flex align-items-center text-white" >
               <div>

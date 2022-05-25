@@ -2,35 +2,32 @@
   <div>
     <h1>본자들 커뮤니티</h1>
 
-     <v-app id="list-sample">
-    <v-flex sm6 offset-sm3>
-      <v-list two-line
-              v-for="(listItem, index) in calData"
-              :key="index">
-        <v-list-tile>
-          <v-list-tile-content>
-            <v-list-tile-title class="text--primary">
-              {{ listData.title }}
-            </v-list-tile-title>
-            <v-list-tile-sub-title>
-              {{ listItem.user.username }}
-            </v-list-tile-sub-title>
-          </v-list-tile-content>
- 
+      <v-app id="list-sample">
+      <v-flex sm6 offset-sm3>
+        <v-list two-line
+                v-for="(listItem, index) in calData"
+                :key="index">
+          <v-list-tile>
+            <v-list-tile-content>
+              <v-list-tile-title class="text--primary">
+                {{ listItem.title }}
+              </v-list-tile-title>
+              <v-list-tile-sub-title>
+                {{ listItem.user.username }}
+              </v-list-tile-sub-title>
+            </v-list-tile-content>
+  
 
-        </v-list-tile>
-        <v-divider></v-divider>
-      </v-list>
-      <br/>
-      <v-pagination
-        v-model="curPageNum"
-        :length="numOfPages">
-      </v-pagination>
-    </v-flex>
-  </v-app>
-
-
-
+          </v-list-tile>
+          <v-divider></v-divider>
+        </v-list>
+        <br/>
+        <v-pagination
+          v-model="curPageNum"
+          :length="numOfPages">
+        </v-pagination>
+      </v-flex>
+    </v-app>
     <div>
       
 
@@ -81,12 +78,7 @@
     name: 'ArticleList',
     data() {
       return {
-        ends : [],
-        worlds : [],
-        eggs : [],
-        show: true,
-        all: false,
-        listData: [],
+
         dataPerPage: 10,
         curPageNum: 1,
         
@@ -96,6 +88,7 @@
     computed: {
       ...mapGetters(['articles']),
 
+
       startOffset() {
         return ((this.curPageNum - 1) * this.dataPerPage);
       },
@@ -103,42 +96,23 @@
         return (this.startOffset + this.dataPerPage);
       },
       numOfPages() {
-        return Math.ceil(this.listData.length / this.dataPerPage);
+        return Math.ceil(this.articles.length / this.dataPerPage);
       },
       calData() {
-        return this.listData.slice(this.startOffset, this.endOffset)
+        return this.articles.slice(this.startOffset, this.endOffset)
       }
     },
     
     methods: {
       ...mapActions(['fetchArticles']),
-      toggle: function(){
-        this.show = !this.show;
-        this.all = !!this.all;
-      },
-      categoryEnd: function(){
 
-        // console.log(this.articles)
-        var arr = this.articles
-        const result = arr.filter(function(elem){
-          return elem.category.name === "결말포함"
-        });
-        this.ends = result
-      },
-      categoryWorld: function(){
 
-        // console.log(this.articles)
-        var arr = this.articles
-        const result = arr.filter(function(elem){
-          return elem.category.name === "세계관"
-        });
-        this.worlds = result
-      },
 
     },
     created() {
-      this.fetchArticles()
+      this.fetchArticles(),
       this.listData = this.articles
+      console.log(this.calData)
     },
   }
 </script>
