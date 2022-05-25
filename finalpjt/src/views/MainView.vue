@@ -6,14 +6,14 @@
           <div class="d-flex flex-column align-items-center">
           <img src = "@/assets/logo.jpg" class="logo">
             <div class="me-3">
-              <router-link :to="{ name: 'login'}">
+              <router-link class="text-decoration-none" :to="{ name: 'login'}">
                     <v-btn>
                       LOGIN
                     </v-btn>
                     </router-link>
             </div>
-              <router-link :to="{ name: 'signup'}">
-                <v-btn>SIGN UP</v-btn>
+              <router-link class="text-decoration-none" :to="{ name: 'signup'}">
+                <v-btn >SIGN UP</v-btn>
               </router-link>
 
             </div>
@@ -29,7 +29,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
     .wrapper {
     display: flex;
