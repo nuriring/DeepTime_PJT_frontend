@@ -63,6 +63,11 @@
 
 }
 .nav-item{
-  height: 10px;;
+  height: 10px;
+
+}
+.nav-link{
+  margin-top: 1rem;
+  
 }
 </style>
