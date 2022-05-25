@@ -1,11 +1,44 @@
 <template>
-  <div>
-    <h1>{{ article.title }}</h1>
+  <div class="d-flex justify-content-center">
+      <b-card class="article-card">
+        <b-card-text>
+          <h3 class="fw-bold float-left">{{article.title}}</h3>
+
+          <h5 class="float-right"><v-icon>mdi-account-circle</v-icon>{{article.user.username }}</h5>
+
+        </b-card-text>
+        <br>
+        <hr>
+        <b-card-text class="text fs-5">
+          {{ article.content }}
+        </b-card-text>
+        <div class="d-flex">
+          <div class="d-flex ">
+            <v-icon color=red small>mdi-heart</v-icon>
+            <div class="body-1 ms-2">{{ article.like_users.length }}개</div>  
+            </div> 
+          <div class="d-flex ms-3">
+            <v-icon color=secondary small>mdi-comment</v-icon>
+            <div class="body-1 ms-2">{{ article.comments.length }}개</div>  
+          </div> 
+        </div>
+        
+        <hr>
+        <p class="subheading font-weight-bold red--text text--lighten-1">
+          좋아요
+        </p>
+        <hr>
+
+        <comment-list :comments="article.comments"></comment-list> 
+      </b-card>
+
+
+    <!-- <h1>{{ article.title }}</h1>
 
     <p>
       {{ article.content }}
     </p>
-    <!-- Article Edit/Delete UI -->
+
     <div v-if="isAuthor">
       <router-link :to="{ name: 'articleEdit', params: { articlePk } }">
         <button>Edit</button>
@@ -14,7 +47,6 @@
       <button @click="deleteArticle(articlePk)">Delete</button>
     </div>
 
-    <!-- Article Like UI -->
     <div>
       Likeit:
       <button
@@ -23,8 +55,9 @@
     </div>
 
     <hr />
-    <!-- Comment UI -->
-    <comment-list :comments="article.comments"></comment-list>
+
+    <comment-list :comments="article.comments"></comment-list> -->
+    
 
   </div>
 </template>
@@ -62,4 +95,20 @@
   }
 </script>
 
-<style></style>
+  
+<style>
+  .article-card {
+
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 700px;
+
+    background: #003566;
+    border-radius: 36px;
+  }
+
+  .text{
+    text-align: justify;
+  }
+</style>

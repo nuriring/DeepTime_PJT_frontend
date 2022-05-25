@@ -90,15 +90,14 @@
                           {{ listItem.id }}
                         </v-list-tile-title>
                         &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <!-- <router-link 
-                :to="{ name: 'article', params: {articlePk: listItem.id} }">
-                {{ end.title }}
-              </router-link> -->
-
-
+  
+                      <router-link class="text-decoration-none text-secondary" 
+                        :to="{ name: 'article', params: {articlePk: listItem.id} }">
                         <v-list-tile-sub-title class="text-start">
                           {{ listItem.title }}
                         </v-list-tile-sub-title>
+                      </router-link>
+
                         &nbsp;&nbsp;&nbsp;
                         <v-list-tile-sub-title >
                           [{{ listItem.comment_count }}]
