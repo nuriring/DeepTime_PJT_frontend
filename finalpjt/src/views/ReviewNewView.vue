@@ -1,7 +1,12 @@
 <template>
-  <div>
-    <h1>New Review</h1>
-    <review-form :review="review" action="create"></review-form>
+  <div class="wrapper">
+    <div class="content">
+
+        <h1>New Review</h1>
+        <review-form :review="review" action="create"></review-form>
+
+    </div>
+
   </div>
 </template>
 
@@ -34,4 +39,23 @@
   }
 </script>
 
-<style></style>
+<style scoped>
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.review { 
+  
+  width: 80%;
+
+}
+.content {
+    width: 50%;
+    height: auto;
+    font-size: 2rem;
+    padding: 3rem;
+    border-radius: 1rem;
+}
+</style>
