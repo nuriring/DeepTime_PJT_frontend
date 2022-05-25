@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="signupbox">
     <v-container>
-      <h1>SIGNUP</h1>
+      <h1>SIGN IN</h1>
       <account-error-list v-if="authError"></account-error-list>
       <v-form
         @submit.prevent="signup(credentials)"
@@ -11,6 +11,7 @@
           v-model="credentials.username"
           label="ID"
           required
+          color = indigo darken-4
         ></v-text-field>
 
         <v-text-field
@@ -18,12 +19,14 @@
           type="password"
           label="PASWWORD"
           required
+          color = indigo darken-4
         ></v-text-field>
         <v-text-field
           v-model="credentials.password2"
           type="password"
           label="CONFIRM PASSWORD"
           required
+          color = indigo darken-4
         ></v-text-field>
 
         <v-select
@@ -33,9 +36,10 @@
           item-value="sub"
           label="FAVORITE GENRE"
           required
+          color = indigo darken-4
         ></v-select>
         <!-- <button class="mr-4 is-elevated has-bg theme--light v-size--default success">Signup</button> -->
-        <b-button type="submit" class="success">SIGNUP</b-button>
+        <b-button type="submit" class="headline" style="width:130px;">SIGN IN</b-button>
 
         
 
@@ -131,9 +135,24 @@
 
   }
   .signupbox {
-    background: lightgrey;
+    background: #D9D9D9;
     width: 550px;
     height: 550px;
-    border-radius: 5%;
+    border-radius: 20px;
+  }
+  .btn[data-v-6e39cf17]{
+    background-color:#1A237E ;
+  }
+
+ .btn{
+      text-decoration: none;
+      font-size: 2rem;
+      display : inline-block;
+      border-radius: 10px;
+      padding: 5px 3px 10px 4px;
+      transition: all 0.1s;
+  }
+  .btn:active{
+      transform : translateY(3px);
   }
 </style>

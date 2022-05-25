@@ -9,10 +9,12 @@
       <v-form
         @submit.prevent="login(credentials)"
       >
-        <v-text-field
+        <v-text-field 
           v-model="credentials.username"
           label="ID"
           required
+          color = indigo darken-4
+          
         ></v-text-field>
 
         <v-text-field
@@ -20,11 +22,12 @@
           type="password"
           label="PASSWORD"
           required
+          color = indigo darken-4
         ></v-text-field>
 
 
         <!-- <button class="mr-4 is-elevated has-bg theme--light v-size--default success">Signup</button> -->
-        <b-button type="submit" class="primary">LOGIN</b-button>
+        <v-btn type="submit" class="btn text-white headline">LOGIN</v-btn>
 
         
 
@@ -92,10 +95,26 @@
 
   }
   .loginbox {
-    background: lightgrey;
+    background: #D9D9D9;
     width: 550px;
-    height: 400px;
-    border-radius: 5%;
+    height: 350px;
+    border-radius: 20px;
+  }
+    .theme--light.v-btn.v-btn--has-bg{
+    background-color:#1A237E ;
+  }
+
+ .btn{
+      text-decoration: none;
+      font-size: 2rem;
+      display : inline-block;
+      border-radius: 10px;
+      padding: 5px 3px 10px 4px;
+      transition: all 0.1s;
+  }
+  .btn:active{
+      transform : translateY(3px);
   }
 
 </style>
+
