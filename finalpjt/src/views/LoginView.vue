@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="loginbox">
     <v-container>
-      <h1>로그인</h1>
+      <h1>LOGIN</h1>
 
       <account-error-list v-if="authError"></account-error-list>
     
@@ -11,20 +11,20 @@
       >
         <v-text-field
           v-model="credentials.username"
-          label="아이디"
+          label="ID"
           required
         ></v-text-field>
 
         <v-text-field
           v-model="credentials.password"
           type="password"
-          label="비밀번호"
+          label="PASSWORD"
           required
         ></v-text-field>
 
 
         <!-- <button class="mr-4 is-elevated has-bg theme--light v-size--default success">Signup</button> -->
-        <b-button type="submit" class="primary">로그인</b-button>
+        <b-button type="submit" class="primary">LOGIN</b-button>
 
         
 
