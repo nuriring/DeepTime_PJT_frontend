@@ -15,19 +15,24 @@
         <v-expansion-panel-content class="review-list d-flex align-items-center" >
             <div class="m-3">
               <button @click="[videoOn(),toggle()]" class="fs-5 fw-bold" ><v-icon color=white >mdi-youtube</v-icon>
-                Video Play</button>
+                Video Play Button</button>
               <div v-if="show">
               <youtube-video
               :video="video"
               ></youtube-video>
               </div>
+              
+                <div class="d-flex align-items-baseline">
+                  <v-icon color=white>mdi-comment-account</v-icon><h5 class="fw-bold">본자들's 코멘트</h5>
+                </div>
+
+              
                 <v-card
                 class="mx-auto"
-                max-width="300"
+                max-width="100%"
                 tile
               >
                 <v-list rounded>
-                  <v-subheader>REPORTS</v-subheader>
                   <v-list-item-group
                     v-model="selectedItem"
                     color="primary"
@@ -39,9 +44,12 @@
                       <!-- <v-list-item-icon>
                         <v-icon v-text="item.icon"></v-icon>
                       </v-list-item-icon> -->
+                       <router-link :to="{ name: 'movieReview', params: { moviePk: review.movie.id, reviewPk: review.id }}">
                       <v-list-item-content>
                         <v-list-item-title v-text="review.title"></v-list-item-title>
+                        <p>By {{ review.user.username }}</p>
                       </v-list-item-content>
+                           </router-link>
                     </v-list-item>
                   </v-list-item-group>
                 </v-list>
