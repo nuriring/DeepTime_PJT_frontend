@@ -1,8 +1,9 @@
 <template>
   <form @submit.prevent="onSubmit" >
-    <label for="comment">comment: </label>
+    <div class="d-flex justify-content-around align-items-baseline">
     <input type="text" id="comment" v-model="content" required>
-    <button>Comment</button>
+    <button class="commentbtn">댓글달기</button>
+    </div>
   </form>
 </template>
 
@@ -36,8 +37,26 @@ export default {
   padding: 1rem;
 }
 #comment {
-  
+  height: 53px;
   border: 1px solid lightgray;
   border-radius: 5px;
 }
+.commentbtn {
+    background-color: lightgrey;
+
+  border: none;
+
+  color: white;
+
+  padding: 15px 30px;
+
+  text-align: center;
+  color: black;
+
+  margin: 4px 2px;
+
+  cursor: pointer;
+  border-radius: 2px;
+}
+
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center my-5">
       <b-card class="article-card">
         <b-card-text>
           <h3 class="fw-bold float-left">{{article.title}}</h3>
@@ -24,9 +24,12 @@
         </div>
         
         <hr>
-        <p class="subheading font-weight-bold red--text text--lighten-1">
-          좋아요
-        </p>
+        <button @click="likeArticle(articlePk)">
+          <p class="subheading font-weight-bold red--text text--lighten-1 m-0">
+            좋아요
+          </p>
+
+        </button>
         <hr>
 
         <comment-list :comments="article.comments"></comment-list> 
@@ -102,7 +105,7 @@
     display: flex;
     flex-direction: column;
     width: 50%;
-    height: 700px;
+    min-height: 100vh;
 
     background: #003566;
     border-radius: 36px;
