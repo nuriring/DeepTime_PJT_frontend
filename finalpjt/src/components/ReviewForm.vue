@@ -1,14 +1,20 @@
 <template>
-  <form @submit.prevent="onSubmit" class="review-list-form">
-    <label for="review-title">title: </label>
-    <input type="text" id="review-title" v-model="title" required>
-    <label for="review-content">content: </label>
-    <input type="text" id="review-content" v-model="content" required>
-    <button @click="success">Create</button>
-    <router-link  :to="{ name: 'movieDetail', params: {moviePk: moviePk} }">
-      back
-    </router-link>
-  </form>
+<div>
+    <v-conainer>
+
+      <form @submit.prevent="onSubmit" class="review-list-form">
+        <label for="review-title">title: </label>
+        <input type="text" id="review-title" v-model="title" required>
+        <label for="review-content">content: </label>
+        <input type="text" id="review-content" v-model="content" required>
+        <button @click="success">Create</button>
+        <router-link  :to="{ name: 'movieDetail', params: {moviePk: moviePk} }">
+          back
+        </router-link>
+      </form>
+  </v-conainer>
+</div>
+    
 </template>
 
 <script>
