@@ -29,7 +29,12 @@
         <button>{{ action }}</button>
       </div>
       <div v-if="action==='update'">
-        <router-link  :to="{ name: 'article', params: {articlePk: articlePk}}" class="text-decoration-none ms-3">
+        <router-link  :to="{ name: 'article', params: {articlePk: articlePk} }" class="text-decoration-none ms-3">
+          back
+        </router-link>
+      </div>
+      <div v-if="action==='create'">
+        <router-link  :to="{ name: 'articles' }" class="text-decoration-none ms-3">
           back
         </router-link>
       </div>

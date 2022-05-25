@@ -8,7 +8,7 @@
       <b-button id="id1" v-b-toggle.collapse-1 class="m-1">{{ profile.username }} 님이 쓴 게시글</b-button>
       <b-collapse id="collapse-1">
         <b-card v-if="!profile.articles.length">작성한 게시글이 없어요.</b-card>
-        <b-card class="text-decoration-none" v-for="article in profile.articles" :key="article.pk"><router-link class="text-decoration-none"  :to="{ name: 'article', params: { articlePk: article.id } }">
+        <b-card id="id3" class="text-decoration-none" v-for="article in profile.articles" :key="article.pk"><router-link class="text-decoration-none"  :to="{ name: 'article', params: { articlePk: article.id } }">
               <v-icon>mdi-account-circle</v-icon><p>{{ profile.username }}</p>
               <p>{{ article.title }}</p>
             </router-link></b-card>
@@ -96,7 +96,7 @@ export default {
   padding: 0.5rem 1rem;
   background: lightblue;
 }
-.card-body:hover {
+#id3:hover {
   transform: scale(1.05);
   transition: 100ms ease-in;
 }
