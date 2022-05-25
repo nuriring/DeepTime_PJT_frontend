@@ -1,17 +1,21 @@
 <template>
   <div>
+    <v-container>
     <select-ott>
     </select-ott>
-    <div v-for="(disneyPlusMovie, idx) in disneyPlusMovies" :key="idx" class="card" style="width: 18rem;">
-      <img :src="`https://image.tmdb.org/t/p/w300${disneyPlusMovie.poster_path}`" class="card-img-top" alt="...">
+    <div v-for="(disneyPlusMovie, idx) in disneyPlusMovies" :key="idx" class="card mx-2 my-2" style="width: 18rem;">
+      <router-link :to="{ name: 'movieDetail', params: {moviePk: disneyPlusMovie.id} }">
+      <img id="id1" :src="`https://image.tmdb.org/t/p/w300${disneyPlusMovie.poster_path}`" class="card-img-top" alt="...">
+      </router-link>
       <div class="card-body">
         <p class="card-text">{{ disneyPlusMovie.title }}</p>
       </div>
     </div>
+    </v-container>
     <loading-spinner></loading-spinner>
   </div>
-  
 </template>
+
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import SelectOtt from '@/components/SelectOtt.vue'
@@ -74,5 +78,12 @@ export default {
 </script>
 
 <style>
-
+.card {
+  float: left;
+  width: 600px;
+  height: 460px;
+}
+#id1 {
+  height : 400px;
+}
 </style>

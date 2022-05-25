@@ -1,8 +1,10 @@
 <template>
   <div>
+    <div id="id1">
     <router-link :to="{ name: 'netflix' }">
       <img src="https://image.tmdb.org/t/p/w300/9A1JSVmSxsyaBK4SUFsYVqbAYfW.jpg" alt="">
     </router-link>
+    </div>
     <router-link :to="{ name: 'disneyPlus' }">
       <img src="https://image.tmdb.org/t/p/w300/7rwgEs15tFwyR9NPQ5vpzxTj19Q.jpg" alt="">
     </router-link>

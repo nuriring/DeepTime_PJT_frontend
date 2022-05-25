@@ -31,6 +31,7 @@ export default {
    wavveMovies: state => state.wavveMovies,
    appleMovies: state => state.appleMovies,
 
+
   },
   mutations: {
     SET_MOVIES: (state, movies) => state.movies = movies,
@@ -178,24 +179,26 @@ export default {
           }
         })
       },
-    createReview({ commit, getters }, { moviePk, title, content}) {
-      const review = { title, content }
-      axios({
-        url: drf.movies.reviews(moviePk),
-        method: 'post',
-        data: review,
-        headers: getters.authHeader,
-      })
-        .then(res => {
-          commit('SET_MOVIE_REVIEW', res.data)
-          // router.push({
-          //   name: 'movie',
-          //   params: { moviePk: getters.movie.id }
-          // })
+      createReview({ commit, getters }, { moviePk, title, content}) {
+        const review = { title, content, moviePk }
+        console.log(review)
+        axios({
+          url: drf.movies.reviews(moviePk),
+          method: 'post',
+          data: review,
+          headers: getters.authHeader,
         })
-        .catch(err => console.error(err.response))
-
-    },
+          .then(res => {
+            commit('SET_MOVIE_REVIEW', res.data)
+            router.push({
+              name: 'movie',
+              params: { moviePk: moviePk }
+            })
+          })
+          .catch(err => console.error(err.response))
+  
+      },
+      
     
     updateReview({ commit, getters }, { moviePk, reviewPk, title, content }) {
 
