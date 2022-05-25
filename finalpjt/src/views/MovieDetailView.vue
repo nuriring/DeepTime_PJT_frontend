@@ -120,8 +120,9 @@ import axios from 'axios'
 }
 .moviehead {
   position: absolute;
-  top: -200px;
-  left: 580px;
+  top: -190px;
+  left: 330px;
+  width:500px;
 }
 .heartbox {
   /* Rectangle 24 */

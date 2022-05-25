@@ -43,7 +43,7 @@ export default {
 
 <style>
  .video-detail {
-    width: 80%;
+    width: 100%;
     padding-right: 1rem;
   }
 

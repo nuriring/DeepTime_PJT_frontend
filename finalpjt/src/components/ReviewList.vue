@@ -1,33 +1,31 @@
 <template>
 <div>
-    <!-- <review-detail-view>
 
-    </review-detail-view> -->
-  <!-- Using modifiers -->
-
-  <!-- Element to collapse -->
-
-      <v-expansion-panels>
-      <v-expansion-panel class=" togglebar text-start text-white " >
-        <v-expansion-panel-header >
-          바쁜 당신을 위한 결말요약 컨텐츠를 만나보세요!
-        </v-expansion-panel-header >
-        <v-expansion-panel-content class="review-list d-flex align-items-center" >
-            <div class="m-3">
-              <button @click="[videoOn(),toggle()]" class="fs-5 fw-bold" ><v-icon color=white >mdi-youtube</v-icon>
-                Video Play Button</button>
-              <div v-if="show">
-              <youtube-video
-              :video="video"
-              ></youtube-video>
-              </div>
-              
-                <div class="d-flex align-items-baseline">
-                  <v-icon color=white>mdi-comment-account</v-icon><h5 class="fw-bold">본자들's 코멘트</h5>
+      <div class="mb-5">
+    <div class="accordion" role="tablist">
+    <div no-body class="mb-1">
+      <div header-tag="header" class="p-1" role="tab">
+        <b-button block v-b-toggle.accordion-1 class="togglebar text-start">바쁜 당신을 위한 결말요약 컨텐츠를 만나보세요! <v-icon>mdi-chevron-down</v-icon></b-button>
+      </div>
+      <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
+        <b-card-body>
+          <b-card class="review-list d-flex align-items-center text-white" >
+              <div>
+                <button @click="[videoOn(),toggle()]" class="fs-5 fw-bold mb-5 text-white" ><v-icon color=white >mdi-youtube</v-icon>
+                  Video Play Button</button>
+                <div v-if="show">
+                <youtube-video
+                :video="video"
+                ></youtube-video>
                 </div>
+    
+              </div>
+              <div class="d-flex align-items-baseline mt-5">
+                <v-icon color=white>mdi-comment-account</v-icon><h5 class="fw-bold">본자들's 코멘트</h5>
+              </div>
 
               
-                <v-card
+                <v-card v-if="reviews.length"
                 class="mx-auto"
                 max-width="100%"
                 tile
@@ -54,25 +52,26 @@
                   </v-list-item-group>
                 </v-list>
               </v-card>
-              <!-- <div v-for="review in reviews" :key="review.pk">
-                작성자: {{ review.user.username }}<br>
-                <router-link :to="{ name: 'movieReview', params: { moviePk: review.movie.id, reviewPk: review.id }}">
-                  제목: {{ review.title }}<br>
-                </router-link>
-                내용: {{ review.content }}
-                {{ review.pk }}
+              <div v-else>' 지금은 리뷰가 없어요 '</div>
 
-              </div> -->
-                <router-link :to="{ name: 'reviewCreate', params: { moviePk } }">New</router-link>
-            </div>
-        </v-expansion-panel-content>
-      </v-expansion-panel>
-    </v-expansion-panels>
+              <div class="d-flex justify-content-center">
+
+                <router-link class="text-decoration-none" :to="{ name: 'reviewCreate', params: { moviePk } }">
+                  <v-btn class="create-button">
+                    
+                  코멘트 작성하기
+                  </v-btn>
+                  </router-link>
+              </div>
+          </b-card>
+        </b-card-body>
+      </b-collapse>
+    </div>
+  </div>
+</div>
 
 
- 
-
- 
+  
   </div>
 </template>
 
@@ -103,7 +102,7 @@ export default {
   methods:{
     videoOn() {
       const keyword = this.movie.title
-       axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=${keyword} 결말포함&key=AIzaSyDrXj_IsXttED3r_OhxpC6BgLfLw_9yLgc`)
+       axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=${keyword} 결말포함&key=AIzaSyBDyQg-WIAdEM2CN0xBLWoMhSPzl_gtEOY`)
         .then(res => {
           console.log(res.data)
 
@@ -157,5 +156,8 @@ border-radius: 27px;
   background: linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), #6C7B8B;
   border-radius: 21px;
 
+}
+.create-button {
+  width: 600px;
 }
 </style>
