@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="total">
     <select-ott>
     </select-ott>
-    <v-container>
+    <v-container style="margin-left:235px;">
     <div v-for="(netflixMovie, idx) in netflixMovies" :key="idx" class="card mx-2 my-2" style="width: 18rem;">
       <router-link :to="{ name: 'movieDetail', params: {moviePk: netflixMovie.id} }">
       <img id="id1" :src="`https://image.tmdb.org/t/p/w300${netflixMovie.poster_path}`" class="card-img-top" alt="...">
@@ -91,4 +91,12 @@ export default {
 .select-ott::v-deep .netflix {
   width: 500px; 
 }
+  .total{
+  background: #001D3D;
+  min-height: 100vh;
+  color: black;
+  text-align: center;
+}
+
+
 </style>

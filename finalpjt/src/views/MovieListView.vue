@@ -1,10 +1,9 @@
 <template>
-  <div>
+  <div class="total">
     <v-container class="d-flex justify-content-center">
-          <v-icon class>mdi-magnify</v-icon>
+          <v-icon class color=white large >mdi-magnify</v-icon>
           <search-bar class="searchBar " @input-search="onInputSearch" 
-          placeholder="원하는 영화를 검색해보세요" 
-          
+          placeholder="영화 제목을 검색해보세요(띄어쓰기 포함)" 
           > </search-bar>
     </v-container>
        <v-container v-if="searchMovies.length > 2">
@@ -34,15 +33,15 @@
 
 
 
-  
+
     <v-container class="d-flex flex-column align-items-center">
-      <h1>MovieList</h1>
+
       <br>
-      <h3 class="font-weight-medium font-italic">Deeptime's Pick!</h3>
-      <p>인기 영화 TOP 100</p>
+      <h1 class="font-weight-medium font-italic">Deeptime's Pick!</h1>
+      <p class="fs-5">인기순 영화목록</p>
 
     </v-container>
-
+     <div style="margin-left:240px;">가로로 스와이프하여 더 많은 영화를 즐겨보세요!</div>
     <div class="container">
 
           <vue-glide v-if="movies.length"
@@ -73,12 +72,12 @@
             <v-icon
             color = red
             large
-            > mdi-cards-heart </v-icon>
+            > mdi-gift-open </v-icon>
             DoubleClick!</button>
 
         </v-container>
-        <h3 v-if="recommends.length" class="font-weight-medium font-italic text-center my-5" >{{ currentUser.username }}'s Pick!</h3>
-        <P v-if="recommends.length" class="font-weight-medium  text-center my-5" >{{ currentUser.username }}님이 선호하는 장르 기반 추천 영화</P>
+        <h1 v-if="recommends.length" class="font-weight-medium font-italic text-center my-5" >{{ currentUser.username }}'s Pick!</h1>
+        <p v-if="recommends.length" class="font-weight-medium  text-center my-5 fs-5" >{{ currentUser.username }}님이 선호하는 장르 기반 추천 영화</p>
       <vue-glide v-if="recommends.length"
         class="glide__track my-5"
         data-glide-el="track"
@@ -204,6 +203,11 @@
   background: #D9D9D9;
   border-radius: 16px;
 
+}
+.total{
+  background: #001D3D;
+  min-height: 100vh;
+  color: white;
 }
 
 

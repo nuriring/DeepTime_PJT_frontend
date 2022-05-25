@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="total">
     <v-container d-flex flex-column style="width:50%" >
         <b-img class="still fluid rounded" :src="`https://image.tmdb.org/t/p/w300${movie.backdrop_path}`"></b-img> 
         <b-img class="poster fluid rounded" :src="`https://image.tmdb.org/t/p/w300${movie.poster_path}`"></b-img> 
@@ -132,5 +132,12 @@ height: 50px;
 background: linear-gradient(0deg, #003566, #003566),linear-gradient(0deg, #003566, #003566), #003566;
 border-radius: 27px;
 
+}
+.total{
+  background: #001D3D;
+  min-height: 100vh;
+  color: white;
+  background-attachment:scroll;
+  
 }
 </style>

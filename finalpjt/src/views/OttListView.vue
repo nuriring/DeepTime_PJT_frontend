@@ -1,5 +1,7 @@
 <template>
-  <div>
+
+  <div class="total">
+    
     <select-ott></select-ott>
     
   </div>
@@ -30,5 +32,10 @@
 </script>
 
 <style>
+.total{
+  background: #001D3D;
+  min-height: 100vh;
+  color: white;
+}
 
 </style>

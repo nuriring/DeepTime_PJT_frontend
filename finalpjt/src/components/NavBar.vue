@@ -59,7 +59,7 @@
 .logo2 {
   /* display: absolute; */
   height: auto;
-  left: -850px;
+  left: -1070px;
 
 }
 .nav-item{
@@ -67,7 +67,9 @@
 
 }
 .nav-link{
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+
   
 }
+
 </style>
