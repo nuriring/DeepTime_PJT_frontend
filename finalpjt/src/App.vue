@@ -1,8 +1,7 @@
 <template>
   <v-app>
-    <v-app-bar v-if="isLoggedIn" 
+    <v-app-bar v-if="isLoggedIn" class="vbar" 
       app
-      color="secondary"
       dark
     >
       <div class="d-flex align-center">
@@ -48,17 +47,11 @@
 </template>
 
 <script>
-<<<<<<< HEAD
+
 import { mapActions,mapGetters } from 'vuex'
- import NavBar from '@/components/NavBar.vue'
-=======
-import { mapActions } from 'vuex'
-
 import NavBar from '@/components/NavBar.vue'
-// import axios from 'axios';
 
 
->>>>>>> d3063ca3900d32790f13b40ee1f5fa5ce0da759d
 export default {
   name: 'App',
   components: { NavBar },
@@ -81,10 +74,10 @@ export default {
 </script>
 <<<<<<< HEAD
 <style scoped>
-  .nav {
-    display: flex;
+  .vbar {
+    background : linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), #6C7B8B;
 
   }
+
 </style>
-=======
->>>>>>> d3063ca3900d32790f13b40ee1f5fa5ce0da759d
+

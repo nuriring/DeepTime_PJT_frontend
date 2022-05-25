@@ -2,10 +2,9 @@
   <div class="wrapper">
 
       <v-container class="main content">
-        
-        <h1 class="text-center">DEEP TIME</h1>
   
-          <div class="d-flex justify-content-center">
+          <div class="d-flex flex-column align-items-center">
+          <img src = "@/assets/logo.jpg" class="logo">
             <div class="me-3">
               <router-link :to="{ name: 'login'}">
                     <v-btn>
@@ -39,13 +38,16 @@ export default {
     min-height: 100vh;
     background: #001D3D;
   }
-
+  .logo {
+    width: 500px;
+    height: auto;
+  }
   .content {
     font-family: system-ui, serif;
     font-size: 2rem;
     padding: 3rem;
     border-radius: 1rem;
-    background: #ff6e6c;
+    background: #001D3D;
   }
 
 </style>

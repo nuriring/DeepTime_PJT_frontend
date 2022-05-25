@@ -2,12 +2,13 @@
   <div>
 
      {{ review }} 
+     <v-btn @click="deleteReview(payload)">삭제</v-btn>
 
   </div>
 </template>
 
 <script>
-// import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import axios from "axios"
 export default {
   name: "ReviewDetailView",
@@ -19,14 +20,18 @@ export default {
     return {
       moviePk: this.$route.params.moviePk,
       reviewPk: this.$route.params.reviewPk,
-      review: {}
+      review: {},
+      payload: {
+        moviePk: this.$route.params.moviePk,
+        reviewPk: this.$route.params.reviewPk,
+      }
+      }
 
-    }
-  },
+    },
 //   computed: {
 //   ...mapGetters(['movie']),},
 methods: {
-//   ...mapActions(['fetchReview']),
+  ...mapActions(['fetchReview','deleteReview']),
   getToken: function () {
     const token = localStorage.getItem('token')
     const config = {
@@ -49,6 +54,9 @@ methods: {
       })   
   }
 
+},
+computed: {
+  ...mapGetters(['currentUser']),
 },
 created() {
   // this.fetchReview(this.moviePk, this.reviewPk)

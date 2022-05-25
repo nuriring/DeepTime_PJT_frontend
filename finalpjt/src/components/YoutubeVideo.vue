@@ -1,14 +1,21 @@
 <template>
+<div class="d-flex justify-content-center mt-3">
   <div class="video-detail" v-if="video">
     <div class="video-container">
       <iframe :src="videoURI" frameborder="0"></iframe>
     </div>
 
     <div class="detail">
-      <h2>{{ video.snippet.title | unEscapeString }}</h2>
-      <p>{{ video.snippet.description | unEscapeString }}</p>
+      <h5>{{ video.snippet.title | unEscapeString }}</h5>
+      <!-- <p>{{ video.snippet.description | unEscapeString }}</p> -->
+      By " {{ video.snippet.channelTitle }} "
+      <!-- <p>{{ video.statistics.viewCount }}</p> -->
+      <p>
+      </p>
     </div>
   </div>
+
+</div>
 </template>
 
 <script>
@@ -36,7 +43,7 @@ export default {
 
 <style>
  .video-detail {
-    width: 70%;
+    width: 80%;
     padding-right: 1rem;
   }
 
