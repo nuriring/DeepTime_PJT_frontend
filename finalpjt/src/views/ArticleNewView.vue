@@ -1,6 +1,6 @@
 <template>
   <div>
-        <h1>새로운 게시글 작성</h1>
+    <h1>새로운 게시글 작성</h1>
     <v-container class="d-flex justify-content-center wrapper">
       <b-card class="articleform content">
         <article-form :article="article" action="create"></article-form>

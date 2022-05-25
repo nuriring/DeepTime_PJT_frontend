@@ -1,8 +1,36 @@
 <template>
-  <div>
+  <div class="wrapper">
+    <div class="content">
+      <div class="d-flex justify-content-center display-1 fw-bold">
+        {{ review.movie.title }}
 
-     {{ review }} 
-     <v-btn @click="deleteReview(payload)">삭제</v-btn>
+      </div>
+      <div class="d-flex justify-content-center my-5">
+    
+        <b-card class="review-card">
+          <b-card-text>
+            <h3 class="fw-bold float-left">{{review.title}}</h3>
+
+            <h5 class="float-right"><v-icon>mdi-account-circle</v-icon>{{review.user.username }}</h5>
+
+          </b-card-text>
+          <br>
+          <hr>
+          <b-card-text class="text fs-5">
+            {{ review.content }}
+          </b-card-text>
+            <div class="d-flex justify-content-end align-items-baseline">
+              <v-btn @click="deleteReview(payload)">delete</v-btn>
+            
+              <router-link :to="{ name: 'movieDetail', params: { moviePk } }" class="text-decoration-none ms-3">
+                <v-btn>back</v-btn>
+              </router-link>
+            </div>
+        </b-card>
+      </div>
+
+    </div>
+
 
   </div>
 </template>
@@ -68,5 +96,28 @@ created() {
 </script>
 
 <style>
+ .review-card {
 
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    min-height: 50%;
+
+    border-radius: 10px;
+  }
+      .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+  }
+
+  
+  .content {
+    font-size: 2rem; 
+    padding: 3rem;
+    border-radius: 1rem;
+    
+  }
 </style>
