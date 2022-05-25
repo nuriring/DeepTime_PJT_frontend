@@ -29,7 +29,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 
     .wrapper {
     display: flex;
@@ -43,8 +43,7 @@ export default {
     height: auto;
   }
   .content {
-    font-family: system-ui, serif;
-    font-size: 2rem;
+    font-size: 2rem; 
     padding: 3rem;
     border-radius: 1rem;
     background: #001D3D;
