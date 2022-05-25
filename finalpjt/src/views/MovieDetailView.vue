@@ -15,7 +15,7 @@
             <button
             @click="likeMovie(moviePk)"
             ><v-icon class="ms-3" color=red>mdi-heart</v-icon></button>
-            <p class="text-center">찜하기</p>
+            <p class="text-center text-white">찜하기</p>
           </div>
         </div>
       </div>

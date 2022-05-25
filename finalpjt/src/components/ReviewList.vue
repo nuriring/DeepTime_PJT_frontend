@@ -44,17 +44,17 @@
                       <!-- <v-list-item-icon>
                         <v-icon v-text="item.icon"></v-icon>
                       </v-list-item-icon> -->
-                       <router-link :to="{ name: 'movieReview', params: { moviePk: review.movie.id, reviewPk: review.id }}">
+                      <router-link class="text-decoration-none" :to="{ name: 'movieReview', params: { moviePk: review.movie.id, reviewPk: review.id }}">
                       <v-list-item-content>
                         <v-list-item-title v-text="review.title"></v-list-item-title>
                         <p>By {{ review.user.username }}</p>
                       </v-list-item-content>
-                           </router-link>
+                      </router-link>
                     </v-list-item>
                   </v-list-item-group>
                 </v-list>
               </v-card>
-              <div v-for="review in reviews" :key="review.pk">
+              <!-- <div v-for="review in reviews" :key="review.pk">
                 작성자: {{ review.user.username }}<br>
                 <router-link :to="{ name: 'movieReview', params: { moviePk: review.movie.id, reviewPk: review.id }}">
                   제목: {{ review.title }}<br>
@@ -62,7 +62,7 @@
                 내용: {{ review.content }}
                 {{ review.pk }}
 
-              </div>
+              </div> -->
                 <router-link :to="{ name: 'reviewCreate', params: { moviePk } }">New</router-link>
             </div>
         </v-expansion-panel-content>
