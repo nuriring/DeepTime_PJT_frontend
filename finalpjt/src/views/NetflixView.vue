@@ -1,7 +1,11 @@
 <template>
   <div class="total">
+    <div class="wrap">
+      <v-icon class="netflix" large color=red>mdi-map-marker-radius</v-icon>
+    </div>
     <select-ott>
     </select-ott>
+    <h1 class="text-white mt-5">현재 위치는 Netflix 입니다</h1>
     <v-container style="margin-left:235px;">
     <div v-for="(netflixMovie, idx) in netflixMovies" :key="idx" class="card mx-2 my-2" style="width: 18rem;">
       <router-link :to="{ name: 'movieDetail', params: {moviePk: netflixMovie.id} }">
@@ -96,6 +100,10 @@ export default {
   min-height: 100vh;
   color: black;
   text-align: center;
+}
+.netflix{
+  display: absolute;
+  right: 280px;
 }
 
 

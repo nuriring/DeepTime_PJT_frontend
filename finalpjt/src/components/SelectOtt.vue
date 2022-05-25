@@ -1,5 +1,4 @@
 <template>
-
   <v-container>
     <div class="d-flex justify-content-center">
 
@@ -25,7 +24,6 @@
     </div>
 
   </v-container>
-
 
   
 </template>
@@ -71,11 +69,6 @@ export default {
 .apple:hover {
   transform: scale(1.1);
   transition: 100ms ease-in;
-}
-.total{
-  background: #001D3D;
-  min-height: 100vh;
-  color: white;
 }
 
 

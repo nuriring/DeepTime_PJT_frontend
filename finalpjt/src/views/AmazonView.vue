@@ -1,8 +1,12 @@
 <template>
-  <div>
-    <v-container>
+  <div class="total">
+    <div class="wrap">
+      <v-icon class="Amazone" large color=red>mdi-map-marker-radius</v-icon>
+    </div>
     <select-ott>
     </select-ott>
+    <h1 class="text-white mt-5 text-center">현재 위치는 Amazone Prime Video 입니다</h1>
+      <v-container style="margin-left:235px;">
     <div v-for="(amazonMovie, idx) in amazonMovies" :key="idx" class="card mx-2 my-2" style="width: 18rem;">
       <router-link :to="{ name: 'movieDetail', params: {moviePk: amazonMovie.id} }">
       <img id="id1" :src="`https://image.tmdb.org/t/p/w300${amazonMovie.poster_path}`" class="card-img-top" alt="...">
@@ -79,11 +83,17 @@ export default {
 
 <style scoped>
 .card {
+  text-align: center;
+  color: black;
   float: left;
   width: 600px;
   height: 460px;
 }
 #id1 {
   height : 400px;
+}
+.Amazone {
+  position:apsolute;
+  left:790px;
 }
 </style>

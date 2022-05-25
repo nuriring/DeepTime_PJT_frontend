@@ -1,8 +1,16 @@
 <template>
-  <div>
-    <v-container>
-    <select-ott>
-    </select-ott>
+  <div class="total">
+    <div class="wrap">
+      <v-icon class="wavve" large color=red>mdi-map-marker-radius</v-icon>
+    </div>
+    <div>
+      <select-ott class="p-5">
+      </select-ott>
+
+    </div>
+    <h1 class="text-white  text-center">현재 위치는 Wavve 입니다</h1>
+    
+    <v-container  style="margin-left:235px;">
     <div v-for="(wavveMovie, idx) in wavveMovies" :key="idx" class="card mx-2 my-2" style="width: 18rem;">
       <router-link :to="{ name: 'movieDetail', params: {moviePk: wavveMovie.id} }">
       <img id="id1" :src="`https://image.tmdb.org/t/p/w300${wavveMovie.poster_path}`" class="card-img-top" alt="...">
@@ -82,8 +90,15 @@ export default {
   float: left;
   width: 600px;
   height: 460px;
+  color: black;
+  text-align: center;
 }
 #id1 {
   height : 400px;
 }
+.wavve{
+  position: absolute;
+  left: 1010px;
+}
+
 </style>
