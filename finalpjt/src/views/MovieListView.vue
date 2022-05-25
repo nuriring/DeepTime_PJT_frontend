@@ -191,7 +191,7 @@
   
 </script>
 
-<style>
+<style scoped>
 /* Rectangle 10 */
 .searchBar{
 

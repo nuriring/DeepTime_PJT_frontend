@@ -48,7 +48,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .review-list-form {
     border: 1px solid black;
     margin: 1rem;

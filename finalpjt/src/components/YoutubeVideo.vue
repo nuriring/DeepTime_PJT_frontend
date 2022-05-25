@@ -41,7 +41,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
  .video-detail {
     width: 100%;
     padding-right: 1rem;

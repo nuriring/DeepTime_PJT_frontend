@@ -3,9 +3,9 @@
     
     <v-app-bar
       class="bar"
-      color="#6A76AB"
       dark
       prominent
+      
   
       src="@/assets/see.png"
  
@@ -46,8 +46,8 @@
       </template>
       
  
-    </v-app-bar>
-    <div class="total">
+    </v-app-bar >
+    <div class="total bar">
         <div class="listtitle">
           <v-list-tile>
               <v-list-tile-content>
@@ -74,7 +74,7 @@
         <hr class="headline">
         
 
-          <v-container >
+          <v-container class="bar" >
             <div class="listgroup">
 
                 <v-app id="list-sample">
@@ -203,12 +203,20 @@
 .total{
   margin-left: 200px;
   margin-top: 50px;
+  background: #001D3D !important;
 }
 .headline{
   margin-left: 325px;
   width: 670px;
   height: 5px;
 }
-
+.v-application--wrap {
+  background: white !important;
+  min-height: 100vh;
+  color: white;
+}
+.bar  {
+ background-color: #001D3D !important;
+}
 
 </style>

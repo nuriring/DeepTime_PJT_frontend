@@ -30,7 +30,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .comment-list-form {
   border: 1px solid black;
   margin: 1rem;

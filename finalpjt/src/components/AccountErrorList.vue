@@ -23,7 +23,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .account-error-list {
     color: red;
   }

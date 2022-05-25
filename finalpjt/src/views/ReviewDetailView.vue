@@ -95,7 +95,7 @@ created() {
 
 </script>
 
-<style>
+<style scoped>
  .review-card {
 
     display: flex;

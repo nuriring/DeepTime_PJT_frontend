@@ -51,7 +51,7 @@
   }
 </script>
 
-<style>
+<style scoped>
 .nav {
   display: flex;
   

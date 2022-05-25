@@ -84,7 +84,7 @@ import { mapActions } from 'vuex'
   }
 </script>
 
-<style>
+<style scoped>
 #article-title{
   /* Rectangle 38 */
 

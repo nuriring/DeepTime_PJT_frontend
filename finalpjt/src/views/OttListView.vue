@@ -38,13 +38,13 @@
   }
 </script>
 
-<style>
+<style scoped>
 .total{
   background: #001D3D;
   min-height: 100vh;
   color: white;
 }
-@charset "utf-8";
+
 /* CSS Document */
 
 /* Simple reset*/
