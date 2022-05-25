@@ -1,11 +1,12 @@
 <template>
   <div>
-    <h1>Edit Article</h1>
-    <article-form v-if="isArticle" :article="article" action="update">
-
-    </article-form>
+    <h1>게시글 수정</h1>
+    <v-container class="d-flex justify-content-center wrapper">
+    <b-card class="articleform content">
+        <article-form v-if="isArticle" :article="article" action="update"></article-form>
+      </b-card>
+    </v-container>
   </div>
-
 </template>
 
 <script>
@@ -26,4 +27,25 @@ import { mapGetters, mapActions } from 'vuex'
   }
 </script>
 
-<style></style>
+<style scoped>
+  .articleform{
+    background-color: bisque;
+    width: 50%;
+    height: 700px;
+      }
+      .wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+
+    }
+
+    
+    .content {
+      font-size: 2rem; 
+      padding: 3rem;
+      border-radius: 1rem;
+      
+    }
+</style>

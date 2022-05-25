@@ -1,27 +1,39 @@
 <template>
   <form @submit.prevent="onSubmit">
     <div>
-      <label for="title">title: </label>
-      <input v-model="newArticle.title" type="text" id="title" />
+      <div v-if="action==='create'">
+        <v-select
+          v-model="newArticle.category"
+          :items="categoryList"
+          item-text="cont"
+          label="카테고리"
+          required
+        >
+        </v-select>
+    
+
+
+      </div>
+      <label for="article-title">title</label>
+      <br>
+      <input v-model="newArticle.title" type="text" id="article-title" />
     </div>
     <div>
-      <label for="content">contnet: </label>
-      <textarea v-model="newArticle.content" type="text" id="content"></textarea>
-    </div>
-    <div v-if="action==='create'">
-  
-      <select v-model="newArticle.category">
-        <option disabled value="">Please select one</option>
-        <option>결말포함</option>
-        <option>세계관</option>
-        <option>이스터에그</option>
-      </select>
-
-
+      <label for="article-content">content</label>
+      <br>
+      <textarea v-model="newArticle.content" type="text" id="article-content"></textarea>
     </div>
     
-    <div>
-      <button>{{ action }}</button>
+    <div class="d-flex justify-content-end">
+      <div>
+        <button>{{ action }}</button>
+      </div>
+      <div v-if="action==='update'">
+        <router-link  :to="{ name: 'article', params: {articlePk: articlePk}}" class="text-decoration-none ms-3">
+          back
+        </router-link>
+      </div>
+
     </div>
   </form>
 </template>
@@ -41,7 +53,13 @@ import { mapActions } from 'vuex'
           title: this.article.title,
           content: this.article.content,
           category: this.article.category
-        }
+        },
+        categoryList : [
+          { cont: "결말포함" },
+          { cont: "세계관" },
+          { cont: "이스터에그" }
+        ],
+        articlePk: this.$route.params.articlePk,
       }
     },
 
@@ -66,4 +84,28 @@ import { mapActions } from 'vuex'
   }
 </script>
 
-<style></style>
+<style>
+#article-title{
+  /* Rectangle 38 */
+
+  width: 100%;
+  height: 94px;
+
+
+  background: linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), #6C7B8B;
+  border-radius: 10px;
+
+}
+#article-content{
+  /* Rectangle 36 */
+
+
+width: 100%;
+height: 300px;
+
+
+background: linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), #6C7B8B;
+border-radius: 10px;
+
+}
+</style>

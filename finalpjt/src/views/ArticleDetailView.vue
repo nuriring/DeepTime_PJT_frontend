@@ -33,33 +33,18 @@
         <hr>
 
         <comment-list :comments="article.comments"></comment-list> 
+          <div class="d-flex justify-content-center mt-5" v-if="isAuthor">
+          <router-link :to="{ name: 'articleEdit', params: { articlePk } }" class="text-decoration-none">
+            <v-btn>Edit</v-btn>
+          </router-link>
+          
+          <v-btn @click="deleteArticle(articlePk)" class="ms-3">Delete</v-btn>
+        </div>
       </b-card>
 
 
-    <!-- <h1>{{ article.title }}</h1>
 
-    <p>
-      {{ article.content }}
-    </p>
-
-    <div v-if="isAuthor">
-      <router-link :to="{ name: 'articleEdit', params: { articlePk } }">
-        <button>Edit</button>
-      </router-link>
-      |
-      <button @click="deleteArticle(articlePk)">Delete</button>
-    </div>
-
-    <div>
-      Likeit:
-      <button
-        @click="likeArticle(articlePk)"
-      >{{ likeCount }}</button>
-    </div>
-
-    <hr />
-
-    <comment-list :comments="article.comments"></comment-list> -->
+  
     
 
   </div>
@@ -99,7 +84,7 @@
 </script>
 
   
-<style>
+<style scoped>
   .article-card {
 
     display: flex;
@@ -107,8 +92,7 @@
     width: 50%;
     min-height: 100vh;
 
-    background: #003566;
-    border-radius: 36px;
+    border-radius: 10px;
   }
 
   .text{

@@ -1,11 +1,14 @@
 <template>
-  <div class="wrapper">
-    <div class="content">
+  <div >
+    <h1>새로운 코멘트 작성</h1>
+    <v-container class="wrapper">
 
-        <h1>New Review</h1>
+    <b-card class="content reviewform">
+
         <review-form :review="review" action="create"></review-form>
 
-    </div>
+    </b-card>
+    </v-container>
 
   </div>
 </template>
@@ -40,22 +43,30 @@
 </script>
 
 <style scoped>
-.wrapper {
+    .wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-}
+
+  }
+
+  
+  .content {
+    font-size: 2rem; 
+    padding: 3rem;
+    border-radius: 1rem;
+    
+  }
 .review { 
   
   width: 80%;
 
+
 }
-.content {
-    width: 50%;
-    height: auto;
-    font-size: 2rem;
-    padding: 3rem;
-    border-radius: 1rem;
+.reviewform{
+  background-color: bisque;
+  width: 50%;
+  height: 700px;
 }
 </style>

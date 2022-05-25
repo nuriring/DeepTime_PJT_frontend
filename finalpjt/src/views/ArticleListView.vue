@@ -44,6 +44,7 @@
         
         </v-tabs>
       </template>
+      
  
     </v-app-bar>
     <div class="total">
@@ -70,6 +71,7 @@
               </v-list-tile-content>
             </v-list-tile>
         </div>
+        <hr class="headline">
         
 
           <v-container >
@@ -202,7 +204,11 @@
   margin-left: 200px;
   margin-top: 50px;
 }
-
+.headline{
+  margin-left: 325px;
+  width: 670px;
+  height: 5px;
+}
 
 
 </style>

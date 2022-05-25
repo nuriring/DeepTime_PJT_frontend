@@ -1,7 +1,12 @@
 <template>
   <div>
-    <h1>New Article</h1>
-    <article-form :article="article" action="create"></article-form>
+        <h1>새로운 게시글 작성</h1>
+    <v-container class="d-flex justify-content-center wrapper">
+      <b-card class="articleform content">
+        <article-form :article="article" action="create"></article-form>
+
+      </b-card>
+    </v-container>
   </div>
 </template>
 
@@ -23,4 +28,26 @@
   }
 </script>
 
-<style></style>
+<style scoped>
+.articleform{
+  background-color: bisque;
+  width: 50%;
+  height: 700px;
+ 
+}
+    .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+  }
+
+  
+  .content {
+    font-size: 2rem; 
+    padding: 3rem;
+    border-radius: 1rem;
+    
+  }
+</style>

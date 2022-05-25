@@ -1,18 +1,18 @@
 <template>
 <div>
-    <v-conainer>
+    
 
-      <form @submit.prevent="onSubmit" class="review-list-form">
+      <form @submit.prevent="onSubmit" >
         <label for="review-title">title: </label>
         <input type="text" id="review-title" v-model="title" required>
         <label for="review-content">content: </label>
         <input type="text" id="review-content" v-model="content" required>
-        <button @click="success">Create</button>
-        <router-link  :to="{ name: 'movieDetail', params: {moviePk: moviePk} }">
+        <button @click="success">create</button>
+        <router-link  :to="{ name: 'movieDetail', params: {moviePk: moviePk} }" class="text-decoration-none">
           back
         </router-link>
       </form>
-  </v-conainer>
+
 </div>
     
 </template>
@@ -49,9 +49,32 @@ export default {
 </script>
 
 <style>
-.review-list-form {
-  border: 1px solid black;
-  margin: 1rem;
-  padding: 1rem;
+  .review-list-form {
+    border: 1px solid black;
+    margin: 1rem;
+    padding: 1rem;
+  }
+  #review-title{
+    /* Rectangle 38 */
+
+    width: 100%;
+    height: 94px;
+
+
+    background: linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), #6C7B8B;
+    border-radius: 10px;
+
+  }
+  #review-content{
+    /* Rectangle 36 */
+
+
+  width: 100%;
+  height: 300px;
+
+
+  background: linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), #6C7B8B;
+  border-radius: 10px;
+
 }
 </style>
