@@ -8,27 +8,66 @@
         <p class="card-text">{{ wavveMovie.title }}</p>
       </div>
     </div>
+    <loading-spinner></loading-spinner>
   </div>
   
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import SelectOtt from '@/components/SelectOtt.vue'
+import LoadingSpinner from '@/components/LoadingSpinner.vue'
+import axios from 'axios'
 export default {
   name:"WavveView",
   components : {
-    SelectOtt
+    SelectOtt,
+    LoadingSpinner
+  },
+  data() {
+    return {
+      isLoading: true
+    }
   },
   computed: {
     ...mapGetters(['wavveMovies'])
   },
   methods: {
     ...mapActions(['fetchWavveMovies']),
+    setLoading(isLoading) {
+        if (isLoading) {
+          this.isLoading = true;
+
+        }
+        if (!isLoading) {
+          this.isLoading = false;
+          
+        }
+      }
 
   },
 
   created() {
     this.fetchWavveMovies()
+    axios.interceptors.request.use(
+      config => {
+        this.setLoading(false);
+        return config;
+      },
+      error => {
+        this.setLoading(false);
+        return Promise.reject(error);
+      }
+    ),
+    axios.interceptors.response.use(
+      response => {
+        this.setLoading(true);
+        return response;
+      },
+      error => {
+        this.setLoading(false);
+        return Promise.reject(error);
+      }
+    );
   },
 
 }

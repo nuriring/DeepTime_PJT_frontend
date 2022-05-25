@@ -43,20 +43,31 @@
     <v-main>
       <router-view/>
     </v-main>
+
   </v-app>
 </template>
 
 <script>
+<<<<<<< HEAD
 import { mapActions,mapGetters } from 'vuex'
  import NavBar from '@/components/NavBar.vue'
+=======
+import { mapActions } from 'vuex'
+
+import NavBar from '@/components/NavBar.vue'
+// import axios from 'axios';
+
+
+>>>>>>> d3063ca3900d32790f13b40ee1f5fa5ce0da759d
 export default {
   name: 'App',
   components: { NavBar },
   data: () => ({
-    //
+    isLoading: true
   }),
   methods: {
-      ...mapActions(['fetchCurrentUser'])
+      ...mapActions(['fetchCurrentUser']),
+
     },
   computed:{
     ...mapGetters(['isLoggedIn']),
@@ -64,12 +75,16 @@ export default {
   created() {
     
     this.fetchCurrentUser()
+
   }
 };
 </script>
+<<<<<<< HEAD
 <style scoped>
   .nav {
     display: flex;
 
   }
 </style>
+=======
+>>>>>>> d3063ca3900d32790f13b40ee1f5fa5ce0da759d

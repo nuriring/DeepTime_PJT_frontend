@@ -16,7 +16,7 @@ export default {
     amazonMovies: [],
     watchaMovies: [],
     wavveMovies: [],
-    appleMovies: []
+    appleMovies: [],
   },
   getters: {
    movies: state => state.movies,
@@ -49,6 +49,7 @@ export default {
 
     SET_MOVIE_REVIEWS: (state, reviews) => (state.movie.reviews = reviews),
     SET_MOVIE_REVIEW: (state, review) => (state.movie.review = review),
+
 
   },
   actions: {
