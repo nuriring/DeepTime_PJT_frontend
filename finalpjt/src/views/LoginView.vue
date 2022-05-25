@@ -1,23 +1,38 @@
 <template>
   <div>
-    <h1>Login</h1>
+    <v-container>
+      <h1>Login</h1>
 
-    <account-error-list v-if="authError"></account-error-list>
+      <account-error-list v-if="authError"></account-error-list>
+    
+      <v-form
+        @submit.prevent="login(credentials)"
+      >
+        <v-text-field
+          v-model="credentials.username"
+          label="Username"
+          required
+        ></v-text-field>
+
+        <v-text-field
+          v-model="credentials.password"
+          type="password"
+          label="password"
+          required
+        ></v-text-field>
 
 
-    <form @submit.prevent="login(credentials)">
-      <div>
-        <label for="username">username: </label>
-        <input v-model="credentials.username" type="text" id="username" required />
-      </div>
+        <!-- <button class="mr-4 is-elevated has-bg theme--light v-size--default success">Signup</button> -->
+        <b-button type="submit" class="primary">SIGNUP</b-button>
 
-      <div>
-        <label for="password">password: </label>
-        <input v-model="credentials.password" type="password" id="password" required />
-      </div>
+        
 
-      <button>Login</button>
-    </form>
+      
+
+      
+      </v-form>
+    </v-container>
+
   </div>
 </template>
 

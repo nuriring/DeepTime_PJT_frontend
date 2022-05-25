@@ -1,62 +1,62 @@
 <template>
   <div>
-    <h1>Signup</h1>
+    
+    <v-container>
+      <h1>Signup</h1>
+      <account-error-list v-if="authError"></account-error-list>
+      <v-form
+        @submit.prevent="signup(credentials)"
+      >
+        <v-text-field
+          v-model="credentials.username"
+          label="Username"
+          required
+        ></v-text-field>
 
-    <account-error-list v-if="authError"></account-error-list>
+        <v-text-field
+          v-model="credentials.password1"
+          type="password"
+          label="password"
+          required
+        ></v-text-field>
+        <v-text-field
+          v-model="credentials.password2"
+          type="password"
+          label="password"
+          required
+        ></v-text-field>
 
-    <form @submit.prevent="signup(credentials)">
-      <div>
-        <label for="username">Username: </label>
-        <input  v-model="credentials.username" type="text" id="username" required/>
-      </div>
-      <div>
-        <label for="password1">Password: </label>
-        <input v-model="credentials.password1" type="password" id="password1" required />
-      </div>
-      <div>
-        <label for="password2">Password Confirmation:</label>
-        <input v-model="credentials.password2" type="password" id="password2" required />
-      </div>
-      <div>
-        선호하는 장르 :
-        <select v-model="credentials.genre" name="genre" id="">           
-          <option value="">장르선택</option>
-          <option value="12">모험</option>
-          <option value="28">액션</option>
-          <option value="16">애니메이션</option>
-          <option value="35">코미디</option>
-          <option value="80">범죄</option>
-          <option value="99">다큐멘터리</option>
-          <option value="18">드라마</option>
-          <option value="10751">가족</option>
-          <option value="14">판타지</option>
-          <option value="36">역사</option>
-          <option value="27">공포</option>
-          <option value="10402">음악</option>
-          <option value="9648">미스터리</option>
-          <option value="10749">로맨스</option>
-          <option value="878">SF</option>
-          <option value="10770">TV영화</option>
-          <option value="53">스릴러</option>
-          <option value="10752">전쟁</option>
-          <option value="37">서부</option>
-        </select>
-      </div>
-      <div>
-        <button>Signup</button>
-      </div>
-    </form>
+        <v-select
+          v-model="credentials.genre"
+          :items="genreList"
+          item-text="cont"
+          item-value="sub"
+          label="Genre"
+          required
+        ></v-select>
+        <!-- <button class="mr-4 is-elevated has-bg theme--light v-size--default success">Signup</button> -->
+        <b-button type="submit" class="success">SIGNUP</b-button>
+
+        
+
+      
+
+      
+      </v-form>
+    </v-container>
   </div>
 </template>
 
 <script>
   import { mapActions, mapGetters } from 'vuex'
   import AccountErrorList from '@/components/AccountErrorList.vue'
+  
 
   export default {
     name: 'SignupView',
     components: {
       AccountErrorList,
+
     },
     data() {
       return {
@@ -64,8 +64,30 @@
           username: '',
           password1: '',
           password2: '',
-          genre: ''
-        }
+          genre: null,
+          },
+        genreList : [
+          {sub: "12", cont: "모험"},
+          {sub: "28", cont: "액션"},
+          {sub: "16", cont: "애니메이션"},
+          {sub: "35", cont: "코미디"},
+          {sub: "80", cont: "범죄"},
+          {sub: "99", cont: "다큐멘터리"},
+          {sub: "18", cont: "드라마"},
+          {sub: "10751", cont: "가족"},
+          {sub: "14", cont: "판타지"},
+          {sub: "36", cont: "역사"},
+          {sub: "27", cont: "공포"},
+          {sub: "10402", cont: "음악"},
+          {sub: "9648", cont: "미스터리"},
+          {sub: "10749", cont: "로맨스"},
+          {sub: "878", cont: "SF"},
+          {sub: "10770", cont: "TV영화"},
+          {sub: "53", cont: "스릴러"},
+          {sub: "10752", cont: "전쟁"},
+          {sub: "37", cont: "서부"}
+          ]
+        
       }
     },
     computed: {
@@ -74,7 +96,11 @@
     methods: {
       ...mapActions(['signup'])
     },
+    created() {
+    }
   }
+  
 </script>
+
 
 <style></style>

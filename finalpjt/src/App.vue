@@ -35,6 +35,7 @@
     <v-main>
       <router-view/>
     </v-main>
+
   </v-app>
 </template>
 
@@ -42,18 +43,22 @@
 import { mapActions } from 'vuex'
 
 import NavBar from '@/components/NavBar.vue'
+// import axios from 'axios';
+
 
 export default {
   name: 'App',
   components: { NavBar },
   data: () => ({
-    //
+    isLoading: true
   }),
   methods: {
-      ...mapActions(['fetchCurrentUser'])
+      ...mapActions(['fetchCurrentUser']),
+
     },
   created() {
     this.fetchCurrentUser()
+
   }
 };
 </script>
