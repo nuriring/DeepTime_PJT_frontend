@@ -4,32 +4,40 @@
 
     </review-detail-view> -->
   <!-- Using modifiers -->
-  <div class="d-flex">
-  <b-button v-b-toggle.collapse-2 class=" togglebar text-start ">바쁜 당신을 위한 결말요약 컨텐츠를 만나보세요!</b-button>
-  <v-icon large >mdi-chevron-down</v-icon>
 
-  </div>
   <!-- Element to collapse -->
-  <b-collapse id="collapse-2">
-    <b-card>
-      <div class="review-list">
-        <button @click="videoOn" >결말요약영상보기</button>
-        <youtube-video
-        :video="video"
-        ></youtube-video>
-        <div v-for="review in reviews" :key="review.pk">
-          작성자: {{ review.user.username }}<br>
-          <router-link :to="{ name: 'movieReview', params: { moviePk: review.movie.id, reviewPk: review.id }}">
-            제목: {{ review.title }}<br>
-          </router-link>
-          내용: {{ review.content }}
-          {{ review.pk }}
 
-        </div>
-          <router-link :to="{ name: 'reviewCreate', params: { moviePk } }">New</router-link>
-      </div>
-      </b-card>
-  </b-collapse>
+      <v-expansion-panels>
+      <v-expansion-panel class=" togglebar text-start text-white " >
+        <v-expansion-panel-header >
+          바쁜 당신을 위한 결말요약 컨텐츠를 만나보세요!
+        </v-expansion-panel-header >
+        <v-expansion-panel-content class="review-list d-flex align-items-center" >
+            <div class="m-3">
+              <button @click="videoOn" class="fs-5 fw-bold" ><v-icon color=white >mdi-youtube</v-icon>
+                Video Play</button>
+              <div>
+              <youtube-video
+              :video="video"
+              ></youtube-video>
+              </div>
+              <div v-for="review in reviews" :key="review.pk">
+                작성자: {{ review.user.username }}<br>
+                <router-link :to="{ name: 'movieReview', params: { moviePk: review.movie.id, reviewPk: review.id }}">
+                  제목: {{ review.title }}<br>
+                </router-link>
+                내용: {{ review.content }}
+                {{ review.pk }}
+
+              </div>
+                <router-link :to="{ name: 'reviewCreate', params: { moviePk } }">New</router-link>
+            </div>
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+    </v-expansion-panels>
+
+
+ 
 
  
   </div>
@@ -91,7 +99,16 @@ export default {
 
 <style>
 .review-list {
-  border: 1px solid blue;
+  /* Rectangle 31 */
+
+width: 100%;
+height: auto;
+
+
+background: linear-gradient(0deg, rgba(0, 53, 102, 0.6), rgba(0, 53, 102, 0.6)), linear-gradient(0deg, #003566, #003566), #003566;
+border-radius: 27px;
+
+ 
 }
 .togglebar {
   /* Rectangle 37 */
@@ -99,7 +116,7 @@ export default {
   width: 100%;
   height: 50px;
 
-  background: linear-gradient(0deg, #003566, #003566),linear-gradient(0deg, #003566, #003566), #003566;
+  background: linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), #6C7B8B;
   border-radius: 21px;
 
 }
