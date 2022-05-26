@@ -1,30 +1,40 @@
 <template>
-  <nav>
-    <ul>
-      <li>
-        <router-link :to="{ name: 'articles' }">Home</router-link>
-      </li>
+    <div class="total">
+      <v-bar-app v-if="isLoggedIn" class="d-flex">
+        <router-link :to="{name:'main'}">
 
-      <li v-if="!isLoggedIn">
-        <router-link :to="{ name: 'login' }">Login</router-link>
-      </li>
-      <li v-if="!isLoggedIn">
-        <router-link :to="{ name: 'signup' }">Signup</router-link>
-      </li>
-
-      <li v-if="isLoggedIn">
-        <router-link :to="{ name: 'articleNew' }">New</router-link>
-      </li>
-      <li v-if="isLoggedIn">
-        <router-link :to="{ name: 'profile', params: { username } }">
-          {{ currentUser.username }}'s page
+          <v-img
+            alt="Vuetify Logo"
+            class="shrink mr-2 logo2"
+            contain
+            src="@/assets/logo2.jpg"
+            transition="scale-transition"
+            width="100"
+          /> 
         </router-link>
-      </li>
-      <li v-if="isLoggedIn">
-        <router-link :to="{ name: 'logout' }">Logout</router-link>
-      </li>
-    </ul>
-  </nav>
+                
+        <!-- <img src = "@/assets/logo2.jpg" class="logo2"> -->
+        <b-nav class="fs-5 fw-bold">
+          <b-nav-item v-if="isLoggedIn">
+            <router-link :to="{ name: 'articles' }" class="text-decoration-none text-white">본자들</router-link>
+          </b-nav-item>
+          <b-nav-item class="nav-item" v-if="isLoggedIn">
+            <router-link :to="{ name: 'otts' }" class="text-decoration-none text-white">OTT 지도</router-link>
+          </b-nav-item>
+          <b-nav-item v-if="isLoggedIn">
+            <router-link :to="{ name: 'logout' }" class="text-decoration-none text-white">LOGOUT</router-link>
+          </b-nav-item>
+          <b-nav-item v-if="isLoggedIn" >
+              
+            <router-link :to="{ name: 'profile', params: { username } }" class="text-decoration-none text-white">
+              {{ currentUser.username }}'s Profile
+            </router-link>
+            <v-icon> mdi-account-circle
+              </v-icon>
+          </b-nav-item>
+          </b-nav>
+      </v-bar-app>
+      </div>  
 </template>
 
 <script>
@@ -41,4 +51,28 @@
   }
 </script>
 
-<style></style>
+<style scoped>
+.nav {
+  display: flex;
+  
+}
+.logo2 {
+  /* display: absolute; */
+  height: auto;
+  left: -1180px;
+
+}
+.nav-item{
+  height: 10px;
+
+}
+.nav-link{
+  margin-top: 0.5rem;
+
+  
+}
+div {
+  font-family: 'Gowun Batang', serif;
+}
+
+</style>

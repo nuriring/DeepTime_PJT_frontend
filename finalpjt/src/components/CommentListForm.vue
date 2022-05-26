@@ -1,8 +1,9 @@
 <template>
-  <form @submit.prevent="onSubmit" class="comment-list-form">
-    <label for="comment">comment: </label>
-    <input type="text" id="comment" v-model="content" required>
-    <button>Comment</button>
+  <form @submit.prevent="onSubmit" >
+    <div class="d-flex justify-content-around align-items-baseline">
+    <input type="text" id="comment" v-model="content" required placeholder="댓글을 작성해보세요">
+    <button class="commentbtn">댓글달기</button>
+    </div>
   </form>
 </template>
 
@@ -22,17 +23,44 @@ export default {
   methods: {
     ...mapActions(['createComment']),
     onSubmit() {
-      this.createComment({ articlePk: this.article.pk, content: this.content, })
+      this.createComment({ articlePk: this.article.id, content: this.content, })
       this.content = ''
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
 .comment-list-form {
   border: 1px solid black;
   margin: 1rem;
   padding: 1rem;
 }
+#comment {
+  width: 80%;
+  height: 53px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+.commentbtn {
+    background-color: lightgrey;
+
+  border: none;
+
+  color: white;
+
+  padding: 15px 30px;
+
+  text-align: center;
+  color: black;
+
+  margin: 4px 2px;
+
+  cursor: pointer;
+  border-radius: 2px;
+}
+div {
+  font-family: 'Gowun Batang', serif;
+}
+
 </style>

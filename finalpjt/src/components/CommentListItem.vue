@@ -1,22 +1,32 @@
 <template>
-  <li class="comment-list-item">
-    <router-link :to="{ name: 'profile', params: { username: comment.user.username } }">
-      {{ comment.user.username }}
-    </router-link>: 
-    
-    <span v-if="!isEditing">{{ payload.content }}</span>
+<div>
 
-    <span v-if="isEditing">
-      <input type="text" v-model="payload.content">
-      <button @click="onUpdate">Update</button> |
-      <button @click="switchIsEditing">Cancle</button>
-    </span>
+    <b-list-group class="d-flex justify-content-center">
+      <b-list-group-item class="comment-list-item">
+            <router-link :to="{ name: 'profile', params: { username: comment.user.username } }" class="text-decoration-none">
+              <v-icon>mdi-account-circle</v-icon>
+              {{ comment.user.username }}
+            </router-link>
+            <br>
+            
+            <span v-if="!isEditing">{{ payload.content }}</span>
+            <div class="caption text-secondary">
+            <span v-if="isEditing">
+              <input type="text" v-model="payload.content" class="comment-edit">
+              <button @click="onUpdate">수정</button> |
+              <button @click="switchIsEditing">삭제</button>
+            </span>
 
-    <span v-if="currentUser.username === comment.user.username && !isEditing">
-      <button @click="switchIsEditing">Edit</button> |
-      <button @click="deleteComment(payload)">Delete</button>
-    </span>
-  </li>
+            <span v-if="currentUser.username === comment.user.username && !isEditing">
+              <button @click="switchIsEditing">수정</button> |
+              <button @click="deleteComment(payload)">삭제</button>
+            </span>
+
+            </div>
+      </b-list-group-item>
+
+    </b-list-group>
+</div>
 </template>
 
 <script>
@@ -30,7 +40,7 @@ export default {
       isEditing: false,
       payload: {
         articlePk: this.comment.article,
-        commentPk: this.comment.pk,
+        commentPk: this.comment.id,
         content: this.comment.content
       },
     }
@@ -52,9 +62,18 @@ export default {
 }
 </script>
 
-<style>
-.comment-list-item {
-  border: 1px solid green;
-
+<style scoped>
+.comment-list-item{
+  border: none;
 }
+.comment-edit{
+  width:400px;
+  height: 53px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+div {
+  font-family: 'Gowun Batang', serif;
+}
+
 </style>

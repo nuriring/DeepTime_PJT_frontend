@@ -1,7 +1,14 @@
 <template>
-  <div>
-    <h1>New Review</h1>
-    <review-form :review="review" action="create"></review-form>
+  <div class="total" >
+    <v-container class="wrapper">
+
+    <b-card class="content reviewform">
+
+        <review-form :review="review" action="create"></review-form>
+
+    </b-card>
+    </v-container>
+
   </div>
 </template>
 
@@ -34,4 +41,42 @@
   }
 </script>
 
-<style></style>
+<style scoped>
+    .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+  }
+
+  
+  .content {
+    font-size: 2rem; 
+    padding: 3rem;
+    border-radius: 1rem;
+    
+  }
+.review { 
+  
+  width: 80%;
+
+
+}
+.reviewform{
+  background-color: #001D3D;
+  width: 50%;
+  height: 700px;
+}
+.total{
+  background: #001D3D;
+  min-height: 100vh;
+  color: white;
+}
+div {
+  font-family: 'Gowun Batang', serif;
+}
+.card {
+  border: none;
+}
+</style>

@@ -6,12 +6,13 @@ import MainView from '@/views/MainView.vue'
 
 import MovieListView from '@/views/MovieListView.vue'
 import MovieDetailView from '@/views/MovieDetailView.vue'
-import YoutubeVideoDetailView from '@/views/YoutubeVideoDetailView.vue'
 import ReviewDetailView from '@/views/ReviewDetailView.vue'
 import ReviewNewView from '@/views/ReviewNewView.vue'
-import ReviewEditView from '@/views/ReviewEditView.vue'
 
 import ArticleListView from '@/views/ArticleListView.vue'
+import Category1View from '@/views/Category1View.vue'
+import Category2View from '@/views/Category2View.vue'
+import Category3View from '@/views/Category3View.vue'
 import ArticleDetailView from '@/views/ArticleDetailView.vue'
 import ArticleNewView from '@/views/ArticleNewView.vue'
 import ArticleEditView from '@/views/ArticleEditView.vue'
@@ -23,6 +24,12 @@ import ProfileView from '@/views/ProfileView.vue'
 import NotFound404 from '@/views/NotFound404.vue'
 
 import OttListView from '@/views/OttListView.vue'
+import NetflixView from '@/views/NetflixView.vue'
+import DisneyPlusView from '@/views/DisneyPlusView.vue'
+import AmazonView from '@/views/AmazonView.vue'
+import WatchaView from '@/views/WatchaView.vue'
+import WavveView from '@/views/WavveView.vue'
+import AppleTvView from '@/views/AppleTvView.vue'
 
 Vue.use(VueRouter)
 
@@ -80,6 +87,21 @@ const routes = [
     component: ArticleListView
   },
   {
+    path: '/articles/category1',  
+    name: 'category1Articles',
+    component: Category1View
+  },
+  {
+    path: '/articles/category2',  
+    name: 'category2Articles',
+    component: Category2View
+  },
+  {
+    path: '/articles/category3',  
+    name: 'category3Articles',
+    component: Category3View
+  },
+  {
     path: '/articles/new',
     name: 'articleNew',
     component: ArticleNewView
@@ -106,11 +128,7 @@ const routes = [
     name: 'movieDetail',
     component: MovieDetailView
   },
-  {
-    path: '/movies/:moviePk/video',
-    name: 'youtubeVideoDetail',
-    component: YoutubeVideoDetailView
-  },
+
   {
     path: '/movies/:moviePk/:reviewPk',
     name: 'movieReview',
@@ -121,16 +139,42 @@ const routes = [
     name: 'reviewCreate',
     component: ReviewNewView
   },
-  {
-    path: '/movies/:moviePk/:reviewPk/edit',
-    name: 'reviewEdit',
-    component: ReviewEditView
-  },
+
   // ott
   {
-    path: '/ott/:providerName',
-    name: 'ott',
+    path: '/otts',
+    name: 'otts',
     component: OttListView
+  },
+  {
+    path: '/otts/netflix',
+    name: 'netflix',
+    component: NetflixView
+  },
+  {
+    path: '/otts/disneyplus',
+    name: 'disneyPlus',
+    component: DisneyPlusView
+  },
+  {
+    path: '/otts/amazon',
+    name: 'amazon',
+    component: AmazonView
+  },
+  {
+    path: '/otts/watcha',
+    name: 'watcha',
+    component: WatchaView
+  },
+  {
+    path: '/otts/wavve',
+    name: 'wavve',
+    component: WavveView
+  },
+  {
+    path: '/otts/apple',
+    name: 'apple',
+    component: AppleTvView
   },
   {
     path: '/404',
@@ -177,7 +221,7 @@ router.beforeEach((to, from, next) => {
 
   const { isLoggedIn } = store.getters
 
-  const noAuthPages = ['login', 'signup']
+  const noAuthPages = ['login', 'signup', 'main']
 
   const isAuthRequired = !noAuthPages.includes(to.name)
 
@@ -192,5 +236,6 @@ router.beforeEach((to, from, next) => {
     next({ name: 'movies' })
   }
 })
+
 
 export default router

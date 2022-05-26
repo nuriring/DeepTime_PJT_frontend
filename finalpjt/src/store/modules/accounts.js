@@ -2,7 +2,8 @@ import router from '@/router'
 import axios from 'axios'
 import drf from '@/api/drf'
 
-export default {
+
+export default  {
   // namespaced: true,
 
   state: {
@@ -10,6 +11,7 @@ export default {
     currentUser: {},
     profile: {},
     authError: null,
+    Users: []
   },
 
   getters: {
@@ -17,14 +19,16 @@ export default {
     currentUser: state => state.currentUser,
     profile: state => state.profile,
     authError: state => state.authError,
-    authHeader: state => ({ Authorization: `Token ${state.token}`})
+    authHeader: state => ({ Authorization: `Token ${state.token}`}),
+    users: state => state.users
   },
 
   mutations: {
     SET_TOKEN: (state, token) => state.token = token,
     SET_CURRENT_USER: (state, user) => state.currentUser = user,
     SET_PROFILE: (state, profile) => state.profile = profile,
-    SET_AUTH_ERROR: (state, error) => state.authError = error
+    SET_AUTH_ERROR: (state, error) => state.authError = error,
+    SET_USERS: (state, users) => state.users = users,
   },
 
   actions: {
@@ -118,7 +122,7 @@ export default {
       })
         .then(() => {
           dispatch('removeToken')
-          alert('성공적으로 logout!')
+          alert('로그아웃 되었습니다.')
           router.push({ name: 'login' })
         })
         .error(err => {
@@ -167,5 +171,6 @@ export default {
           commit('SET_PROFILE', res.data)
         })
     },
+
   },
 }
