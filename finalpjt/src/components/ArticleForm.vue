@@ -113,13 +113,15 @@ import { mapActions } from 'vuex'
 <style scoped>
 #article-title{
   /* Rectangle 38 */
-
+  font-size: 1.5rem;
   width: 100%;
   height: 94px;
-
+  padding: 3px;
 
   background: linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), #6C7B8B;
   border-radius: 10px;
+  
+  opacity: 90%;
 
 }
 #article-content{
@@ -128,10 +130,11 @@ import { mapActions } from 'vuex'
 
 width: 100%;
 height: 300px;
-
-
+padding: 3px;
+font-size: 1.5rem;
 background: linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), #6C7B8B;
 border-radius: 10px;
+opacity: 90%;
 
 }
 .all{
@@ -151,13 +154,18 @@ border-radius: 10px;
 .on{
   background: #FFD60A;
       text-decoration: none;
-      font-size: 2rem;
+      font-size: 1.8rem;
       display : inline-block;
       border-radius: 10px;
       padding: 5px 3px 10px 4px;
       transition: all 0.1s;
-      height: 60px;
+      height: 55px;
       width: 100px;
+      color: #001D3D;
+
 }
+  .on:active{
+      transform : translateY(3px);
+  }
 
 </style>

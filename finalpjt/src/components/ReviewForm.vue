@@ -1,17 +1,22 @@
 <template>
 <div>
-    
-
-      <form @submit.prevent="onSubmit" >
-        <label for="review-title">title: </label>
+  
+      <form @submit.prevent="onSubmit">
+        <label for="review-title">title </label>
         <input type="text" id="review-title" v-model="title" required>
-        <label for="review-content">content: </label>
+        <label for="review-content">content </label>
         <input type="text" id="review-content" v-model="content" required>
-        <button @click="success">create</button>
-        <router-link  :to="{ name: 'movieDetail', params: {moviePk: moviePk} }" class="text-decoration-none">
-          back
+        <div class=" d-flex buttons">
+        <button class="on" @click="success">create</button>
+        <router-link  :to="{ name: 'movieDetail', params: {moviePk: moviePk} }" class="text-decoration-none ms-3">
+          <button class="on">
+            back
+          </button>
         </router-link>
+        </div>
       </form>
+
+
 
 </div>
     
@@ -56,25 +61,49 @@ export default {
   }
   #review-title{
     /* Rectangle 38 */
-
-    width: 100%;
+    font-size: 1.5rem;
+    
     height: 94px;
-
-
+    padding: 3px;
+    opacity: 90%;
     background: linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), #6C7B8B;
     border-radius: 10px;
+    width: 110%;
 
   }
   #review-content{
     /* Rectangle 36 */
-
-
-  width: 100%;
-  height: 300px;
-
+  font-size: 1.5rem;
+  padding: 3px;
+  width: 110%;
+  height: 150px;
+  opacity: 90%;
 
   background: linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), #6C7B8B;
   border-radius: 10px;
+  margin-bottom: 20px;
 
 }
+.on{
+  background: #FFD60A;
+      text-decoration: none;
+      font-size: 1.8rem;
+      display : inline-block;
+      border-radius: 10px;
+      padding: 5px 3px 10px 4px;
+      transition: all 0.1s;
+      height: 55px;
+      width: 100px;
+      color: #001D3D;
+
+}
+  .on:active{
+      transform : translateY(3px);
+  }
+  .buttons {
+    margin-left: 370px;
+    text-align: end;
+  }
+
+
 </style>

@@ -15,14 +15,14 @@
                 
         <!-- <img src = "@/assets/logo2.jpg" class="logo2"> -->
         <b-nav class="fs-5">
+          <b-nav-item v-if="isLoggedIn">
+            <router-link :to="{ name: 'articles' }" class="text-decoration-none text-white">본자들</router-link>
+          </b-nav-item>
           <b-nav-item class="nav-item" v-if="isLoggedIn">
             <router-link :to="{ name: 'otts' }" class="text-decoration-none text-white">OTT 지도</router-link>
           </b-nav-item>
           <b-nav-item v-if="isLoggedIn">
-            <router-link :to="{ name: 'articles' }" class="text-decoration-none text-white">본자들</router-link>
-          </b-nav-item>
-          <b-nav-item v-if="isLoggedIn">
-            <router-link :to="{ name: 'logout' }" class="text-decoration-none text-white">Logout</router-link>
+            <router-link :to="{ name: 'logout' }" class="text-decoration-none text-white">LOGOUT</router-link>
           </b-nav-item>
           <b-nav-item v-if="isLoggedIn" >
               
@@ -59,7 +59,7 @@
 .logo2 {
   /* display: absolute; */
   height: auto;
-  left: -1070px;
+  left: -1210px;
 
 }
 .nav-item{

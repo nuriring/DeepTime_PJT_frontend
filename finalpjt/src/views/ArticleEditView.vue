@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>게시글 수정</h1>
     <v-container class="d-flex justify-content-center wrapper">
     <b-card class="articleform content">
         <article-form v-if="isArticle" :article="article" action="update"></article-form>
@@ -29,7 +28,7 @@ import { mapGetters, mapActions } from 'vuex'
 
 <style scoped>
   .articleform{
-    background-color: bisque;
+    background-color: #001D3D;
     width: 50%;
     height: 700px;
       }

@@ -1,6 +1,5 @@
 <template>
   <div class="total" >
-    <h1>새로운 코멘트 작성</h1>
     <v-container class="wrapper">
 
     <b-card class="content reviewform">
