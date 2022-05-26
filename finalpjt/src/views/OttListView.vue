@@ -1,9 +1,12 @@
 <template>
 
   <div class="total">
-    <v-container>
+    <v-container class="ott-container">
       <select-ott></select-ott>
+			<br>
       <h1 class="text-center mt-5">딥타임에서 제공하는 OTT 지도로 시간을 절약하세요!</h1> 
+			<br>
+			<br>
     </v-container>
     <div class="ott-box">
 
@@ -58,6 +61,9 @@
 
 body {
 	background: #81C4D1;
+}
+.ott-container{
+	margin-top: 35px;
 }
 
 .compass {

@@ -92,6 +92,7 @@ export default {
   height: 460px;
   color: black;
   text-align: center;
+   border: none;
 }
 #id1 {
   height : 400px;

@@ -1,10 +1,12 @@
 <template>
   <div class="total">
-    <v-container>
+    <div class="wrap">
          <v-icon class="disneyplus" large color=red>mdi-map-marker-radius</v-icon>
+    </div>
     <select-ott>
     </select-ott>
     <h1 class="text-white mt-5">현재 위치는 Disney Plus 입니다</h1>
+    <v-container style="margin-left:235px;">
     <div v-for="(disneyPlusMovie, idx) in disneyPlusMovies" :key="idx" class="card mx-2 my-2" style="width: 18rem;">
       <router-link :to="{ name: 'movieDetail', params: {moviePk: disneyPlusMovie.id} }">
       <img id="id1" :src="`https://image.tmdb.org/t/p/w300${disneyPlusMovie.poster_path}`" class="card-img-top" alt="...">
@@ -84,6 +86,8 @@ export default {
   float: left;
   width: 600px;
   height: 460px;
+  border: none;
+	
 }
 #id1 {
   height : 400px;

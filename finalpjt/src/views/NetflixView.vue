@@ -88,6 +88,7 @@ export default {
   float: left;
   width: 600px;
   height: 460px;
+   border: none;
 }
 #id1 {
   height : 400px;
