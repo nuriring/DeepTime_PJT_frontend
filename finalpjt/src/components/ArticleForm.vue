@@ -5,11 +5,18 @@
     <div>
       <div v-if="action==='create'">
         <v-select
+          :error-messages = 'warning'
+          class = "select"
           v-model="newArticle.category"
           :items="categoryList"
           item-text="cont"
           label="카테고리"
+          color = white
+          white
+          dark
+          :rules='categoryRules'
           required
+          
         >
         </v-select>
     
@@ -18,12 +25,12 @@
       </div>
       <label for="article-title">title</label>
       <br>
-      <input v-model="newArticle.title" type="text" id="article-title" />
+      <input v-model="newArticle.title" type="text" id="article-title" required />
     </div>
     <div>
       <label for="article-content">content</label>
       <br>
-      <textarea v-model="newArticle.content" type="text" id="article-content"></textarea>
+      <textarea v-model="newArticle.content" type="text" id="article-content" required></textarea>
     </div>
     
     <div class="d-flex justify-content-end">
@@ -68,6 +75,13 @@ import { mapActions } from 'vuex'
           { cont: "이스터에그" }
         ],
         articlePk: this.$route.params.articlePk,
+        
+        valid: false,
+        email: '',
+        categoryRules: [
+          v => !!v || '카테고리를 선택해주세요',
+          ],
+
       }
     },
 
@@ -121,5 +135,13 @@ border-radius: 10px;
   
   color: white;
 }
+.select {
+  color: white;
+}
+.v-input__control {
+  color: white
+}
+
+
 
 </style>

@@ -168,4 +168,5 @@ border-radius: 27px;
   max-width: 800px;
   padding: 0;
 }
+
 </style>

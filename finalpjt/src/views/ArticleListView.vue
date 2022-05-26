@@ -1,9 +1,9 @@
 <template>
-  <div class>
+  <div class ="text-white">
     
     <v-app-bar
-      class="bar"
-      color="#6A76AB"
+      class="bar text-white"
+      
       dark
       prominent
   
@@ -47,11 +47,11 @@
       
  
     </v-app-bar>
-    <div class="body">
-        <div class="listtitle">
+    <div class="body text-white">
+        <div class="listtitle text-white">
           <v-list-tile>
               <v-list-tile-content>
-                <v-list-tile-title class="text-primary">
+                <v-list-tile-title class="text-white">
                   번호
                 </v-list-tile-title>
                 &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -84,18 +84,20 @@
                   
                   <v-list two-line
                           v-for="(listItem, index) in calData"
-                          :key="index">
+                          :key="index"
+                          class ="list"
+                          >
                     <v-list-tile>
                       
                       <v-list-tile-content>
-                        <v-list-tile-title class="text-primary">
+                        <v-list-tile-title class="text-white">
                           {{ listItem.id }}
                         </v-list-tile-title>
                         &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   
                       <router-link class="text-decoration-none text-secondary" 
                         :to="{ name: 'article', params: {articlePk: listItem.id} }">
-                        <v-list-tile-sub-title class="text-start">
+                        <v-list-tile-sub-title class="text-white">
                           {{ listItem.title }}
                         </v-list-tile-sub-title>
                       </router-link>
@@ -210,5 +212,16 @@
   height: 5px;
 }
 
+.list{
+  color: white;
+  background: #001D3D;
+}
 
+.theme--light {
+ background: #001D3D;
+}
+
+.v-application {
+ background: #001D3D;
+    }
 </style>
