@@ -8,7 +8,7 @@
       </select-ott>
 
     </div>
-    <h1 class="text-white  text-center">현재 위치는 Wavve 입니다</h1>
+    <h1 class="text-white  text-center">현재 위치는<a href="https://www.wavve.com/" class="text-decoration-none"> Wavve</a>입니다</h1>
     
     <v-container  style="margin-left:330px;">
     <div v-for="(wavveMovie, idx) in wavveMovies" :key="idx" class="card mx-2 my-2" style="width: 18rem;">

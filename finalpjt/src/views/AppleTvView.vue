@@ -5,7 +5,8 @@
     </div>
     <select-ott class="p-5">
     </select-ott>
-    <h1 class="text-white text-center">현재 위치는 Apple TV 입니다</h1>
+    <h1 class="text-white text-center">현재 위치는
+      <a href="https://www.apple.com/kr/apple-tv-plus/" class="text-decoration-none"> Apple TV</a>입니다</h1>
         <v-container style="margin-left:330px;">
     <div v-for="(appleMovie, idx) in appleMovies" :key="idx" class="card mx-2 my-2" style="width: 18rem;">
       <router-link :to="{ name: 'movieDetail', params: {moviePk: appleMovie.id} }">

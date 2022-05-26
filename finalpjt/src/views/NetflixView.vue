@@ -5,7 +5,9 @@
     </div>
     <select-ott>
     </select-ott>
-    <h1 class="text-white mt-5">현재 위치는 Netflix 입니다</h1>
+    <h1 class="text-white mt-5">현재 위치는<a href="https://www.netflix.com/kr/" class="text-decoration-none"> Netflix </a>입니다</h1>
+      
+    
     <v-container style="margin-left:330px;">
     <div v-for="(netflixMovie, idx) in netflixMovies" :key="idx" class="card mx-2 my-2" style="width: 18rem;">
       <router-link :to="{ name: 'movieDetail', params: {moviePk: netflixMovie.id} }">
@@ -15,7 +17,6 @@
         <p class="card-text">{{ netflixMovie.title }}</p>
       </div>
     </div>
-
     </v-container>
     <loading-spinner></loading-spinner>
   </div>

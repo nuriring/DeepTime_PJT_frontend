@@ -5,7 +5,7 @@
     </div>
     <select-ott>
     </select-ott>
-    <h1 class="text-white mt-5">현재 위치는 Disney Plus 입니다</h1>
+    <h1 class="text-white mt-5">현재 위치는<a href="https://www.disneyplus.com/ko-kr" class="text-decoration-none"> Disney Plus</a>입니다</h1>
     <v-container style="margin-left:330px;">
     <div v-for="(disneyPlusMovie, idx) in disneyPlusMovies" :key="idx" class="card mx-2 my-2" style="width: 18rem;">
       <router-link :to="{ name: 'movieDetail', params: {moviePk: disneyPlusMovie.id} }">
