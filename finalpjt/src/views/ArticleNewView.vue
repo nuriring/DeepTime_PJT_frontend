@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="total">
     <h1>새로운 게시글 작성</h1>
     <v-container class="d-flex justify-content-center wrapper">
       <b-card class="articleform content">
@@ -30,7 +30,7 @@
 
 <style scoped>
 .articleform{
-  background-color: bisque;
+  background-color: #001D3D;
   width: 50%;
   height: 700px;
  
@@ -50,4 +50,9 @@
     border-radius: 1rem;
     
   }
+  .total{
+  background: #001D3D;
+  min-height: 100vh;
+  color: white;
+}
 </style>

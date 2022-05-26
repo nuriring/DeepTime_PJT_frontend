@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <v-container>
+  <div class="total">
+    <v-container class="container">
         <img id="id2" src="@/assets/profile.jpg" alt="">
       <h1>{{ profile.username }}</h1>
     <!-- Using modifiers -->
@@ -110,5 +110,15 @@ export default {
   color: lightgrey;
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+  .total{
+  background: #001D3D;
+  min-height: 100vh;
+  color: white;
+}
+
+.container {
+  margin: 0;
+ 
 }
 </style>

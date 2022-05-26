@@ -1,4 +1,6 @@
 <template>
+<div class="all">
+
   <form @submit.prevent="onSubmit">
     <div>
       <div v-if="action==='create'">
@@ -36,6 +38,7 @@
 
     </div>
   </form>
+</div>
 </template>
 
 <script>
@@ -108,4 +111,10 @@ background: linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B
 border-radius: 10px;
 
 }
+.all{
+  background: #001D3D;
+  
+  color: white;
+}
+
 </style>

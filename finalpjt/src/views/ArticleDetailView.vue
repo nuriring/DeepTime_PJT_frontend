@@ -1,6 +1,8 @@
 <template>
-  <div class="d-flex justify-content-center my-5">
-      <b-card class="article-card">
+<div class="please">
+
+  <div class="d-flex justify-content-center">
+      <b-card class="article-card mt-5">
         <b-card-text>
           <h3 class="fw-bold float-left">{{article.title}}</h3>
 
@@ -48,6 +50,7 @@
     
 
   </div>
+</div>
 </template>
 
 <script>
@@ -98,4 +101,9 @@
   .text{
     text-align: justify;
   }
+    .please{
+  background-color: #001D3D;
+  min-height: 100vh;
+  color: black;
+}
 </style>

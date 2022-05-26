@@ -103,7 +103,7 @@ import axios from 'axios'
   }
 </script>
 
-<style>
+<style scoped>
 .poster {
   position: absolute;
   top:400px;

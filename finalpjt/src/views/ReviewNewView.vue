@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div class="total" >
     <h1>새로운 코멘트 작성</h1>
     <v-container class="wrapper">
 
@@ -65,8 +65,13 @@
 
 }
 .reviewform{
-  background-color: bisque;
+  background-color: #001D3D;
   width: 50%;
   height: 700px;
+}
+.total{
+  background: #001D3D;
+  min-height: 100vh;
+  color: white;
 }
 </style>
