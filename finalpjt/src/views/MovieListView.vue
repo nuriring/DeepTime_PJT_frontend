@@ -73,12 +73,14 @@
     </div>
       <div class="container">
         <v-container class="d-flex justify-content-center">
-          <button class="fw-bold font-italic fs-4" @click="moviePick">
+          <v-btn icon @click="moviePick">
             <v-icon
             color = red
             large
-            > mdi-gift-open </v-icon>
-            DoubleClick!</button>
+            > mdi-gift-open </v-icon></v-btn>
+            <div class= "fw-bold font-italic fs-4 ms-3" >
+              DoubleClick!
+            </div>
 
         </v-container>
         <h1 v-if="recommends.length" class="fw-bold text-center my-5" >{{ currentUser.username }}'s Pick!</h1>
