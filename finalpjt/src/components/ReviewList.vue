@@ -5,7 +5,7 @@
     <div class="accordion" role="tablist">
     <div no-body class="mb-1">
       <div header-tag="header" class="p-1" role="tab">
-        <b-button block v-b-toggle.accordion-1 class="togglebar text-start">바쁜 당신을 위한 결말요약 컨텐츠를 만나보세요! <v-icon>mdi-chevron-down</v-icon></b-button>
+        <b-button block v-b-toggle.accordion-1 class="togglebar text-start fs-5 fw-bold">바쁜 당신을 위한 결말요약 컨텐츠를 만나보세요! <v-icon>mdi-chevron-down</v-icon></b-button>
       </div>
       <b-collapse id="accordion-1" invisible accordion="my-accordion" role="tabpanel">
         <b-card-body>
@@ -13,6 +13,8 @@
               <div>
                 <button @click="[videoOn(),toggle()]" class="fs-5 fw-bold mb-5 text-white" ><v-icon color=white >mdi-youtube</v-icon>
                   Video Play Button</button>
+                  <br>
+                  재생 버튼을 눌러 결말포함 컨텐츠를 감상해보세요!
                 <div v-if="show">
                 <youtube-video
                 :video="video"
@@ -158,14 +160,14 @@ border-radius: 27px;
 
 }
 .create-button {
-  width: 800px;
+  width: 900px;
   padding: 0;
   border-radius: 0%;
 }
 
 .card-body {
   margin-left: 10px;
-  max-width: 800px;
+  max-width: 900px;
   padding: 0;
 }
 

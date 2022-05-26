@@ -1,11 +1,12 @@
 <template>
   <div class="total">
-    <v-container d-flex flex-column style="width:50%" >
+    <v-container d-flex flex-column style="width:50%" my-5>
         <b-img class="still fluid rounded" :src="`https://image.tmdb.org/t/p/w300${movie.backdrop_path}`"></b-img> 
         <b-img class="poster fluid rounded" :src="`https://image.tmdb.org/t/p/w300${movie.poster_path}`"></b-img> 
       <div class="moviecard">
       <div class="d-flex flex-column align-items-end moviehead">
         <h3 class="fw-bold ">{{ movie.title }}</h3>
+        <h5 class="fw-bold ">{{ movie.release_date }}</h5>
         <h5><v-icon color=orange>mdi-star</v-icon>{{ movie.vote_average }}</h5>
         <h5><v-icon color=red>mdi-heart</v-icon>{{ likeCount }}</h5>
       </div>
@@ -15,13 +16,13 @@
             <button
             @click="likeMovie(moviePk)"
             ><v-icon class="ms-3" color=red>mdi-heart</v-icon></button>
-            <p class="text-center text-white">찜하기</p>
+            <p class="text-center text-white">좋아요</p>
           </div>
         </div>
       </div>
       <div class="mt-5" v-if="movie.overview">
-        <h5 class="fw-bold">작품정보</h5>
-        <p>{{ movie.overview }}</p>
+        <h3 class=" fw-bold">작품정보</h3>
+        <p class="fs-5">{{ movie.overview }}</p>
       </div>
 
         <iframe :src="`https://www.youtube.com/embed/${movieVideo}`" frameborder="0" width="100%" height="350px"></iframe>
@@ -29,7 +30,7 @@
         <hr>
         <!-- Review UI -->
       <div class="d-flex align-items-baseline">
-        <v-icon color=red>mdi-alert-circle</v-icon><h5 class="fw-bold">스포주의</h5>
+        <v-icon color=red>mdi-alert-circle</v-icon><h3 class="fw-bold">스포주의</h3>
       </div>
         <review-list
         :reviews="movie.reviews"
@@ -106,13 +107,15 @@ import axios from 'axios'
 <style scoped>
 .poster {
   position: absolute;
-  top:400px;
-  width: 150px;
+  top:470px;
+  width: 230px;
+  height: auto;
 }
 .still {
   max-width: 100%;
   height: auto;
   filter: brightness(60%); 
+  object-fit: cover;
 }
 .moviecard {
   position: relative;
@@ -121,11 +124,12 @@ import axios from 'axios'
 .moviehead {
   position: absolute;
   top: -190px;
-  left: 330px;
+  left: 410px;
   width:500px;
 }
 .heartbox {
   /* Rectangle 24 */
+margin-top: 100px;
 width: 95%;
 height: 50px;
 

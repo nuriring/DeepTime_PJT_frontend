@@ -63,7 +63,7 @@
 
               <b-collapse id="collapse-2">
                   <b-card v-if="!profile.reviews.length">작성한 리뷰가 없어요.</b-card>
-                  <b-card v-for="review in profile.reviews" :key="review.pk"><router-link class="text-decoration-none" :to="{ name: 'movieReview', params: { moviePk: review.movie_id, reviewPk: review.id } }">
+                  <b-card id="id3" v-for="review in profile.reviews" :key="review.pk"><router-link class="text-decoration-none" :to="{ name: 'movieReview', params: { moviePk: review.movie_id, reviewPk: review.id } }">
                       {{ review.content }}
                     </router-link></b-card>
             </b-collapse>
@@ -130,10 +130,15 @@ export default {
   padding: 0.5rem 1rem;
   background: lightblue;
 }
-#id3:hover {
+#id1:hover {
   transform: scale(1.05);
   transition: 100ms ease-in;
 }
+#id1:hover {
+  transform: scale(1.05);
+  transition: 100ms ease-in;
+}
+
 .v-application p {
     margin-bottom: 0px;
 }
@@ -154,7 +159,11 @@ export default {
 .container {
   margin: 0;
   margin-top: 100px;
-  margin-left: 200px;
+  margin-left: 270px;
  
+}
+#id3:hover {
+  transform: scale(1.05);
+  transition: 100ms ease-in;
 }
 </style>

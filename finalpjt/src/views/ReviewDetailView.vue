@@ -14,7 +14,7 @@
             <h5 class="float-right"><v-icon>mdi-account-circle</v-icon>{{review.user.username }}</h5>
 
           </b-card-text>
-          <br>
+          <hr class="headline">
           <hr>
           <b-card-text class="text fs-5">
             {{ review.content }}
@@ -100,7 +100,7 @@ created() {
 
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 500px;
     min-height: 50%;
 
     border-radius: 10px;
@@ -124,5 +124,8 @@ created() {
   background: #001D3D;
   min-height: 100vh;
   color: black;
+  }
+  .headline{
+    color: white;
   }
 </style>
