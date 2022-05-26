@@ -12,7 +12,7 @@
       <img id="id1" :src="`https://image.tmdb.org/t/p/w300${disneyPlusMovie.poster_path}`" class="card-img-top" alt="...">
       </router-link>
       <div class="card-body">
-        <p class="card-text">{{ disneyPlusMovie.title }}</p>
+        <p class="card-text fw-bold">{{ disneyPlusMovie.title }}</p>
       </div>
     </div>
     </v-container>

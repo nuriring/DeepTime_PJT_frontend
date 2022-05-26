@@ -6,7 +6,6 @@ import MainView from '@/views/MainView.vue'
 
 import MovieListView from '@/views/MovieListView.vue'
 import MovieDetailView from '@/views/MovieDetailView.vue'
-import YoutubeVideoDetailView from '@/views/YoutubeVideoDetailView.vue'
 import ReviewDetailView from '@/views/ReviewDetailView.vue'
 import ReviewNewView from '@/views/ReviewNewView.vue'
 
@@ -129,11 +128,7 @@ const routes = [
     name: 'movieDetail',
     component: MovieDetailView
   },
-  {
-    path: '/movies/:moviePk/video',
-    name: 'youtubeVideoDetail',
-    component: YoutubeVideoDetailView
-  },
+
   {
     path: '/movies/:moviePk/:reviewPk',
     name: 'movieReview',

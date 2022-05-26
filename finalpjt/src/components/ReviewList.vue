@@ -23,7 +23,7 @@
     
               </div>
               <div class="d-flex align-items-baseline mt-5">
-                <v-icon color=white>mdi-comment-account</v-icon><h5 class="fw-bold">본자들's 코멘트</h5>
+                <v-icon color=white>mdi-comment-account</v-icon><h5 class="fw-bold fs-5">본자들's 코멘트</h5>
               </div>
 
               
@@ -46,8 +46,8 @@
                       </v-list-item-icon> -->
                       <router-link class="text-decoration-none" :to="{ name: 'movieReview', params: { moviePk: review.movie.id, reviewPk: review.id } }">
                       <v-list-item-content>
-                        <v-list-item-title v-text="review.title"></v-list-item-title>
-                        <p>By {{ review.user.username }}</p>
+                        <v-list-item-title v-text="review.title" class="fw-bold fs-5"></v-list-item-title>
+                        <p class="mt-3">By {{ review.user.username }}</p>
                       </v-list-item-content>
                       </router-link>
                     </v-list-item>
@@ -59,7 +59,7 @@
               <div class="d-flex justify-content-center">
 
                 <router-link class="text-decoration-none" :to="{ name: 'reviewCreate', params: { moviePk } }">
-                  <v-btn class="create-button">
+                  <v-btn class="create-button fw-bold fs-4">
                     
                   코멘트 작성하기
                   </v-btn>

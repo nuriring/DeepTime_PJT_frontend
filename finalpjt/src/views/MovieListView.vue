@@ -42,7 +42,7 @@
     <v-container class="d-flex flex-column align-items-center mb-5">
 
       <br>
-      <h1 class="font-weight-medium font-italic">Deeptime's Pick!</h1>
+      <h1 class="fw-bold font-italic">Deeptime's Pick!</h1>
       <p class="fs-4">인기순 영화목록</p>
 
     </v-container>
@@ -73,7 +73,7 @@
     </div>
       <div class="container">
         <v-container class="d-flex justify-content-center">
-          <button class="font-weight-medium font-italic fs-4" @click="moviePick">
+          <button class="fw-bold font-italic fs-4" @click="moviePick">
             <v-icon
             color = red
             large
@@ -81,7 +81,7 @@
             DoubleClick!</button>
 
         </v-container>
-        <h1 v-if="recommends.length" class="font-weight-medium font-italic text-center my-5" >{{ currentUser.username }}'s Pick!</h1>
+        <h1 v-if="recommends.length" class="fw-bold text-center my-5" >{{ currentUser.username }}'s Pick!</h1>
         <p v-if="recommends.length" class="font-weight-medium  text-center my-5 fs-4 pb-3" >{{ currentUser.username }}님이 선호하는 장르 기반 추천 영화</p>
       <vue-glide v-if="recommends.length"
         class="glide__track my-5"

@@ -12,7 +12,7 @@
       <img id="id1" :src="`https://image.tmdb.org/t/p/w300${watchaMovie.poster_path}`" class="card-img-top" alt="...">
       </router-link>
       <div class="card-body text-center">
-        <p class="card-text">{{ watchaMovie.title }}</p>
+        <p class="card-text fw-bold">{{ watchaMovie.title }}</p>
       </div>
     </div>
     </v-container>
@@ -99,7 +99,4 @@ export default {
   min-height: 100vh;
  
   }
-div {
-  font-family: 'Gowun Batang', serif;
-}  
 </style>

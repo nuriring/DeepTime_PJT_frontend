@@ -22,7 +22,7 @@
 
     
 
-      <v-app-bar-title class="fs-3 fw-bold">본자들 커뮤니티</v-app-bar-title>
+      <v-app-bar-title class="fs-4 fw-bold">본자들 커뮤니티</v-app-bar-title>
 
       <v-spacer></v-spacer>
 
@@ -49,7 +49,7 @@
     </v-app-bar>
     <div class="body text-white">
         <div class="listtitle text-white">
-          <v-list-tile class="fs-5">
+          <v-list-tile class="fs-5 fw-bold">
               <v-list-tile-content>
                 <v-list-tile-title class="text-white">
                   번호
@@ -60,7 +60,7 @@
                   제목
                 </v-list-tile-sub-title>
                 &nbsp;&nbsp;&nbsp;
-                <v-list-tile-sub-title class="caption" >
+                <v-list-tile-sub-title >
                   [댓글수]
                 </v-list-tile-sub-title>
 

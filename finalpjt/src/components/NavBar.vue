@@ -14,7 +14,7 @@
         </router-link>
                 
         <!-- <img src = "@/assets/logo2.jpg" class="logo2"> -->
-        <b-nav class="fs-5">
+        <b-nav class="fs-5 fw-bold">
           <b-nav-item v-if="isLoggedIn">
             <router-link :to="{ name: 'articles' }" class="text-decoration-none text-white">본자들</router-link>
           </b-nav-item>

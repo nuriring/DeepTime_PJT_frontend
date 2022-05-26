@@ -13,7 +13,7 @@
       <img id="id1" :src="`https://image.tmdb.org/t/p/w300${appleMovie.poster_path}`" class="card-img-top" alt="...">
       </router-link>
       <div class="card-body">
-        <p class="card-text">{{ appleMovie.title }}</p>
+        <p class="card-text fw-bold">{{ appleMovie.title }}</p>
       </div>
     </div>
     </v-container>
