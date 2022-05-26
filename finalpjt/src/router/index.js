@@ -9,7 +9,6 @@ import MovieDetailView from '@/views/MovieDetailView.vue'
 import YoutubeVideoDetailView from '@/views/YoutubeVideoDetailView.vue'
 import ReviewDetailView from '@/views/ReviewDetailView.vue'
 import ReviewNewView from '@/views/ReviewNewView.vue'
-import ReviewEditView from '@/views/ReviewEditView.vue'
 
 import ArticleListView from '@/views/ArticleListView.vue'
 import Category1View from '@/views/Category1View.vue'
@@ -145,11 +144,7 @@ const routes = [
     name: 'reviewCreate',
     component: ReviewNewView
   },
-  {
-    path: '/movies/:moviePk/:reviewPk/edit',
-    name: 'reviewEdit',
-    component: ReviewEditView
-  },
+
   // ott
   {
     path: '/otts',

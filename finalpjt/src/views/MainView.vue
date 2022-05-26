@@ -8,14 +8,14 @@
           <div class="d-flex mt-5">
             <div class="me-3">
               <router-link class="text-decoration-none" :to="{ name: 'login'}">
-                    <v-btn x-large class="btn display-1" style="width:171px">
+                    <v-btn x-large class="btn fw-bold fs-3" style="width:171px">
                       LOGIN
                     </v-btn>
               </router-link>
             </div>
             <div>
               <router-link class="text-decoration-none" :to="{ name: 'signup'}">
-                <v-btn x-large class="btn display-1" >SIGN UP</v-btn>
+                <v-btn x-large class="btn fw-bold fs-3" >SIGN UP</v-btn>
               </router-link>
             </div>
 
@@ -72,6 +72,9 @@ export default {
   .theme--light.v-btn.v-btn--has-bg{
     background-color:#D9D9D9 ;
   }
+  div {
+  font-family: 'Gowun Batang', serif;
+}
 
   
 

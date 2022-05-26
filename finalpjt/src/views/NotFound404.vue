@@ -34,4 +34,7 @@
     border-radius: 1rem;
     background: #001D3D;
   }
+  div {
+  font-family: 'Gowun Batang', serif;
+}
 </style>

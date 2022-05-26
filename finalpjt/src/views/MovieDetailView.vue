@@ -143,4 +143,7 @@ border-radius: 27px;
   color: white;
   
 }
+div {
+  font-family: 'Gowun Batang', serif;
+}
 </style>

@@ -27,4 +27,7 @@ export default {
     padding: 0.5rem;
     font-size: 2rem;
   }
+  div {
+  font-family: 'Gowun Batang', serif;
+}
 </style>

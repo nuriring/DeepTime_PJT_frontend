@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="total">
       <v-bar-app v-if="isLoggedIn" class="d-flex">
         <router-link :to="{name:'main'}">
 
@@ -70,6 +70,9 @@
   margin-top: 0.5rem;
 
   
+}
+div {
+  font-family: 'Gowun Batang', serif;
 }
 
 </style>

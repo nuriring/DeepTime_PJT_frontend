@@ -106,5 +106,7 @@ export default {
   min-height: 100vh;
   color: black;
   }
-
+div {
+  font-family: 'Gowun Batang', serif;
+}
 </style>

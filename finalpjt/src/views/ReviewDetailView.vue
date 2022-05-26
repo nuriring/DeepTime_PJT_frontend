@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper total">
     <div class="content">
-      <div class="d-flex justify-content-center display-1 fw-bold text-white">
+      <div class="d-flex justify-content-center text-white">
         {{ review.movie.title }}
 
       </div>
@@ -128,4 +128,7 @@ created() {
   .headline{
     color: white;
   }
+  div {
+  font-family: 'Gowun Batang', serif;
+}
 </style>

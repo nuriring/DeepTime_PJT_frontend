@@ -42,7 +42,7 @@
           :rules="genreRules"
         ></v-select>
         <!-- <button class="mr-4 is-elevated has-bg theme--light v-size--default success">Signup</button> -->
-        <b-button type="submit" class="headline" style="width:130px;">SIGN UP</b-button>
+        <b-button type="submit" class="fs-3 fw-bold" style="width:130px;">SIGN UP</b-button>
 
         
 
@@ -129,7 +129,6 @@
     height: auto;
   }
   .content {
-    font-family: system-ui, serif;
     font-size: 2rem;
     padding: 3rem;
     border-radius: 1rem;
@@ -163,4 +162,7 @@
   .btn:active{
       transform : translateY(3px);
   }
+  div {
+  font-family: 'Gowun Batang', serif;
+}
 </style>

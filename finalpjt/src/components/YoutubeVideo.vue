@@ -66,4 +66,7 @@ export default {
     border: solid 1px lightgray;
     border-radius: 10px;
   }
+  div {
+  font-family: 'Gowun Batang', serif;
+}
 </style>

@@ -17,9 +17,9 @@
         <v-spacer></v-spacer>
 
         <v-card-title class="white--text pl-12 pt-12">
-          <div class="text-h4 pl-12 pt-12 fw-bold">
+          <h1 class="pl-12 pt-12 fw-bold">
             {{ profile.username }}'s Profile
-          </div>
+          </h1>
         </v-card-title>
       </v-row>
     </v-img>
@@ -165,5 +165,8 @@ export default {
 #id3:hover {
   transform: scale(1.05);
   transition: 100ms ease-in;
+}
+div {
+  font-family: 'Gowun Batang', serif;
 }
 </style>

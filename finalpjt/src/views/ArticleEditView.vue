@@ -47,4 +47,8 @@ import { mapGetters, mapActions } from 'vuex'
       border-radius: 1rem;
       
     }
+
+div {
+  font-family: 'Gowun Batang', serif;
+}    
 </style>

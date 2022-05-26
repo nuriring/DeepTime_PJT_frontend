@@ -68,9 +68,12 @@ export default {
 }
 .comment-edit{
   width:400px;
-    height: 53px;
+  height: 53px;
   border: 1px solid lightgray;
   border-radius: 5px;
+}
+div {
+  font-family: 'Gowun Batang', serif;
 }
 
 </style>

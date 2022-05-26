@@ -70,6 +70,9 @@ export default {
   transform: scale(1.1);
   transition: 100ms ease-in;
 }
+div {
+  font-family: 'Gowun Batang', serif;
+}
 
 
 </style>

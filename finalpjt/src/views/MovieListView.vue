@@ -210,8 +210,10 @@
   min-height: 100vh;
   color: white;
 }
-
 .noresult {
  
+}
+div {
+  font-family: 'Gowun Batang', serif;
 }
 </style>

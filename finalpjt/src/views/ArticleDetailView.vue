@@ -116,5 +116,8 @@
   #articlelink {
     color: grey;
   }
+div {
+  font-family: 'Gowun Batang', serif;
+}  
 
 </style>

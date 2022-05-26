@@ -175,5 +175,7 @@ textarea::placeholder {
   color: black;
 
 }
-
+div {
+  font-family: 'Gowun Batang', serif;
+}
 </style>

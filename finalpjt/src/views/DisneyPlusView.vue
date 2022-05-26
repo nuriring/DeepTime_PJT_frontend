@@ -102,4 +102,7 @@ export default {
   color: black;
   text-align: center;
 }
+div {
+  font-family: 'Gowun Batang', serif;
+}
 </style>

@@ -26,4 +26,7 @@
   .account-error-list {
     color: red;
   }
+div {
+  font-family: 'Gowun Batang', serif;
+}  
 </style>

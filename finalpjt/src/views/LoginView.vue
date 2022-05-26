@@ -27,7 +27,7 @@
 
 
         <!-- <button class="mr-4 is-elevated has-bg theme--light v-size--default success">Signup</button> -->
-        <v-btn type="submit" class="btn text-white headline">LOGIN</v-btn>
+        <v-btn type="submit" class="btn text-white fs-4 fw-bold">LOGIN</v-btn>
 
         
 
@@ -81,7 +81,6 @@
     height: auto;
   }
   .content {
-    font-family: system-ui, serif;
     font-size: 2rem;
     padding: 3rem;
     border-radius: 1rem;
@@ -115,6 +114,9 @@
   .btn:active{
       transform : translateY(3px);
   }
+  div {
+  font-family: 'Gowun Batang', serif;
+}
 
 </style>
 

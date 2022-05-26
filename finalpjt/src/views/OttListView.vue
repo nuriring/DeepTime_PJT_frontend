@@ -129,7 +129,6 @@ body {
 
 .north {
 	font-size: 36px;
-	font-family: 'Lobster Two', cursive;
 	color: #FFF;
 	position: absolute;
 	left: 155px;
@@ -138,7 +137,6 @@ body {
 
 .east {
 	font-size: 36px;
-	font-family: 'Lobster Two', cursive;
 	color: #FFF;
 	position: absolute;
 	left: 290px;
@@ -147,7 +145,6 @@ body {
 
 .west {
 	font-size: 36px;
-	font-family: 'Lobster Two', cursive;
 	color: #FFF;
 	position: absolute;
 	left: 20px;
@@ -156,7 +153,6 @@ body {
 
 .south {
 	font-size: 36px;
-	font-family: 'Lobster Two', cursive;
 	color: #FFF;
 	position: absolute;
 	left: 155px;
@@ -444,5 +440,8 @@ body {
   }
 
 
+}
+div {
+  font-family: 'Gowun Batang', serif;
 }
 </style>

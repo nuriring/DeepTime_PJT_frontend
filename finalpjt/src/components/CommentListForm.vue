@@ -59,5 +59,8 @@ export default {
   cursor: pointer;
   border-radius: 2px;
 }
+div {
+  font-family: 'Gowun Batang', serif;
+}
 
 </style>

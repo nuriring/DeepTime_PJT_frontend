@@ -107,6 +107,9 @@ export default {
   display: absolute;
   right: 280px;
 }
+div {
+  font-family: 'Gowun Batang', serif;
+}
 
 
 </style>

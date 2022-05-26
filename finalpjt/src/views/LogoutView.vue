@@ -1,7 +1,7 @@
 <template>
      <div class="wrapper">
-      <v-container class="main content">
-          <div class="d-flex flex-column align-items-center font-weight-bold font-italic text-white display-4">
+      <v-container class="content">
+          <div class="d-flex flex-column align-items-center text-white fs-1">
             LOGOUT
           
             </div>
@@ -47,9 +47,11 @@
     height: auto;
   }
   .content {
-    font-size: 2rem; 
     padding: 3rem;
     border-radius: 1rem;
     background: #001D3D;
   }
+  div {
+  font-family: 'Gowun Batang', serif;
+}
 </style>

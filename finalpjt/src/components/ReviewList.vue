@@ -170,5 +170,8 @@ border-radius: 27px;
   max-width: 900px;
   padding: 0;
 }
+div {
+  font-family: 'Gowun Batang', serif;
+}
 
 </style>

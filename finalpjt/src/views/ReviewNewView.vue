@@ -73,4 +73,10 @@
   min-height: 100vh;
   color: white;
 }
+div {
+  font-family: 'Gowun Batang', serif;
+}
+.card {
+  border: none;
+}
 </style>
