@@ -6,7 +6,7 @@
     <select-ott>
     </select-ott>
     <h1 class="text-white mt-5 text-center">현재 위치는 Amazone Prime Video 입니다</h1>
-      <v-container style="margin-left:235px;">
+      <v-container style="margin-left:330px;">
     <div v-for="(amazonMovie, idx) in amazonMovies" :key="idx" class="card mx-2 my-2" style="width: 18rem;">
       <router-link :to="{ name: 'movieDetail', params: {moviePk: amazonMovie.id} }">
       <img id="id1" :src="`https://image.tmdb.org/t/p/w300${amazonMovie.poster_path}`" class="card-img-top" alt="...">
@@ -95,7 +95,7 @@ export default {
 }
 .Amazone {
   position:apsolute;
-  left:790px;
+  left:870px;
 }
   .total {
   background: #001D3D;

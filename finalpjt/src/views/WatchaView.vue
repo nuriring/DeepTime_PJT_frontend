@@ -6,7 +6,7 @@
     <select-ott class="p-5">
     </select-ott>
     <h1 class="text-white text-center">현재 위치는 Watcha 입니다</h1>
-    <v-container style="margin-left:235px;">
+    <v-container style="margin-left:330px;">
     <div v-for="(watchaMovie, idx) in watchaMovies" :key="idx" class="card mx-2 my-2" style="width: 18rem;">
       <router-link :to="{ name: 'movieDetail', params: {moviePk: watchaMovie.id} }">
       <img id="id1" :src="`https://image.tmdb.org/t/p/w300${watchaMovie.poster_path}`" class="card-img-top" alt="...">
@@ -92,7 +92,7 @@ export default {
 }
 .watcha{
   position: absolute;
-  left: 900px;
+  left: 980px;
 }
   .total {
   background: #001D3D;

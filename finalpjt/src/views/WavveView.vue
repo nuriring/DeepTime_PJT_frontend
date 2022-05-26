@@ -10,7 +10,7 @@
     </div>
     <h1 class="text-white  text-center">현재 위치는 Wavve 입니다</h1>
     
-    <v-container  style="margin-left:235px;">
+    <v-container  style="margin-left:330px;">
     <div v-for="(wavveMovie, idx) in wavveMovies" :key="idx" class="card mx-2 my-2" style="width: 18rem;">
       <router-link :to="{ name: 'movieDetail', params: {moviePk: wavveMovie.id} }">
       <img id="id1" :src="`https://image.tmdb.org/t/p/w300${wavveMovie.poster_path}`" class="card-img-top" alt="...">
@@ -99,7 +99,7 @@ export default {
 }
 .wavve{
   position: absolute;
-  left: 1010px;
+  left: 1090px;
 }
   .total {
   background: #001D3D;

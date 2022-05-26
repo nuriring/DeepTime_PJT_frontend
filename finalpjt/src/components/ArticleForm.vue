@@ -35,16 +35,20 @@
     
     <div class="d-flex justify-content-end">
       <div>
-        <button>{{ action }}</button>
+        <button class="on">{{ action }}</button>
       </div>
       <div v-if="action==='update'">
         <router-link  :to="{ name: 'article', params: {articlePk: articlePk} }" class="text-decoration-none ms-3">
-          back
+          <button class="on">back
+          </button>
         </router-link>
       </div>
       <div v-if="action==='create'">
         <router-link  :to="{ name: 'articles' }" class="text-decoration-none ms-3">
+          <button class="on">
+
           back
+          </button>
         </router-link>
       </div>
 
@@ -141,7 +145,19 @@ border-radius: 10px;
 .v-input__control {
   color: white
 }
-
-
+.card {
+  border: none;
+}
+.on{
+  background: #FFD60A;
+      text-decoration: none;
+      font-size: 2rem;
+      display : inline-block;
+      border-radius: 10px;
+      padding: 5px 3px 10px 4px;
+      transition: all 0.1s;
+      height: 60px;
+      width: 100px;
+}
 
 </style>

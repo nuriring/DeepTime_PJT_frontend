@@ -6,7 +6,7 @@
     <select-ott class="p-5">
     </select-ott>
     <h1 class="text-white text-center">현재 위치는 Apple TV 입니다</h1>
-        <v-container style="margin-left:235px;">
+        <v-container style="margin-left:330px;">
     <div v-for="(appleMovie, idx) in appleMovies" :key="idx" class="card mx-2 my-2" style="width: 18rem;">
       <router-link :to="{ name: 'movieDetail', params: {moviePk: appleMovie.id} }">
       <img id="id1" :src="`https://image.tmdb.org/t/p/w300${appleMovie.poster_path}`" class="card-img-top" alt="...">
@@ -94,7 +94,7 @@ export default {
 }
 .apple {
   position: absolute;
-  left: 1113px;
+  left: 1193px;
 }
   .total {
   background: #001D3D;

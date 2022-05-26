@@ -6,7 +6,7 @@
     <select-ott>
     </select-ott>
     <h1 class="text-white mt-5">현재 위치는 Netflix 입니다</h1>
-    <v-container style="margin-left:235px;">
+    <v-container style="margin-left:330px;">
     <div v-for="(netflixMovie, idx) in netflixMovies" :key="idx" class="card mx-2 my-2" style="width: 18rem;">
       <router-link :to="{ name: 'movieDetail', params: {moviePk: netflixMovie.id} }">
       <img id="id1" :src="`https://image.tmdb.org/t/p/w300${netflixMovie.poster_path}`" class="card-img-top" alt="...">
