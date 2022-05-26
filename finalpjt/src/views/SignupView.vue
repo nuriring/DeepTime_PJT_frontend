@@ -17,7 +17,7 @@
         <v-text-field
           v-model="credentials.password1"
           type="password"
-          label="PASWWORD"
+          label="PASWWORD(최소 8문자를 포함해야 합니다)"
           required
           color = indigo darken-4
         ></v-text-field>
