@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class ="text-white">
     
     <v-app-bar
-      class="bar"
-      color="#6A76AB"
+      class="bar text-white"
+      
       dark
       prominent
   
@@ -22,7 +22,7 @@
 
     
 
-      <v-app-bar-title>본자들 커뮤니티</v-app-bar-title>
+      <v-app-bar-title class="fs-3 fw-bold">본자들 커뮤니티</v-app-bar-title>
 
       <v-spacer></v-spacer>
 
@@ -30,27 +30,28 @@
       <template v-slot:extension>
         <v-tabs align-with-title>
         <router-link :to="{ name: 'articles' }" class="text-decoration-none text-white" >
-          <v-tab>전체</v-tab>
+          <v-tab class="fs-5">전체</v-tab>
         </router-link>
         <router-link :to="{ name: 'category1Articles'}" class="text-decoration-none text-white" >
-          <v-tab>결말포함</v-tab>   
+          <v-tab class="fs-5">결말포함</v-tab>   
         </router-link>
         <router-link :to="{ name: 'category2Articles'}" class="text-decoration-none text-white" >
-          <v-tab>세계관</v-tab>
+          <v-tab class="fs-5">세계관</v-tab>
         </router-link>
         <router-link :to="{ name: 'category3Articles'}" class="text-decoration-none text-white" >
-          <v-tab>이스터에그</v-tab>
+          <v-tab class="fs-5">이스터에그</v-tab>
         </router-link>
         
         </v-tabs>
       </template>
+      
  
     </v-app-bar>
-    <div class="total">
-        <div class="listtitle">
-          <v-list-tile>
+    <div class="body text-white">
+        <div class="listtitle text-white">
+          <v-list-tile class="fs-5">
               <v-list-tile-content>
-                <v-list-tile-title class="text-primary">
+                <v-list-tile-title class="text-white">
                   번호
                 </v-list-tile-title>
                 &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -59,7 +60,7 @@
                   제목
                 </v-list-tile-sub-title>
                 &nbsp;&nbsp;&nbsp;
-                <v-list-tile-sub-title >
+                <v-list-tile-sub-title class="caption" >
                   [댓글수]
                 </v-list-tile-sub-title>
 
@@ -70,6 +71,7 @@
               </v-list-tile-content>
             </v-list-tile>
         </div>
+        <hr class="headline">
         
 
           <v-container >
@@ -82,23 +84,28 @@
                   
                   <v-list two-line
                           v-for="(listItem, index) in calData"
-                          :key="index">
-                    <v-list-tile>
+                          :key="index"
+                          class ="list"
+                          dark
+                          >
+                        
+                    <v-list-tile class="fs-5">
                       
                       <v-list-tile-content>
-                        <v-list-tile-title class="text-primary">
+                        <v-list-tile-title class="text-white">
                           {{ listItem.id }}
                         </v-list-tile-title>
                         &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        
+  
                       <router-link class="text-decoration-none text-secondary" 
                         :to="{ name: 'article', params: {articlePk: listItem.id} }">
-                        <v-list-tile-sub-title class="text-start">
+                        <v-list-tile-sub-title class="text-white">
                           {{ listItem.title }}
                         </v-list-tile-sub-title>
                       </router-link>
+
                         &nbsp;&nbsp;&nbsp;
-                        <v-list-tile-sub-title >
+                        <v-list-tile-sub-title class="caption" >
                           [{{ listItem.comment_count }}]
                         </v-list-tile-sub-title>
 
@@ -121,7 +128,7 @@
                 </v-flex>
               <div>
                 <router-link :to="{ name: 'articleNew'}" class="text-decoration-none d-flex justify-content-center mt-5">
-                  <v-btn>나만의 본자들 컨텐츠 쓰러가기</v-btn>
+                  <v-btn class="fs-5 fw-bold"  style="width:700px; height:50px;">나만의 본자들 컨텐츠 쓰러가기</v-btn>
                 </router-link>
 
               </div>
@@ -197,10 +204,29 @@
   margin: 0;
   padding: 0;
 }
-.total{
-  margin-left: 200px;
+.body{
+  
+  margin-left: 250px;
   margin-top: 50px;
 }
+.headline{
+  margin-left: 325px;
+  width: 670px;
+  height: 5px;
+}
 
+.list{
+  color: white;
+  background: #001D3D;
+}
+
+.theme--light {
+ background: #001D3D;
+}
+
+.v-application {
+ background: #001D3D;
+    }
+  
 
 </style>
