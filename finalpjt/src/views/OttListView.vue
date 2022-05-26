@@ -1,9 +1,5 @@
 <template>
-<<<<<<< HEAD
-  <div>
-    <select-ott></select-ott>
-    
-=======
+
 
   <div class="total">
     <v-container class="ott-container">
@@ -21,19 +17,12 @@
 <div class="compass-inner"><div class="north">N</div><div class="east">D</div><div class="west">W</div><div class="south">P</div><div class="main-arrow"><div class="arrow-up"></div><div class="arrow-down"></div></div></div>
 </div>
 
->>>>>>> dev
+
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
-import SelectOtt from '@/components/SelectOtt.vue'
-export default {
-  name: "OttListView",
-  components: {
-    SelectOtt
-  }
-=======
+
   import { mapActions, mapGetters } from 'vuex'
   import SelectOtt from '@/components/SelectOtt.vue'
  
@@ -47,7 +36,7 @@ export default {
     },
     methods: {
       ...mapActions(['fetchOttMovies']),
->>>>>>> dev
+
 
     },
 
