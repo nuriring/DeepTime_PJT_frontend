@@ -1,4 +1,5 @@
 <template>
+
   <div class="total">
     <v-container>
       <select-ott></select-ott>
@@ -11,6 +12,7 @@
       
 <div class="compass-inner"><div class="north">N</div><div class="east">D</div><div class="west">W</div><div class="south">P</div><div class="main-arrow"><div class="arrow-up"></div><div class="arrow-down"></div></div></div>
 </div>
+
   </div>
 </template>
 

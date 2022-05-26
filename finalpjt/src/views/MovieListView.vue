@@ -6,7 +6,7 @@
           placeholder="영화 제목을 검색해보세요(띄어쓰기 포함)" 
           > </search-bar>
     </v-container>
-       <v-container v-if="searchMovies.length > 2">
+       <v-container v-if="searchMovies.length">
           <vue-glide v-if="movies.length"
             class="glide__track my-5"
             data-glide-el="track"
@@ -28,6 +28,7 @@
 
             </vue-glide-slide>
         </vue-glide>
+        
        </v-container>
 
 
@@ -98,11 +99,11 @@
             </vue-glide-slide>
       </vue-glide>
       </div>
-
-       <!--요청한 영화 정보 없을 때만 보여주고 싶은데 ㅜㅜ-->
-       <!-- <div v-if="0 < searchMovies.length && searchMovies.length < 2">
+    <div v-if="!searchMovies.length && !search">
          <p>요청하신 영화 정보를 찾을 수 없습니다</p> 
-       </div> -->
+       </div>
+       <!--요청한 영화 정보 없을 때만 보여주고 싶은데 ㅜㅜ-->
+
     
 
 
@@ -126,7 +127,8 @@
       return {
         recommends: [],
         searchKeword: null,
-        searchMovies : []
+        searchMovies : [],
+        search : true
       }
     },
     computed: {
@@ -174,6 +176,7 @@
           .then((res) => {
            console.log(res)
            this.searchMovies = res.data.results
+           this.search = false
            console.log(this.searchMovies)
           })
           .catch( (err) => {

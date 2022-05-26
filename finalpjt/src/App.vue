@@ -49,11 +49,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
   .vbar {
     background : linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), linear-gradient(0deg, #6C7B8B, #6C7B8B), #6C7B8B;
 
   }
+  
 
 </style>
 

@@ -15,7 +15,7 @@
           {{ article.content }}
         </b-card-text>
         <div class="d-flex">
-          <div class="d-flex ">
+          <div class="d-flex">
             <v-icon color=red small>mdi-heart</v-icon>
             <div class="body-1 ms-2">{{ article.like_users.length }}개</div>  
             </div> 
@@ -26,12 +26,17 @@
         </div>
         
         <hr>
+        <div class="d-flex justify-content-between">
         <button @click="likeArticle(articlePk)">
           <p class="subheading font-weight-bold red--text text--lighten-1 m-0">
             좋아요
           </p>
 
         </button>
+        <router-link id="articlelink" :to="{ name: 'articles' }" class="text-decoration-none">
+        <span class="subheading font-weight-bold text--lighten-1 m-0">게시글 목록</span>
+        </router-link>
+        </div>
         <hr>
 
         <comment-list :comments="article.comments"></comment-list> 
@@ -101,9 +106,15 @@
   .text{
     text-align: justify;
   }
-    .please{
+
+  .please{
   background-color: #001D3D;
   min-height: 100vh;
   color: black;
 }
+
+  #articlelink {
+    color: grey;
+  }
+
 </style>

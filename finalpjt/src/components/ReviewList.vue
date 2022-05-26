@@ -42,7 +42,7 @@
                       <!-- <v-list-item-icon>
                         <v-icon v-text="item.icon"></v-icon>
                       </v-list-item-icon> -->
-                      <router-link class="text-decoration-none" :to="{ name: 'movieReview', params: { moviePk: review.movie.id, reviewPk: review.id }}">
+                      <router-link class="text-decoration-none" :to="{ name: 'movieReview', params: { moviePk: review.movie.id, reviewPk: review.id } }">
                       <v-list-item-content>
                         <v-list-item-title v-text="review.title"></v-list-item-title>
                         <p>By {{ review.user.username }}</p>
@@ -102,7 +102,7 @@ export default {
   methods:{
     videoOn() {
       const keyword = this.movie.title
-       axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=${keyword} 결말포함&key=AIzaSyBDyQg-WIAdEM2CN0xBLWoMhSPzl_gtEOY`)
+       axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=${keyword}+결말포함&key=AIzaSyBDyQg-WIAdEM2CN0xBLWoMhSPzl_gtEOY`)
         .then(res => {
           console.log(res.data)
 
@@ -158,6 +158,13 @@ border-radius: 27px;
 
 }
 .create-button {
-  width: 600px;
+  width: 958px;
+  padding: 0;
+  border-radius: 0%;
+}
+
+.card-body {
+  max-width: 990px;
+  padding: 0;
 }
 </style>
