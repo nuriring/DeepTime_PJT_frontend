@@ -1,3 +1,0 @@
-# final-front
-
-final-front
