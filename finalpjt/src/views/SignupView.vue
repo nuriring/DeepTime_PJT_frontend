@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="signupbox">
     <v-container>
-      <h1>SIGN IN</h1>
+      <h1>SIGN UP</h1>
       <account-error-list v-if="authError"></account-error-list>
       <v-form
         @submit.prevent="signup(credentials)"
@@ -26,20 +26,23 @@
           type="password"
           label="CONFIRM PASSWORD"
           required
+          :rules="rules"
           color = indigo darken-4
         ></v-text-field>
 
         <v-select
           v-model="credentials.genre"
           :items="genreList"
+          :error-messages = 'warning'
           item-text="cont"
           item-value="sub"
           label="FAVORITE GENRE"
           required
           color = indigo darken-4
+          :rules="genreRules"
         ></v-select>
         <!-- <button class="mr-4 is-elevated has-bg theme--light v-size--default success">Signup</button> -->
-        <b-button type="submit" class="headline" style="width:130px;">SIGN IN</b-button>
+        <b-button type="submit" class="headline" style="width:130px;">SIGN UP</b-button>
 
         
 
@@ -91,13 +94,18 @@
           {sub: "53", cont: "스릴러"},
           {sub: "10752", cont: "전쟁"},
           {sub: "37", cont: "서부"}
-          ]
+          ],
+        genreRules: [
+          v => !!v || '장르를 선택해주세요',
+          ],
         
       }
     },
     computed: {
-      ...mapGetters(['authError'])
+      ...mapGetters(['authError']),
+      
     },
+
     methods: {
       ...mapActions(['signup'])
     },
