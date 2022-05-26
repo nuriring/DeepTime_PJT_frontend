@@ -144,7 +144,7 @@ width: 100%;
 height: auto;
 
 
-background: linear-gradient(0deg, rgba(0, 53, 102, 0.6), rgba(0, 53, 102, 0.6)), linear-gradient(0deg, #003566, #003566), #003566;
+background:none; 
 border-radius: 27px;
 
  

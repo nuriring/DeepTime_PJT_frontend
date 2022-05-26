@@ -25,12 +25,12 @@
       </div>
       <label for="article-title">title</label>
       <br>
-      <input v-model="newArticle.title" type="text" id="article-title" required />
+      <input v-model="newArticle.title" type="text" id="article-title" required placeholder="[영화제목] 게시글 제목을 입력해주세요" />
     </div>
     <div>
       <label for="article-content">content</label>
       <br>
-      <textarea v-model="newArticle.content" type="text" id="article-content" required></textarea>
+      <textarea v-model="newArticle.content" type="text" id="article-content" required placeholder="내용을 입력해주세요"></textarea>
     </div>
     
     <div class="d-flex justify-content-end">
@@ -167,5 +167,13 @@ opacity: 90%;
   .on:active{
       transform : translateY(3px);
   }
+  input::placeholder {
+  color: black;
+  
+}
+textarea::placeholder {
+  color: black;
+
+}
 
 </style>

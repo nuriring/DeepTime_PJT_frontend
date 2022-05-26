@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="onSubmit" >
     <div class="d-flex justify-content-around align-items-baseline">
-    <input type="text" id="comment" v-model="content" required>
+    <input type="text" id="comment" v-model="content" required placeholder="댓글을 작성해보세요">
     <button class="commentbtn">댓글달기</button>
     </div>
   </form>

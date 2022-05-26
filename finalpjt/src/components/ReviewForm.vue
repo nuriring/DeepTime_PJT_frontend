@@ -3,9 +3,9 @@
   
       <form @submit.prevent="onSubmit">
         <label for="review-title">title </label>
-        <input type="text" id="review-title" v-model="title" required>
+        <input type="text" id="review-title" v-model="title" required placeholder="제목을 입력하세요">
         <label for="review-content">content </label>
-        <input type="text" id="review-content" v-model="content" required>
+        <input type="text" id="review-content" v-model="content" required placeholder="내용을 입력하세요">
         <div class=" d-flex buttons">
         <button class="on" @click="success">create</button>
         <router-link  :to="{ name: 'movieDetail', params: {moviePk: moviePk} }" class="text-decoration-none ms-3">
@@ -58,6 +58,7 @@ export default {
     border: 1px solid black;
     margin: 1rem;
     padding: 1rem;
+    
   }
   #review-title{
     /* Rectangle 38 */
@@ -104,6 +105,13 @@ export default {
     margin-left: 370px;
     text-align: end;
   }
-
+input::placeholder {
+  color: black;
+ 
+}
+textarea::placeholder {
+  color: black;
+ 
+}
 
 </style>

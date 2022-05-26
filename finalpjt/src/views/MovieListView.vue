@@ -6,6 +6,10 @@
           placeholder="영화 제목을 검색해보세요(띄어쓰기 포함)" 
           > </search-bar>
     </v-container>
+          <div class="noresult text-center" v-if="!searchMovies.length && !search">
+            <v-icon color=red> mdi-alert </v-icon>
+              <p>' 요청하신 영화 정보를 찾을 수 없습니다 '</p> 
+            </div>
        <v-container v-if="searchMovies.length">
           <vue-glide v-if="movies.length"
             class="glide__track my-5"
@@ -99,12 +103,6 @@
             </vue-glide-slide>
       </vue-glide>
       </div>
-    <div v-if="!searchMovies.length && !search">
-         <p>요청하신 영화 정보를 찾을 수 없습니다</p> 
-       </div>
-       <!--요청한 영화 정보 없을 때만 보여주고 싶은데 ㅜㅜ-->
-
-    
 
 
   </div>
@@ -213,5 +211,7 @@
   color: white;
 }
 
-
+.noresult {
+ 
+}
 </style>

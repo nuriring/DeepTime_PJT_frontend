@@ -67,6 +67,7 @@ export default {
   border: none;
 }
 .comment-edit{
+  width:400px;
     height: 53px;
   border: 1px solid lightgray;
   border-radius: 5px;
