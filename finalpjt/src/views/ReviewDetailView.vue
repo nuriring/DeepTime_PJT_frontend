@@ -1,7 +1,7 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper total">
     <div class="content">
-      <div class="d-flex justify-content-center display-1 fw-bold">
+      <div class="d-flex justify-content-center display-1 fw-bold text-white">
         {{ review.movie.title }}
 
       </div>
@@ -119,5 +119,10 @@ created() {
     padding: 3rem;
     border-radius: 1rem;
     
+  }
+  .total {
+  background: #001D3D;
+  min-height: 100vh;
+  color: black;
   }
 </style>

@@ -96,4 +96,9 @@ export default {
   position:apsolute;
   left:790px;
 }
+  .total {
+  background: #001D3D;
+  min-height: 100vh;
+  color: black;
+  }
 </style>

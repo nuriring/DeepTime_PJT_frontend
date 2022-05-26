@@ -11,7 +11,7 @@
       <router-link :to="{ name: 'movieDetail', params: {moviePk: watchaMovie.id} }">
       <img id="id1" :src="`https://image.tmdb.org/t/p/w300${watchaMovie.poster_path}`" class="card-img-top" alt="...">
       </router-link>
-      <div class="card-body">
+      <div class="card-body text-center">
         <p class="card-text">{{ watchaMovie.title }}</p>
       </div>
     </div>
@@ -93,4 +93,9 @@ export default {
   position: absolute;
   left: 900px;
 }
+  .total {
+  background: #001D3D;
+  min-height: 100vh;
+ 
+  }
 </style>

@@ -100,5 +100,10 @@ export default {
   position: absolute;
   left: 1010px;
 }
+  .total {
+  background: #001D3D;
+  min-height: 100vh;
+  color: black;
+  }
 
 </style>
