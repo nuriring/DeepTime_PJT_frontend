@@ -22,11 +22,11 @@
 
     
 
-      <v-app-bar-title class="fs-3 fw-bold">본자들 커뮤니티</v-app-bar-title>
+      <v-app-bar-title class="fs-4 fw-bold">본자들 커뮤니티</v-app-bar-title>
 
       <v-spacer></v-spacer>
 
-
+    
       <template v-slot:extension>
         <v-tabs align-with-title>
         <router-link :to="{ name: 'articles' }" class="text-decoration-none text-white" >
@@ -45,11 +45,11 @@
         </v-tabs>
       </template>
       
- 
+
     </v-app-bar>
     <div class="body text-white">
         <div class="listtitle text-white">
-          <v-list-tile class="fs-5">
+          <v-list-tile class="fs-5 fw-bold">
               <v-list-tile-content>
                 <v-list-tile-title class="text-white">
                   번호
@@ -60,7 +60,7 @@
                   제목
                 </v-list-tile-sub-title>
                 &nbsp;&nbsp;&nbsp;
-                <v-list-tile-sub-title class="caption" >
+                <v-list-tile-sub-title >
                   [댓글수]
                 </v-list-tile-sub-title>
 
@@ -72,8 +72,7 @@
             </v-list-tile>
         </div>
         <hr class="headline">
-        
-
+  
           <v-container >
             <div class="listgroup">
 
@@ -178,7 +177,7 @@
 
     },
     created() {
-      this.fetchCategory3Articles()
+      this.fetchCategory3Articles(),
       this.listData = this.category3Articles
       console.log(this.calData)
     },
@@ -227,9 +226,9 @@
 .v-application {
  background: #001D3D;
     }
-    div {
+div {
   font-family: 'Gowun Batang', serif;
-}
+}    
   
 
 </style>

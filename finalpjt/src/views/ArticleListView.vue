@@ -26,7 +26,7 @@
 
       <v-spacer></v-spacer>
 
-
+    
       <template v-slot:extension>
         <v-tabs align-with-title>
         <router-link :to="{ name: 'articles' }" class="text-decoration-none text-white" >
@@ -45,7 +45,7 @@
         </v-tabs>
       </template>
       
- 
+
     </v-app-bar>
     <div class="body text-white">
         <div class="listtitle text-white">
@@ -72,8 +72,7 @@
             </v-list-tile>
         </div>
         <hr class="headline">
-        
-
+  
           <v-container >
             <div class="listgroup">
 
