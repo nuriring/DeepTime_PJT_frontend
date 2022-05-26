@@ -37,6 +37,7 @@ export default {
   padding: 1rem;
 }
 #comment {
+  width: 80%;
   height: 53px;
   border: 1px solid lightgray;
   border-radius: 5px;
