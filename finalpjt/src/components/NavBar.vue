@@ -59,7 +59,7 @@
 .logo2 {
   /* display: absolute; */
   height: auto;
-  left: -1210px;
+  left: -1180px;
 
 }
 .nav-item{
