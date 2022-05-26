@@ -158,13 +158,14 @@ border-radius: 27px;
 
 }
 .create-button {
-  width: 958px;
+  width: 800px;
   padding: 0;
   border-radius: 0%;
 }
 
 .card-body {
-  max-width: 990px;
+  margin-left: 10px;
+  max-width: 800px;
   padding: 0;
 }
 </style>
