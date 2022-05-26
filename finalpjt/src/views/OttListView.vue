@@ -41,8 +41,10 @@
 </script>
 
 <style scoped>
+
 .total{
   background: #001D3D;
+  background-size: cover;
   min-height: 100vh;
   color: white;
 }

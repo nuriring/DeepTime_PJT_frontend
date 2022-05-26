@@ -135,9 +135,8 @@ border-radius: 27px;
 }
 .total{
   background: #001D3D;
-  min-height: 100vh;
+  height: 100%;
   color: white;
-  background-attachment:scroll;
   
 }
 </style>
