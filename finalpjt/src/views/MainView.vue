@@ -15,7 +15,7 @@
             </div>
             <div>
               <router-link class="text-decoration-none" :to="{ name: 'signup'}">
-                <v-btn x-large class="btn display-1" >SIGN IN</v-btn>
+                <v-btn x-large class="btn display-1" >SIGN UP</v-btn>
               </router-link>
             </div>
 

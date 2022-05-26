@@ -227,7 +227,6 @@ export default {
           })
             .then(res => {
               commit('SET_MOVIE_REVIEW', res.data)
-              alert('리뷰가 성공적으로 삭제되었습니다.')
               router.push({
                 name: 'movieDetail',
                 params: { moviePk: moviePk }
