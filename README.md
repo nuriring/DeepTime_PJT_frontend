@@ -39,6 +39,109 @@
 3. OTT별 서비스 영화를 확인하는 서비스 제공
 
 <hr>
+## 사용방법
+
+```bash
+# back
+python manage.py runserver
+```
+
+
+
+```bash
+# front
+```
+
+
+
+```js
+// @/views/MovieDetailView.vue
+
+export default {
+    name: 'MovieDetail',
+    components: { ReviewList },
+    data() {
+      return {
+        moviePk: this.$route.params.moviePk,
+        searchKeyword: null,
+        videos: [],
+        selectedVideo: null,
+        movieVideo: null,
+        genres: [],
+        tmdbKey : ''
+      
+      }
+    },
+    computed: {
+      ...mapGetters(['movie',]),
+      likeCount() {
+        return this.movie.like_users?.length
+      }
+    },
+    methods: {
+      ...mapActions([
+        'fetchMovie',
+        'likeMovie',
+      
+      ]),
+      getVideo() {
+        axios.get(`https://api.themoviedb.org/3/movie/${this.$route.params.moviePk}/videos?api_key=${this.tmdbKey}&language=ko-KR`)
+        .then((res) => {
+          console.log(res.data.results[0].key)
+          this.movieVideo = (res.data.results[0].key)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+      }
+ ...
+        
+data -> tmdbKey에 본인의 tmdb API키를 작성해준다.
+```
+
+
+
+```js
+// @/components/ReviewList.vue 
+
+export default {
+  name: 'ReviewList',
+  props: { reviews: Array,
+           moviePk: Number,
+           movie: Object },
+  data() {
+    return{
+      show: true,
+      video:{} ,
+      selectedItem : 1,
+      youtubeApi : 'AIzaSyBQzAXG6v5fbEqbNjGh5kMbpQS-FU1d9D8'
+    }
+  },
+  methods:{
+    videoOn() {
+      const keyword = this.movie.title
+       axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=${keyword}+결말포함&key=${this.youtubeApi}`)
+        .then(res => {
+          console.log(res.data)
+
+          // this.videos = res.data.items
+          this.video = res.data.items[0]
+          // console.log(this.videos)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+    toggle() {
+      this.show = !this.show;
+    }
+
+  },
+    
+data -> youtubeApi에 본인의 youtube API키를 작성해준다.    
+```
+
+
 
 ## 구현 기능 코드리뷰
 

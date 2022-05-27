@@ -65,7 +65,8 @@ import axios from 'axios'
         videos: [],
         selectedVideo: null,
         movieVideo: null,
-        genres: []
+        genres: [],
+        tmdbKey : '5908342b45ef31ecdbea2e9687fbbcd8'
       
       }
     },
@@ -82,7 +83,7 @@ import axios from 'axios'
       
       ]),
       getVideo() {
-        axios.get(`https://api.themoviedb.org/3/movie/${this.$route.params.moviePk}/videos?api_key=5908342b45ef31ecdbea2e9687fbbcd8&language=ko-KR`)
+        axios.get(`https://api.themoviedb.org/3/movie/${this.$route.params.moviePk}/videos?api_key=${this.tmdbKey}&language=ko-KR`)
         .then((res) => {
           console.log(res.data.results[0].key)
           this.movieVideo = (res.data.results[0].key)
