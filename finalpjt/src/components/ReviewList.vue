@@ -79,8 +79,7 @@
 
 <script>
 import YoutubeVideo from '@/components/YoutubeVideo.vue'
-// const API_KEY = process.env.VUE_APP_YOUTUBE_API_KEY
-// const API_URL = 'https://www.googleapis.com/youtube/v3/search'
+
 
 import axios from 'axios'
 // import { mapGetters, mapActions } from 'vuex'
@@ -98,13 +97,14 @@ export default {
     return{
       show: true,
       video:{} ,
-      selectedItem : 1
+      selectedItem : 1,
+      youtubeApi : process.env.VUE_APP_YOUTUBE_API_KEY
     }
   },
   methods:{
     videoOn() {
       const keyword = this.movie.title
-       axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=${keyword}+결말포함&key=AIzaSyBDyQg-WIAdEM2CN0xBLWoMhSPzl_gtEOY`)
+       axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=${keyword}+결말포함&key=${this.youtubeApi}`)
         .then(res => {
           console.log(res.data)
 

@@ -66,7 +66,7 @@ import axios from 'axios'
         selectedVideo: null,
         movieVideo: null,
         genres: [],
-        tmdbKey : '5908342b45ef31ecdbea2e9687fbbcd8'
+        tmdbKey : process.env.VUE_APP_TMDB_API_KEY
       
       }
     },
